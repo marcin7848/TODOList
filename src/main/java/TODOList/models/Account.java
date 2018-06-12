@@ -16,6 +16,10 @@ public class Account {
         this.password = password;
     }
 
+    public Account(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public int getId() {
         return id;

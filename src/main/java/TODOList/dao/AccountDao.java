@@ -7,6 +7,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.annotation.PostConstruct;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +23,7 @@ public class AccountDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    static JdbcTemplate jdbcTemplateStatic;
 
     public Account validateAccount(Account account){
         String sql = "select * from accounts where username='" + account.getUsername() + "'";
@@ -33,6 +37,28 @@ public class AccountDao {
         if(!passwordEncoder.matches(account.getPassword(), accounts.get(0).getPassword())) return null;
 
         return accounts.get(0);
+    }
+
+    @PostConstruct
+    public void initDB(){
+        jdbcTemplateStatic = jdbcTemplate;
+    }
+
+    public static boolean validateCookies(Account account){
+        String sql = "select * from accounts where username='" + account.getUsername() + "' and password='" + account.getPassword() + "'";
+        List<Account> accounts = jdbcTemplateStatic.query(sql, new AccountMapper());
+
+        return !accounts.isEmpty();
+    }
+
+    public static void deleteCookies(HttpServletResponse response){
+        Cookie userCookie = new Cookie("username", null);
+        userCookie.setMaxAge(0);
+        response.addCookie(userCookie);
+
+        Cookie passCookie = new Cookie("password", null);
+        passCookie.setMaxAge(0);
+        response.addCookie(passCookie);
     }
 }
 
