@@ -61,6 +61,9 @@ class AccountMapper implements RowMapper<Account> {
         account.setUsername(rs.getString("username"));
         account.setPassword(rs.getString("password"));
         account.setEmail(rs.getString("email"));
+        account.setFirstName(rs.getString("firstName"));
+        account.setSecondName(rs.getString("secondName"));
+        account.setActivated(rs.getInt("activated"));
         return account;
     }
 }

@@ -5,15 +5,21 @@ public class Account {
     private String username;
     private String email;
     private String password;
+    private String firstName;
+    private String secondName;
+    private int activated;
 
     public Account() {
     }
 
-    public Account(int id, String username, String email, String password) {
+    public Account(int id, String username, String email, String password, String firstName, String secondName, int activated) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.activated = activated;
     }
 
     public Account(String username, String password) {
@@ -51,5 +57,29 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public int getActivated() {
+        return activated;
+    }
+
+    public void setActivated(int activated) {
+        this.activated = activated;
     }
 }

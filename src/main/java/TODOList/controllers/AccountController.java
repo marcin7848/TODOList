@@ -1,6 +1,5 @@
 package TODOList.controllers;
 
-import TODOList.dao.AccountDao;
 import TODOList.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +33,6 @@ public class AccountController {
         }
 
     }
-
 
     @PostMapping("/loginProcess")
     public String loginProcess(Model m, HttpServletRequest request, HttpServletResponse response,
