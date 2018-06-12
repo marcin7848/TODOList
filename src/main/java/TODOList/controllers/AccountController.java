@@ -1,6 +1,7 @@
 package TODOList.controllers;
 
 import TODOList.dao.AccountDao;
+import TODOList.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import TODOList.models.Account;
@@ -18,17 +19,17 @@ import javax.servlet.http.HttpServletResponse;
 public class AccountController {
 
     @Autowired
-    AccountDao accountDao;
+    AccountService accountService;
 
     @GetMapping("/login")
     public String loginView(HttpServletResponse response,
                             @CookieValue(value = "username", required = false) String userCookie,
                             @CookieValue(value = "password", required = false) String passCookie) {
 
-        if (AccountDao.validateCookies(new Account(userCookie, passCookie))) {
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/";
         } else {
-            AccountDao.deleteCookies(response);
+            AccountService.deleteCookies(response);
             return "login";
         }
 
@@ -39,7 +40,7 @@ public class AccountController {
     public String loginProcess(Model m, HttpServletRequest request, HttpServletResponse response,
                                @ModelAttribute("Account") Account login) {
 
-        Account account = accountDao.validateAccount(login);
+        Account account = accountService.validateAccount(login);
 
         String result;
         if (account == null)
