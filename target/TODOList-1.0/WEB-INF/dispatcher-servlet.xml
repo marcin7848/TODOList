@@ -25,4 +25,12 @@
         <property name="password" value="pass" />
     </bean>
 
+    <bean id="sendEmail" class="TODOList.dao.SendEmail">
+        <property name="username" value="to.do.list.mk" />
+        <property name="password" value="1324!#@$qewr" />
+        <property name="fromEmail" value="to.do.list.mk@gmail.com" />
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+    </bean>
+
 </beans>

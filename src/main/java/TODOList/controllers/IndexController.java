@@ -1,5 +1,7 @@
 package TODOList.controllers;
 
+import TODOList.dao.SendEmail;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -21,8 +23,9 @@ public class IndexController {
         return "index";
     }
 
-    @PostMapping("/test")
+    @GetMapping("/test")
     public String indexa(Model m) {
+
         m.addAttribute("someAttribute", "someValue");
         return "index";
     }
