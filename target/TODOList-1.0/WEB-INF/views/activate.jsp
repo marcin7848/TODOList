@@ -1,1 +1,2 @@
 activate
+<p>${someAttribute}</p>

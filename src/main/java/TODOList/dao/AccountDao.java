@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Random;
 
 public class AccountDao {
 
@@ -22,6 +23,9 @@ public class AccountDao {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    SendEmail sendEmail;
 
     public Account validateAccount(Account account){
         String sql = "select * from accounts where username='" + account.getUsername() + "'";
@@ -54,7 +58,6 @@ public class AccountDao {
         response.addCookie(passCookie);
     }
 
-
     public boolean activateAccount(String activateCode){
         String sql = "select * from accountsVerifying where activateCode='" + activateCode + "'";
         List<AccountVerifying> accountsVerifying = jdbcTemplate.query(sql, new AccountVerifyingMapper());
@@ -62,21 +65,61 @@ public class AccountDao {
         if(accountsVerifying.isEmpty())
             return false;
 
-        try{
-            sql = "update accounts set activated=1 where id="+accountsVerifying.get(0).getAccountId();
-            jdbcTemplate.execute(sql);
+        sql = "update accounts set activated=1 where id="+accountsVerifying.get(0).getAccountId();
+        jdbcTemplate.execute(sql);
 
-            sql = "delete from accountsVerifying WHERE activateCode='" + activateCode + "'";
-            jdbcTemplate.execute(sql);
-
-            return true;
-
-        }catch(RuntimeException e){
-            System.out.println(e.getMessage());
-        }
+        sql = "delete from accountsVerifying WHERE activateCode='" + activateCode + "'";
+        jdbcTemplate.execute(sql);
 
         return true;
     }
+
+    public boolean checkExistanceAccount(Account account){
+        String sql = "select * from accounts where username='" + account.getUsername() + "' or email='" + account.getEmail() + "'";
+        List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
+
+        return !accounts.isEmpty();
+    }
+
+    public String hashPassword(String password){
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return passwordEncoder.encode(password);
+    }
+
+    public String generateRandomString(int length){
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@$%^*()><";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < length) {
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        return salt.toString();
+    }
+
+    public int registerAccount(Account account){
+        if(checkExistanceAccount(account))
+            return 2; //account's already existed
+
+        String sql = "insert into accounts (username, email, password, firstName, secondName, activated)" +
+                " VALUES (?, ?, ?, ?, ?, 0)";
+
+        jdbcTemplate.update(sql, account.getUsername(), account.getEmail(),
+                hashPassword(account.getPassword()), account.getFirstName(), account.getSecondName());
+
+        sql = "select * from accounts where username='" + account.getUsername() + "' and email='" + account.getEmail() + "'";
+        List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
+
+        sql = "insert into accountsVerifying (accountId, activateCode) VALUES (?, ?)";
+        String random = generateRandomString(40);
+        jdbcTemplate.update(sql, accounts.get(0).getId(), random);
+
+        sendEmail.send(accounts.get(0).getEmail(), "Rejestracja TODOList", "To activate your account use this code: \n"+random);
+
+        return 1; //created
+    }
+
+
 
 }
 

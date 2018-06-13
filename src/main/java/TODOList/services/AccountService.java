@@ -36,4 +36,8 @@ public class AccountService implements AccountServiceInterface {
     public boolean activateAccount(String activateCode) {
         return accountDao.activateAccount(activateCode);
     }
+
+    public int registerAccount(Account account){
+        return accountDao.registerAccount(account);
+    }
 }

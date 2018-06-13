@@ -1,6 +1,7 @@
 package TODOList.controllers;
 
 import TODOList.services.AccountService;
+import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import TODOList.models.Account;
@@ -33,9 +34,9 @@ public class AccountController {
 
     @PostMapping("/loginProcess")
     public String loginProcess(Model m, HttpServletRequest request, HttpServletResponse response,
-                               @ModelAttribute("Account") Account login) {
+                               @ModelAttribute("Account") Account loginInfo) {
 
-        Account account = accountService.validateAccount(login);
+        Account account = accountService.validateAccount(loginInfo);
 
         String result;
         if (account == null)
@@ -64,20 +65,6 @@ public class AccountController {
         return "index";
     }
 
-    @GetMapping("/register")
-    public String registerView(HttpServletResponse response,
-                            @CookieValue(value = "username", required = false) String userCookie,
-                            @CookieValue(value = "password", required = false) String passCookie) {
-
-        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
-            return "redirect:/";
-        } else {
-            AccountService.deleteCookies(response);
-            return "register";
-        }
-    }
-
-
 
     @GetMapping("/activate")
     public String activateView(HttpServletResponse response,
@@ -97,7 +84,9 @@ public class AccountController {
     public String activateProcess(HttpServletResponse response,
                                @CookieValue(value = "username", required = false) String userCookie,
                                @CookieValue(value = "password", required = false) String passCookie,
-                                  @RequestParam("activateCode") String activateCode) {
+                                  @ModelAttribute("activateCode") String activateCode) {
+
+        activateCode = StringEscapeUtils.escapeJava(activateCode);
 
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/";
@@ -106,6 +95,39 @@ public class AccountController {
                 return "redirect:/login";
             else
                 return "activate"; //bad code or account has already activated
+        }
+    }
+
+    @GetMapping("/register")
+    public String registerView(HttpServletResponse response,
+                               @CookieValue(value = "username", required = false) String userCookie,
+                               @CookieValue(value = "password", required = false) String passCookie) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "redirect:/";
+        } else {
+            AccountService.deleteCookies(response);
+            return "register";
+        }
+    }
+
+    @PostMapping("/registerProcess")
+    public String registerProcess(HttpServletResponse response,
+                               @CookieValue(value = "username", required = false) String userCookie,
+                               @CookieValue(value = "password", required = false) String passCookie,
+                                  @ModelAttribute("Account") Account registerInfo) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "redirect:/";
+        } else {
+            int result = accountService.registerAccount(registerInfo);
+            if(result == 1)
+                return "redirect:/activate"; //created, go activate
+
+            if(result == 2)
+                return "redirect:/"; //account's already existed
+
+            return "redirect:/"; //unknown error
         }
     }
 
