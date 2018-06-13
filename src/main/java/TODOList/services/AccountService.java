@@ -32,4 +32,8 @@ public class AccountService implements AccountServiceInterface {
     public static void deleteCookies(HttpServletResponse response){
         accountDaoStatic.deleteCookies(response);
     }
+
+    public boolean activateAccount(String activateCode) {
+        return accountDao.activateAccount(activateCode);
+    }
 }

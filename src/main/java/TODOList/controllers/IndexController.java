@@ -25,7 +25,6 @@ public class IndexController {
 
     @GetMapping("/test")
     public String indexa(Model m) {
-
         m.addAttribute("someAttribute", "someValue");
         return "index";
     }

@@ -1,6 +1,7 @@
 package TODOList.dao;
 
 import TODOList.models.Account;
+import TODOList.models.AccountVerifying;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -52,6 +53,31 @@ public class AccountDao {
         passCookie.setMaxAge(0);
         response.addCookie(passCookie);
     }
+
+
+    public boolean activateAccount(String activateCode){
+        String sql = "select * from accountsVerifying where activateCode='" + activateCode + "'";
+        List<AccountVerifying> accountsVerifying = jdbcTemplate.query(sql, new AccountVerifyingMapper());
+
+        if(accountsVerifying.isEmpty())
+            return false;
+
+        try{
+            sql = "update accounts set activated=1 where id="+accountsVerifying.get(0).getAccountId();
+            jdbcTemplate.execute(sql);
+
+            sql = "delete from accountsVerifying WHERE activateCode='" + activateCode + "'";
+            jdbcTemplate.execute(sql);
+
+            return true;
+
+        }catch(RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+
+        return true;
+    }
+
 }
 
 class AccountMapper implements RowMapper<Account> {
@@ -65,5 +91,15 @@ class AccountMapper implements RowMapper<Account> {
         account.setSecondName(rs.getString("secondName"));
         account.setActivated(rs.getInt("activated"));
         return account;
+    }
+}
+
+class AccountVerifyingMapper implements RowMapper<AccountVerifying> {
+    public AccountVerifying mapRow(ResultSet rs, int arg1) throws SQLException {
+        AccountVerifying accountVerifying = new AccountVerifying();
+        accountVerifying.setId(rs.getInt("id"));
+        accountVerifying.setAccountId(rs.getInt("accountId"));
+        accountVerifying.setActivateCode(rs.getString("activateCode"));
+        return accountVerifying;
     }
 }
