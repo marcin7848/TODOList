@@ -9,4 +9,7 @@ public interface AccountServiceInterface {
     int editAccount(Account account, String firstName, String secondName, String password, String email);
     Account getAccount(int id);
     boolean resendActivateCode(String email);
+    boolean sendResetPassword(String email, String host);
+    boolean checkResetPasswordCode(String code);
+    boolean resetPassword(String code, String password);
 }

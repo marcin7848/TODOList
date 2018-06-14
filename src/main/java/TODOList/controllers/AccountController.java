@@ -71,8 +71,6 @@ public class AccountController {
 
         AccountService.deleteCookies(response);
         return "redirect:/";
-
-
     }
 
     @GetMapping("/activate")
@@ -207,6 +205,73 @@ public class AccountController {
             return "redirect:/"; //mail sent
         else
             return "redirect:/"; //this account don't exist or is activated
+
+    }
+
+    @GetMapping("/sendResetPassword")
+    public String sendResetPasswordCodeView(HttpServletResponse response,
+                                         @CookieValue(value = "username", required = false) String userCookie,
+                                         @CookieValue(value = "password", required = false) String passCookie) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "redirect:/"; //cannot when log in
+        } else {
+            return "sendResetPassword";
+        }
+
+    }
+
+    @PostMapping("/sendResetPassword")
+    public String sendResetPasswordCode(HttpServletResponse response,
+                                        HttpServletRequest request,
+                                            @CookieValue(value = "username", required = false) String userCookie,
+                                            @CookieValue(value = "password", required = false) String passCookie,
+                                        @ModelAttribute("email") String email) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "redirect:/"; //cannot when log in
+        }
+
+        if(accountService.sendResetPassword(email, request.getLocalName()))
+            return "redirect:/"; //mail sent
+        else
+            return "redirect:/"; //that email doesn't exist
+
+    }
+
+    @GetMapping("/resetPassword/{code}")
+    public String resetPasswordCheck(HttpServletResponse response,
+                                            @CookieValue(value = "username", required = false) String userCookie,
+                                            @CookieValue(value = "password", required = false) String passCookie,
+                                            @PathVariable("code") String code) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "redirect:/"; //cannot when log in
+        } else {
+            if(accountService.checkResetPasswordCode(code))
+                return "resetPassword";
+            else
+                return "redirect:/"; //this code doesn't exist
+        }
+
+    }
+
+    @PostMapping("/resetPassword")
+    public String resetPassword(HttpServletResponse response,
+                                HttpServletRequest request,
+                                @CookieValue(value = "username", required = false) String userCookie,
+                                @CookieValue(value = "password", required = false) String passCookie,
+                                @ModelAttribute("code") String code,
+                                @ModelAttribute("password") String password) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "redirect:/"; //cannot when log in
+        }
+
+        if(accountService.resetPassword(code, password))
+            return "redirect:/"; //password reset
+        else
+            return "redirect:/"; //code doesn't exist
 
     }
 

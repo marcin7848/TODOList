@@ -112,7 +112,7 @@ public class AccountDao {
     }
 
     public String generateRandomString(int length){
-        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@$%^*()><";
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@$^*()><";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < length) {
@@ -182,8 +182,46 @@ public class AccountDao {
         sendEmail.send(email, "Activate Code TODOList", "Your activation code: \n"+accountsVerifying.get(0).getActivateCode());
 
         return true;
-
     }
+
+    public boolean sendResetPassword(String email, String host){
+        String sql = "select * from accounts where email='" + email + "'";
+        List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
+
+        if(accounts.isEmpty())
+            return false;
+
+        sql = "insert into accountsVerifying (accountId, activateCode, type) VALUES (?, ?, 2)";
+        String random = generateRandomString(40);
+        jdbcTemplate.update(sql, accounts.get(0).getId(), random);
+
+        sendEmail.send(accounts.get(0).getEmail(), "Reset Password TODOList", "To reset your password go to: \n http://"+host+"/resetPassword/"+random);
+
+        return true;
+    }
+
+    public boolean checkResetPasswordCode(String code){
+        String sql = "select * from accountsVerifying where activateCode='" + code + "' and type = 2";
+        List<AccountVerifying> accountsVerifying = jdbcTemplate.query(sql, new AccountVerifyingMapper());
+
+        return !accountsVerifying.isEmpty();
+    }
+
+    public boolean resetPassword(String code, String password){
+        String sql = "select * from accountsVerifying where activateCode='" + code + "' and type = 2";
+        List<AccountVerifying> accountsVerifying = jdbcTemplate.query(sql, new AccountVerifyingMapper());
+
+        if(accountsVerifying.isEmpty())
+            return false;
+
+        sql = "update accounts SET password=? WHERE id='" + accountsVerifying.get(0).getAccountId() + "'";
+        jdbcTemplate.update(sql, hashPassword(password));
+        sql = "delete from accountsVerifying WHERE accountId='" + accountsVerifying.get(0).getAccountId() + "' and type = 2";
+        jdbcTemplate.execute(sql);
+
+        return true;
+    }
+
 
 }
 

@@ -55,4 +55,16 @@ public class AccountService implements AccountServiceInterface {
     public boolean resendActivateCode(String email){
         return accountDao.resendActivateCode(email);
     }
+
+    public boolean sendResetPassword(String email, String host){
+        return accountDao.sendResetPassword(email, host);
+    }
+
+    public boolean checkResetPasswordCode(String code){
+        return accountDao.checkResetPasswordCode(code);
+    }
+
+    public boolean resetPassword(String code, String password){
+        return accountDao.resetPassword(code, password);
+    }
 }

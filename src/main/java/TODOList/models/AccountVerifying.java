@@ -7,6 +7,7 @@ public class AccountVerifying {
     private int type;
     /*type:
     1 - activate Account
+    2 - sent reseting password
     */
 
 
