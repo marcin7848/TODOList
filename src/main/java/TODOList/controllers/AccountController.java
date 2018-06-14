@@ -1,7 +1,6 @@
 package TODOList.controllers;
 
 import TODOList.services.AccountService;
-import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import TODOList.models.Account;
@@ -65,6 +64,16 @@ public class AccountController {
         return "index";
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpServletResponse response,
+                            @CookieValue(value = "username", required = false) String userCookie,
+                            @CookieValue(value = "password", required = false) String passCookie) {
+
+        AccountService.deleteCookies(response);
+        return "redirect:/";
+
+
+    }
 
     @GetMapping("/activate")
     public String activateView(HttpServletResponse response,
@@ -85,8 +94,6 @@ public class AccountController {
                                @CookieValue(value = "username", required = false) String userCookie,
                                @CookieValue(value = "password", required = false) String passCookie,
                                   @ModelAttribute("activateCode") String activateCode) {
-
-        activateCode = StringEscapeUtils.escapeJava(activateCode);
 
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/";
@@ -172,5 +179,36 @@ public class AccountController {
 
         return "redirect:/"; //list created
     }
+
+    @GetMapping("/resendActivateCode")
+    public String resendActivateCodeView(HttpServletResponse response,
+                           @CookieValue(value = "username", required = false) String userCookie,
+                           @CookieValue(value = "password", required = false) String passCookie) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "redirect:/"; //cannot when log in
+        } else {
+            return "resendActivateCode";
+        }
+
+    }
+
+    @PostMapping("/resendActivateCode")
+    public String resendActivateCode(HttpServletResponse response,
+                              @CookieValue(value = "username", required = false) String userCookie,
+                              @CookieValue(value = "password", required = false) String passCookie,
+                              @ModelAttribute("email") String email) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "redirect:/"; //cannot when log in
+        }
+
+        if(accountService.resendActivateCode(email))
+            return "redirect:/"; //mail sent
+        else
+            return "redirect:/"; //this account don't exist or is activated
+
+    }
+
 
 }

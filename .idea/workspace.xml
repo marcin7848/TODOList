@@ -7,13 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b03493d-b827-4e00-9c39-b79356d041eb" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editAccount.jsp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/resendActivateCode.jsp" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/models/AccountVerifying.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/models/AccountVerifying.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/services/AccountService.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/services/AccountService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/services/AccountServiceInterface.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/services/AccountServiceInterface.java" />
     </list>
@@ -30,21 +27,11 @@
       <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="160" column="27" lean-forward="true" selection-start-line="160" selection-start-column="27" selection-end-line="160" selection-end-column="27" />
+            <state relative-caret-position="336">
+              <caret line="71" column="44" lean-forward="false" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Lists.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/models/Lists.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -66,31 +53,32 @@
       <file leaf-file-name="AccountDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="131" column="27" lean-forward="true" selection-start-line="131" selection-start-column="27" selection-end-line="131" selection-end-column="27" />
+            <state relative-caret-position="-1524">
+              <caret line="86" column="95" lean-forward="false" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="95" />
               <folding>
-                <marker date="1528999692127" expanded="true" signature="836:880" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="1076:1145" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="1565:1679" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="1565:1680" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="1889:2003" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="2535:2608" ph="select * fro... accountsVerifying" />
-                <marker date="1528999692127" expanded="true" signature="2535:2621" ph="select * fro... accountsVerifying" />
-                <marker date="1528999692127" expanded="true" signature="2813:2854" ph="update accounts... " />
-                <marker date="1528999692127" expanded="true" signature="2948:3019" ph="delete from accountsVerifying... " />
-                <marker date="1528999692127" expanded="true" signature="3167:3274" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="4165:4294" ph="insert into accounts... " />
-                <marker date="1528999692127" expanded="true" signature="4493:4601" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="4699:4777" ph="insert into accountsVerifying... " />
-                <marker date="1528999692127" expanded="true" signature="5199:5232" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="5199:5254" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="5199:5255" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="5199:5256" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="5413:5463" ph="select * fro... accounts" />
-                <marker date="1528999692127" expanded="true" signature="5653:5669" ph="update accounts... " />
-                <marker date="1528999692127" expanded="true" signature="5653:5742" ph="update accounts... " />
-                <marker date="1528999692127" expanded="true" signature="5659:5669" ph="insert into accounts... " />
-                <marker date="1528999692127" expanded="true" signature="5883:5948" ph="update accounts... " />
+                <marker date="1529001449381" expanded="true" signature="836:880" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="1142:1192" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="1462:1531" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="1951:2065" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="1951:2066" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="2275:2389" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="2921:2994" ph="select * fro... accountsVerifying" />
+                <marker date="1529001449381" expanded="true" signature="3186:3227" ph="update accounts... " />
+                <marker date="1529001449381" expanded="true" signature="3321:3392" ph="delete from accountsVerifying... " />
+                <marker date="1529001449381" expanded="true" signature="3540:3647" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="4538:4667" ph="insert into accounts... " />
+                <marker date="1529001449381" expanded="true" signature="4866:4974" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="5072:5150" ph="insert into accountsVerifying... " />
+                <marker date="1529001449381" expanded="true" signature="5572:5605" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="5572:5627" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="5572:5628" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="5572:5629" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="5786:5836" ph="select * fro... accounts" />
+                <marker date="1529001449381" expanded="true" signature="6026:6042" ph="update accounts... " />
+                <marker date="1529001449381" expanded="true" signature="6026:6115" ph="update accounts... " />
+                <marker date="1529001449381" expanded="true" signature="6032:6042" ph="insert into accounts... " />
+                <marker date="1529001449381" expanded="true" signature="6256:6321" ph="update accounts... " />
+                <marker date="1529001449381" expanded="true" signature="6598:6684" ph="select * fro... accountsVerifying" />
               </folding>
             </state>
           </provider>
@@ -126,8 +114,8 @@
       <file leaf-file-name="AccountServiceInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountServiceInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+            <state relative-caret-position="150">
+              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -136,8 +124,8 @@
       <file leaf-file-name="AccountService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+            <state relative-caret-position="381">
+              <caret line="55" column="52" lean-forward="true" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
               <folding>
                 <element signature="e#601#602#0" expanded="true" />
                 <element signature="e#649#650#0" expanded="true" />
@@ -145,6 +133,8 @@
                 <element signature="e#1276#1277#0" expanded="true" />
                 <element signature="e#1326#1327#0" expanded="true" />
                 <element signature="e#1384#1385#0" expanded="true" />
+                <element signature="e#1645#1646#0" expanded="true" />
+                <element signature="e#1704#1705#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -239,11 +229,12 @@
         <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editAccount.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/models/AccountVerifying.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/resendActivateCode.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/services/AccountServiceInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/services/AccountService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/models/AccountVerifying.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" />
       </list>
     </option>
   </component>
@@ -603,12 +594,12 @@
       <workItem from="1528896541916" duration="8212000" />
       <workItem from="1528906168371" duration="11590000" />
       <workItem from="1528923510367" duration="799000" />
-      <workItem from="1528977329680" duration="8584000" />
+      <workItem from="1528977329680" duration="10459000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40933000" />
+    <option name="totallyTimeSpent" value="42808000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1602" height="876" extended-state="6" />
@@ -926,28 +917,29 @@
         <state relative-caret-position="795">
           <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <marker date="1528999692127" expanded="true" signature="836:880" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="1076:1145" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="1565:1679" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="1565:1680" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="1889:2003" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="2535:2608" ph="select * fro... accountsVerifying" />
-            <marker date="1528999692127" expanded="true" signature="2535:2621" ph="select * fro... accountsVerifying" />
-            <marker date="1528999692127" expanded="true" signature="2813:2854" ph="update accounts... " />
-            <marker date="1528999692127" expanded="true" signature="2948:3019" ph="delete from accountsVerifying... " />
-            <marker date="1528999692127" expanded="true" signature="3167:3274" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="4165:4294" ph="insert into accounts... " />
-            <marker date="1528999692127" expanded="true" signature="4493:4601" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="4699:4777" ph="insert into accountsVerifying... " />
-            <marker date="1528999692127" expanded="true" signature="5199:5232" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5199:5254" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5199:5255" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5199:5256" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5413:5463" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5653:5669" ph="update accounts... " />
-            <marker date="1528999692127" expanded="true" signature="5653:5742" ph="update accounts... " />
-            <marker date="1528999692127" expanded="true" signature="5659:5669" ph="insert into accounts... " />
-            <marker date="1528999692127" expanded="true" signature="5883:5948" ph="update accounts... " />
+            <marker date="1529001449381" expanded="true" signature="836:880" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="1142:1192" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="1462:1531" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="1951:2065" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="1951:2066" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="2275:2389" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="2921:2994" ph="select * fro... accountsVerifying" />
+            <marker date="1529001449381" expanded="true" signature="3186:3227" ph="update accounts... " />
+            <marker date="1529001449381" expanded="true" signature="3321:3392" ph="delete from accountsVerifying... " />
+            <marker date="1529001449381" expanded="true" signature="3540:3647" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="4538:4667" ph="insert into accounts... " />
+            <marker date="1529001449381" expanded="true" signature="4866:4974" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5072:5150" ph="insert into accountsVerifying... " />
+            <marker date="1529001449381" expanded="true" signature="5572:5605" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5572:5627" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5572:5628" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5572:5629" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5786:5836" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="6026:6042" ph="update accounts... " />
+            <marker date="1529001449381" expanded="true" signature="6026:6115" ph="update accounts... " />
+            <marker date="1529001449381" expanded="true" signature="6032:6042" ph="insert into accounts... " />
+            <marker date="1529001449381" expanded="true" signature="6256:6321" ph="update accounts... " />
+            <marker date="1529001449381" expanded="true" signature="6598:6684" ph="select * fro... accountsVerifying" />
           </folding>
         </state>
       </provider>
@@ -968,6 +960,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
           <caret line="90" column="42" lean-forward="true" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#777#778#0" expanded="false" />
+            <element signature="e#808#809#0" expanded="false" />
+            <element signature="e#856#857#0" expanded="false" />
+            <element signature="e#896#897#0" expanded="false" />
+            <element signature="e#931#932#0" expanded="false" />
+            <element signature="e#962#963#0" expanded="false" />
+            <element signature="e#1010#1011#0" expanded="false" />
+            <element signature="e#1050#1051#0" expanded="false" />
+            <element signature="e#1086#1087#0" expanded="false" />
+            <element signature="e#1118#1119#0" expanded="false" />
+            <element signature="e#1168#1169#0" expanded="false" />
+            <element signature="e#1210#1211#0" expanded="false" />
+            <element signature="e#1241#1242#0" expanded="false" />
+            <element signature="e#1268#1269#0" expanded="false" />
+            <element signature="e#1308#1309#0" expanded="false" />
+            <element signature="e#1340#1341#0" expanded="false" />
+            <element signature="e#1371#1372#0" expanded="false" />
+            <element signature="e#1398#1399#0" expanded="false" />
+            <element signature="e#1438#1439#0" expanded="false" />
+            <element signature="e#1470#1471#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -991,6 +1006,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
           <caret line="90" column="42" lean-forward="false" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#777#778#0" expanded="false" />
+            <element signature="e#808#809#0" expanded="false" />
+            <element signature="e#856#857#0" expanded="false" />
+            <element signature="e#896#897#0" expanded="false" />
+            <element signature="e#931#932#0" expanded="false" />
+            <element signature="e#962#963#0" expanded="false" />
+            <element signature="e#1010#1011#0" expanded="false" />
+            <element signature="e#1050#1051#0" expanded="false" />
+            <element signature="e#1086#1087#0" expanded="false" />
+            <element signature="e#1118#1119#0" expanded="false" />
+            <element signature="e#1168#1169#0" expanded="false" />
+            <element signature="e#1210#1211#0" expanded="false" />
+            <element signature="e#1241#1242#0" expanded="false" />
+            <element signature="e#1268#1269#0" expanded="false" />
+            <element signature="e#1308#1309#0" expanded="false" />
+            <element signature="e#1340#1341#0" expanded="false" />
+            <element signature="e#1371#1372#0" expanded="false" />
+            <element signature="e#1398#1399#0" expanded="false" />
+            <element signature="e#1438#1439#0" expanded="false" />
+            <element signature="e#1470#1471#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1123,18 +1161,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountServiceInterface.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/resendActivateCode.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        <state relative-caret-position="0">
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+        <state relative-caret-position="381">
+          <caret line="55" column="52" lean-forward="true" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
           <folding>
             <element signature="e#601#602#0" expanded="true" />
             <element signature="e#649#650#0" expanded="true" />
@@ -1142,37 +1180,8 @@
             <element signature="e#1276#1277#0" expanded="true" />
             <element signature="e#1326#1327#0" expanded="true" />
             <element signature="e#1384#1385#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="131" column="27" lean-forward="true" selection-start-line="131" selection-start-column="27" selection-end-line="131" selection-end-column="27" />
-          <folding>
-            <marker date="1528999692127" expanded="true" signature="836:880" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="1076:1145" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="1565:1679" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="1565:1680" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="1889:2003" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="2535:2608" ph="select * fro... accountsVerifying" />
-            <marker date="1528999692127" expanded="true" signature="2535:2621" ph="select * fro... accountsVerifying" />
-            <marker date="1528999692127" expanded="true" signature="2813:2854" ph="update accounts... " />
-            <marker date="1528999692127" expanded="true" signature="2948:3019" ph="delete from accountsVerifying... " />
-            <marker date="1528999692127" expanded="true" signature="3167:3274" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="4165:4294" ph="insert into accounts... " />
-            <marker date="1528999692127" expanded="true" signature="4493:4601" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="4699:4777" ph="insert into accountsVerifying... " />
-            <marker date="1528999692127" expanded="true" signature="5199:5232" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5199:5254" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5199:5255" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5199:5256" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5413:5463" ph="select * fro... accounts" />
-            <marker date="1528999692127" expanded="true" signature="5653:5669" ph="update accounts... " />
-            <marker date="1528999692127" expanded="true" signature="5653:5742" ph="update accounts... " />
-            <marker date="1528999692127" expanded="true" signature="5659:5669" ph="insert into accounts... " />
-            <marker date="1528999692127" expanded="true" signature="5883:5948" ph="update accounts... " />
+            <element signature="e#1645#1646#0" expanded="true" />
+            <element signature="e#1704#1705#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1202,10 +1211,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountServiceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1524">
+          <caret line="86" column="95" lean-forward="false" selection-start-line="86" selection-start-column="95" selection-end-line="86" selection-end-column="95" />
+          <folding>
+            <marker date="1529001449381" expanded="true" signature="836:880" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="1142:1192" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="1462:1531" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="1951:2065" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="1951:2066" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="2275:2389" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="2921:2994" ph="select * fro... accountsVerifying" />
+            <marker date="1529001449381" expanded="true" signature="3186:3227" ph="update accounts... " />
+            <marker date="1529001449381" expanded="true" signature="3321:3392" ph="delete from accountsVerifying... " />
+            <marker date="1529001449381" expanded="true" signature="3540:3647" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="4538:4667" ph="insert into accounts... " />
+            <marker date="1529001449381" expanded="true" signature="4866:4974" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5072:5150" ph="insert into accountsVerifying... " />
+            <marker date="1529001449381" expanded="true" signature="5572:5605" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5572:5627" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5572:5628" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5572:5629" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="5786:5836" ph="select * fro... accounts" />
+            <marker date="1529001449381" expanded="true" signature="6026:6042" ph="update accounts... " />
+            <marker date="1529001449381" expanded="true" signature="6026:6115" ph="update accounts... " />
+            <marker date="1529001449381" expanded="true" signature="6032:6042" ph="insert into accounts... " />
+            <marker date="1529001449381" expanded="true" signature="6256:6321" ph="update accounts... " />
+            <marker date="1529001449381" expanded="true" signature="6598:6684" ph="select * fro... accountsVerifying" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="160" column="27" lean-forward="true" selection-start-line="160" selection-start-column="27" selection-end-line="160" selection-end-column="27" />
+        <state relative-caret-position="336">
+          <caret line="71" column="44" lean-forward="false" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1278,11 +1327,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: mysql:mysql-connector-java:5.1.9</last-edited>
+          <last-edited>Maven: org.apache.commons:commons-text:1.4</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.35402298" />
               </list>
             </option>
           </splitter-proportions>

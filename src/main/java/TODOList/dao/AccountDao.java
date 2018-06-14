@@ -30,7 +30,19 @@ public class AccountDao {
     public Account getAccount(int id){
         String sql = "select * from accounts where id='" + id + "'";
         List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
-        return accounts.get(0);
+        if(!accounts.isEmpty())
+            return accounts.get(0);
+        else
+            return null;
+    }
+
+    public Account getAccount(String email){
+        String sql = "select * from accounts where email='" + email + "'";
+        List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
+        if(!accounts.isEmpty())
+            return accounts.get(0);
+        else
+            return null;
     }
 
     public Account validateAccount(Account account){
@@ -72,7 +84,7 @@ public class AccountDao {
     }
 
     public boolean activateAccount(String activateCode){
-        String sql = "select * from accountsVerifying where activateCode='" + activateCode + "' and type = 1";
+        String sql = "select * from accountsVerifying where activateCode='" + activateCode + "'";
         List<AccountVerifying> accountsVerifying = jdbcTemplate.query(sql, new AccountVerifyingMapper());
 
         if(accountsVerifying.isEmpty())
@@ -153,6 +165,24 @@ public class AccountDao {
         }
 
         return 1;
+    }
+
+    public boolean resendActivateCode(String email){
+        Account account = getAccount(email);
+
+        if(account == null)
+            return false;
+
+        String sql = "select * from accountsVerifying where accountId='" + account.getId() + "' and type = 1";
+        List<AccountVerifying> accountsVerifying = jdbcTemplate.query(sql, new AccountVerifyingMapper());
+
+        if(accountsVerifying.isEmpty())
+            return false;
+
+        sendEmail.send(email, "Activate Code TODOList", "Your activation code: \n"+accountsVerifying.get(0).getActivateCode());
+
+        return true;
+
     }
 
 }

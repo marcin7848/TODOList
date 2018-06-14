@@ -52,4 +52,7 @@ public class AccountService implements AccountServiceInterface {
     public int editAccount(Account account, String firstName, String secondName, String password, String email){
         return accountDao.editAccount(account, firstName, secondName, password, email);
     }
+    public boolean resendActivateCode(String email){
+        return accountDao.resendActivateCode(email);
+    }
 }
