@@ -48,6 +48,13 @@ public class AccountDao {
         return !accounts.isEmpty();
     }
 
+    public Account validateCookiesReturnAcc(Account account){
+        String sql = "select * from accounts where username='" + account.getUsername() + "' and password='" + account.getPassword() + "'";
+        List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
+
+        return accounts.get(0);
+    }
+
     public void deleteCookies(HttpServletResponse response){
         Cookie userCookie = new Cookie("username", null);
         userCookie.setMaxAge(0);

@@ -1,12 +1,15 @@
 package TODOList.models;
 
-public class List {
+public class Lists {
     private int id;
     private int accountId;
     private String name;
     private String colour;
 
-    public List(int id, int accountId, String name, String colour) {
+    public Lists() {
+    }
+
+    public Lists(int id, int accountId, String name, String colour) {
         this.id = id;
         this.accountId = accountId;
         this.name = name;

@@ -1,23 +1,25 @@
 package TODOList.controllers;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.security.Principal;
 
 @Controller
 public class IndexController {
 
     @GetMapping("/")
-    public String index(Model m) {
+    public String index(Model m, Principal username) {
 
-        String password = "admin";
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String hashedPassword = passwordEncoder.encode(password);
-
-        m.addAttribute("someAttribute", hashedPassword);
-        return "index";
+        if(username == null) {
+            m.addAttribute("someAttribute", "not logged");
+            return "index";
+        }
+        else{
+            m.addAttribute("someAttribute", "logged");
+            return "index";
+        }
     }
 
     @GetMapping("/test")

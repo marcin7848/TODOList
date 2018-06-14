@@ -29,6 +29,10 @@ public class AccountService implements AccountServiceInterface {
         return accountDaoStatic.validateCookies(account);
     }
 
+    public static Account validateCookiesReturnAcc(Account account){
+        return accountDaoStatic.validateCookiesReturnAcc(account);
+    }
+
     public static void deleteCookies(HttpServletResponse response){
         accountDaoStatic.deleteCookies(response);
     }
