@@ -27,6 +27,12 @@ public class AccountDao {
     @Autowired
     SendEmail sendEmail;
 
+    public Account getAccount(int id){
+        String sql = "select * from accounts where id='" + id + "'";
+        List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
+        return accounts.get(0);
+    }
+
     public Account validateAccount(Account account){
         String sql = "select * from accounts where username='" + account.getUsername() + "'";
 
@@ -66,7 +72,7 @@ public class AccountDao {
     }
 
     public boolean activateAccount(String activateCode){
-        String sql = "select * from accountsVerifying where activateCode='" + activateCode + "'";
+        String sql = "select * from accountsVerifying where activateCode='" + activateCode + "' and type = 1";
         List<AccountVerifying> accountsVerifying = jdbcTemplate.query(sql, new AccountVerifyingMapper());
 
         if(accountsVerifying.isEmpty())
@@ -117,7 +123,7 @@ public class AccountDao {
         sql = "select * from accounts where username='" + account.getUsername() + "' and email='" + account.getEmail() + "'";
         List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
 
-        sql = "insert into accountsVerifying (accountId, activateCode) VALUES (?, ?)";
+        sql = "insert into accountsVerifying (accountId, activateCode, type) VALUES (?, ?, 1)";
         String random = generateRandomString(40);
         jdbcTemplate.update(sql, accounts.get(0).getId(), random);
 
@@ -127,6 +133,27 @@ public class AccountDao {
     }
 
 
+    public int editAccount(Account account, String firstName, String secondName, String password, String email){
+        String sql = "select * from accounts where id='" + account.getId() + "'";
+        List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
+
+        if(!email.equals(accounts.get(0).getEmail())){
+            sql = "select * from accounts where email='" + email + "'";
+            List<Account> emailAcc = jdbcTemplate.query(sql, new AccountMapper());
+            if(!emailAcc.isEmpty())
+                return 2; //email's exist
+        }
+
+        sql = "update accounts SET firstName=?, secondName=?, email=? WHERE id='" + account.getId() + "'";
+        jdbcTemplate.update(sql, firstName, secondName, email);
+
+        if(password != null && !password.equals("")){
+            sql = "update accounts SET password=? WHERE id='" + account.getId() + "'";
+            jdbcTemplate.update(sql, hashPassword(password));
+        }
+
+        return 1;
+    }
 
 }
 
@@ -150,6 +177,7 @@ class AccountVerifyingMapper implements RowMapper<AccountVerifying> {
         accountVerifying.setId(rs.getInt("id"));
         accountVerifying.setAccountId(rs.getInt("accountId"));
         accountVerifying.setActivateCode(rs.getString("activateCode"));
+        accountVerifying.setType(rs.getInt("type"));
         return accountVerifying;
     }
 }

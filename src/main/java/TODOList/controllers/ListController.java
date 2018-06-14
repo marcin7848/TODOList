@@ -44,7 +44,7 @@ public class ListController {
         listService.addList(account, listName, listColour);
 
         return "redirect:/"; //list created
-
-
     }
+
+
 }

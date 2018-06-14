@@ -131,4 +131,46 @@ public class AccountController {
         }
     }
 
+    @GetMapping("/editAccount")
+    public String editView(HttpServletResponse response,
+                               @CookieValue(value = "username", required = false) String userCookie,
+                               @CookieValue(value = "password", required = false) String passCookie) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "editAccount";
+        } else {
+            AccountService.deleteCookies(response);
+            return "redirect:/";
+        }
+
+    }
+
+    @PostMapping("/editAccount")
+    public String editProcess(HttpServletResponse response,
+                                  @CookieValue(value = "username", required = false) String userCookie,
+                                  @CookieValue(value = "password", required = false) String passCookie,
+                                  @ModelAttribute("Account") Account editAccount) {
+
+        if (!AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            AccountService.deleteCookies(response);
+            return "redirect:/"; //please log in
+        }
+
+        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
+
+        if(account == null)
+            return "redirect:/"; //please log in
+
+        accountService.editAccount(account, editAccount.getFirstName(), editAccount.getSecondName(),
+                editAccount.getPassword(), editAccount.getEmail());
+
+        Cookie pass = new Cookie("password", accountService.getAccount(account.getId()).getPassword());
+        pass.setMaxAge(900);
+        pass.setPath("/");
+        pass.setHttpOnly(true);
+        response.addCookie(pass);
+
+        return "redirect:/"; //list created
+    }
+
 }

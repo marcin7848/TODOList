@@ -21,6 +21,10 @@ public class AccountService implements AccountServiceInterface {
         accountDaoStatic = accountDao;
     }
 
+    public Account getAccount(int id){
+        return accountDao.getAccount(id);
+    }
+
     public Account validateAccount(Account account){
         return accountDao.validateAccount(account);
     }
@@ -43,5 +47,9 @@ public class AccountService implements AccountServiceInterface {
 
     public int registerAccount(Account account){
         return accountDao.registerAccount(account);
+    }
+
+    public int editAccount(Account account, String firstName, String secondName, String password, String email){
+        return accountDao.editAccount(account, firstName, secondName, password, email);
     }
 }
