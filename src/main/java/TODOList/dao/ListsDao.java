@@ -30,6 +30,16 @@ public class ListsDao {
         return lists.get(0);
     }
 
+    public List<Lists> getLists(Account account){
+        String sql = "select * from lists where accountId='" + account.getId() + "'";
+        List<Lists> lists = jdbcTemplate.query(sql, new ListsMapper());
+
+        if(lists.isEmpty())
+            return null; //List doesn't exist
+
+        return lists;
+    }
+
     public int addList(Account account, String name, String colour){
         String sql = "select * from lists where accountId='" + account.getId() + "' and name='" + name + "'";
         List<Lists> lists = jdbcTemplate.query(sql, new ListsMapper());

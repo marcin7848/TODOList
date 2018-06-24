@@ -6,6 +6,8 @@ import TODOList.models.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ListService implements ListServiceInterface{
 
@@ -27,4 +29,8 @@ public class ListService implements ListServiceInterface{
     public int deleteList(Account account, int id){
         return listsDao.deleteList(account, id);
     }
+    public List<Lists> getLists(Account account){
+        return listsDao.getLists(account);
+    }
+
 }
