@@ -92,5 +92,23 @@ public class ListController {
         return "redirect:/"; //list edited
     }
 
+    @PostMapping("/delete/{listId}")
+    public String deleteList(HttpServletResponse response,
+                           @CookieValue(value = "username", required = false) String userCookie,
+                           @CookieValue(value = "password", required = false) String passCookie,
+                           @PathVariable("listId") int listId){
+
+        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
+
+        if(account == null)
+            return "redirect:/"; //please log in
+
+        int result = listService.deleteList(account, listId);
+
+        if(result == 2)
+            return "redirect:/"; //list doesn't exist
+
+        return "redirect:/"; //list deleted
+    }
 
 }

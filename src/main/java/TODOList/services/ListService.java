@@ -23,4 +23,8 @@ public class ListService implements ListServiceInterface{
     public Lists getList(Account account, int id){
         return listsDao.getList(account, id);
     }
+
+    public int deleteList(Account account, int id){
+        return listsDao.deleteList(account, id);
+    }
 }

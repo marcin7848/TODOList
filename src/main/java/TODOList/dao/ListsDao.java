@@ -20,6 +20,16 @@ public class ListsDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    public Lists getList(Account account, int id){
+        String sql = "select * from lists where accountId='" + account.getId() + "' and id='" + id + "'";
+        List<Lists> lists = jdbcTemplate.query(sql, new ListsMapper());
+
+        if(lists.isEmpty())
+            return null; //List doesn't exist
+
+        return lists.get(0);
+    }
+
     public int addList(Account account, String name, String colour){
         String sql = "select * from lists where accountId='" + account.getId() + "' and name='" + name + "'";
         List<Lists> lists = jdbcTemplate.query(sql, new ListsMapper());
@@ -36,26 +46,28 @@ public class ListsDao {
     }
 
     public int editList(Account account, Lists lists, String name, String colour){
-        String sql = "select * from lists where accountId='" + account.getId() + "' and id='" + lists.getId() + "'";
-        List<Lists> lists1 = jdbcTemplate.query(sql, new ListsMapper());
-
-        if(lists1.isEmpty())
+        Lists lists1 = getList(account, lists.getId());
+        if(lists1 == null)
             return 2; //List doesn't exist
 
-        sql = "update lists SET name=?, colour=? WHERE id='" + lists.getId() + "' and accountId='" + account.getId() + "'";
+        String sql = "update lists SET name=?, colour=? WHERE id='" + lists1.getId() + "' and accountId='" + account.getId() + "'";
         jdbcTemplate.update(sql, name, colour);
 
         return 1;
     }
 
-    public Lists getList(Account account, int id){
-        String sql = "select * from lists where accountId='" + account.getId() + "' and id='" + id + "'";
-        List<Lists> lists = jdbcTemplate.query(sql, new ListsMapper());
+    public int deleteList(Account account, int id){
+        Lists lists = getList(account, id);
+        if (lists == null)
+            return 2; //List doesn't exist
 
-        if(lists.isEmpty())
-            return null; //List doesn't exist
+        String sql = "delete from lists WHERE id='" + lists.getId() + "'";
+        jdbcTemplate.execute(sql);
 
-        return lists.get(0);
+        sql = "delete from tasks WHERE listId='" + lists.getId() + "'";
+        jdbcTemplate.execute(sql);
+
+        return 1;
     }
 
 }
