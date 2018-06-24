@@ -35,6 +35,29 @@ public class ListsDao {
         return 1;
     }
 
+    public int editList(Account account, Lists lists, String name, String colour){
+        String sql = "select * from lists where accountId='" + account.getId() + "' and id='" + lists.getId() + "'";
+        List<Lists> lists1 = jdbcTemplate.query(sql, new ListsMapper());
+
+        if(lists1.isEmpty())
+            return 2; //List doesn't exist
+
+        sql = "update lists SET name=?, colour=? WHERE id='" + lists.getId() + "' and accountId='" + account.getId() + "'";
+        jdbcTemplate.update(sql, name, colour);
+
+        return 1;
+    }
+
+    public Lists getList(Account account, int id){
+        String sql = "select * from lists where accountId='" + account.getId() + "' and id='" + id + "'";
+        List<Lists> lists = jdbcTemplate.query(sql, new ListsMapper());
+
+        if(lists.isEmpty())
+            return null; //List doesn't exist
+
+        return lists.get(0);
+    }
+
 }
 
 class ListsMapper implements RowMapper<Lists> {
