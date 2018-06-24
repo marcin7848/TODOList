@@ -60,6 +60,9 @@ public class AccountDao {
     }
 
     public boolean validateCookies(Account account){
+        if(account.getUsername() == null || account.getPassword() == null)
+            return false;
+
         String sql = "select * from accounts where username='" + account.getUsername() + "' and password='" + account.getPassword() + "'";
         List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
 
@@ -67,6 +70,9 @@ public class AccountDao {
     }
 
     public Account validateCookiesReturnAcc(Account account){
+        if(account.getUsername() == null || account.getPassword() == null)
+            return null;
+
         String sql = "select * from accounts where username='" + account.getUsername() + "' and password='" + account.getPassword() + "'";
         List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
 
@@ -99,7 +105,7 @@ public class AccountDao {
         return true;
     }
 
-    public boolean checkExistanceAccount(Account account){
+    public boolean checkExistenceAccount(Account account){
         String sql = "select * from accounts where username='" + account.getUsername() + "' or email='" + account.getEmail() + "'";
         List<Account> accounts = jdbcTemplate.query(sql, new AccountMapper());
 
@@ -123,7 +129,7 @@ public class AccountDao {
     }
 
     public int registerAccount(Account account){
-        if(checkExistanceAccount(account))
+        if(checkExistenceAccount(account))
             return 2; //account's already existed
 
         String sql = "insert into accounts (username, email, password, firstName, secondName, activated)" +

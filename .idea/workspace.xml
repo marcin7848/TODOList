@@ -7,9 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b03493d-b827-4e00-9c39-b79356d041eb" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/addTask.jsp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/dao/TaskDao.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/dao/TaskDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/models/Task.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/models/Task.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/services/TaskService.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/services/TaskService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/services/TaskServiceInterface.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/services/TaskServiceInterface.java" />
+      <change beforePath="$PROJECT_DIR$/target/TODOList-1.0/WEB-INF/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/target/TODOList-1.0/WEB-INF/dispatcher-servlet.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,146 +30,121 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="22" column="99" lean-forward="false" selection-start-line="22" selection-start-column="99" selection-end-line="22" selection-end-column="99" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ListsDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="40" selection-end-column="5" />
+            <state relative-caret-position="195">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="52" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1529857414838" expanded="true" signature="547:628" ph="select * fro... lists" />
-                <marker date="1529857414838" expanded="true" signature="887:947" ph="select * fro... lists" />
-                <marker date="1529857414838" expanded="true" signature="887:948" ph="select * fro... lists" />
-                <marker date="1529857414838" expanded="true" signature="1219:1304" ph="select * fro... lists" />
-                <marker date="1529857414838" expanded="true" signature="1472:1553" ph="insert into lists... " />
-                <marker date="1529857414838" expanded="true" signature="1880:1987" ph="update lists... " />
-                <marker date="1529857414838" expanded="true" signature="2253:2303" ph="delete from lists... " />
-                <marker date="1529857414838" expanded="true" signature="2357:2411" ph="delete from tasks... " />
+                <marker date="1529874640893" expanded="true" signature="547:608" ph="select * fro... lists" />
+                <marker date="1529874640893" expanded="true" signature="547:628" ph="select * fro... lists" />
+                <marker date="1529874640893" expanded="true" signature="887:947" ph="select * fro... lists" />
+                <marker date="1529874640893" expanded="true" signature="887:948" ph="select * fro... lists" />
+                <marker date="1529874640893" expanded="true" signature="1219:1304" ph="select * fro... lists" />
+                <marker date="1529874640893" expanded="true" signature="1472:1553" ph="insert into lists... " />
+                <marker date="1529874640893" expanded="true" signature="1880:1987" ph="update lists... " />
+                <marker date="1529874640893" expanded="true" signature="2253:2303" ph="delete from lists... " />
+                <marker date="1529874640893" expanded="true" signature="2357:2411" ph="delete from tasks... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/models/Task.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-              <folding>
-                <element signature="e#690#691#0" expanded="true" />
-                <element signature="e#715#716#0" expanded="true" />
-                <element signature="e#748#749#0" expanded="true" />
-                <element signature="e#776#777#0" expanded="true" />
-                <element signature="e#806#807#0" expanded="true" />
-                <element signature="e#835#836#0" expanded="true" />
-                <element signature="e#876#877#0" expanded="true" />
-                <element signature="e#912#913#0" expanded="true" />
-                <element signature="e#943#944#0" expanded="true" />
-                <element signature="e#970#971#0" expanded="true" />
-                <element signature="e#1010#1011#0" expanded="true" />
-                <element signature="e#1042#1043#0" expanded="true" />
-                <element signature="e#1076#1077#0" expanded="true" />
-                <element signature="e#1106#1107#0" expanded="true" />
-                <element signature="e#1152#1153#0" expanded="true" />
-                <element signature="e#1190#1191#0" expanded="true" />
-                <element signature="e#1222#1223#0" expanded="true" />
-                <element signature="e#1253#1254#0" expanded="true" />
-                <element signature="e#1298#1299#0" expanded="true" />
-                <element signature="e#1338#1339#0" expanded="true" />
-                <element signature="e#1372#1373#0" expanded="true" />
-                <element signature="e#1399#1400#0" expanded="true" />
-                <element signature="e#1442#1443#0" expanded="true" />
-                <element signature="e#1474#1475#0" expanded="true" />
-                <element signature="e#1508#1509#0" expanded="true" />
-                <element signature="e#1541#1542#0" expanded="true" />
-                <element signature="e#1590#1591#0" expanded="true" />
-                <element signature="e#1634#1635#0" expanded="true" />
-                <element signature="e#1662#1663#0" expanded="true" />
-                <element signature="e#1689#1690#0" expanded="true" />
-                <element signature="e#1726#1727#0" expanded="true" />
-                <element signature="e#1758#1759#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskDao.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TaskDao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/TaskDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="39" column="61" lean-forward="true" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="61" />
+            <state relative-caret-position="435">
+              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1529859409932" expanded="true" signature="574:614" ph="select * fro... lists" />
-                <marker date="1529859409932" expanded="true" signature="776:874" ph="select * fro... task" />
-                <marker date="1529859409932" expanded="true" signature="1147:1208" ph="select * fro... lists" />
-                <marker date="1529859409932" expanded="true" signature="1147:1216" ph="select * fro... lists" />
-                <marker date="1529859409932" expanded="true" signature="1147:1239" ph="select * fro... lists" />
-                <marker date="1529859409932" expanded="true" signature="1403:1459" ph="select * fro... tasks" />
+                <marker date="1529875924005" expanded="true" signature="657:698" ph="select * fro... lists" />
+                <marker date="1529875924005" expanded="true" signature="860:958" ph="select * fro... task" />
+                <marker date="1529875924005" expanded="true" signature="1231:1292" ph="select * fro... lists" />
+                <marker date="1529875924005" expanded="true" signature="1231:1300" ph="select * fro... lists" />
+                <marker date="1529875924005" expanded="true" signature="1231:1323" ph="select * fro... lists" />
+                <marker date="1529875924005" expanded="true" signature="1487:1543" ph="select * fro... tasks" />
+                <marker date="1529875924005" expanded="true" signature="1861:1966" ph="insert into tasks... " />
+                <marker date="1529875924005" expanded="true" signature="1861:1986" ph="insert into lists... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskServiceInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/TaskServiceInterface.java">
+      <file leaf-file-name="Lists.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/models/Lists.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1635">
+              <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1529873028204" expanded="true" signature="836:880" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="1142:1192" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="1462:1531" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="2053:2167" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="2053:2168" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="2478:2592" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="3124:3197" ph="select * fro... accountsVerifying" />
+                <marker date="1529873028204" expanded="true" signature="3389:3430" ph="update accounts... " />
+                <marker date="1529873028204" expanded="true" signature="3524:3595" ph="delete from accountsVerifying... " />
+                <marker date="1529873028204" expanded="true" signature="3743:3850" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="4740:4869" ph="insert into accounts... " />
+                <marker date="1529873028204" expanded="true" signature="5068:5176" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="5274:5352" ph="insert into accountsVerifying... " />
+                <marker date="1529873028204" expanded="true" signature="5774:5807" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="5774:5829" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="5774:5830" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="5774:5831" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="5988:6038" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="6228:6244" ph="update accounts... " />
+                <marker date="1529873028204" expanded="true" signature="6228:6317" ph="update accounts... " />
+                <marker date="1529873028204" expanded="true" signature="6234:6244" ph="insert into accounts... " />
+                <marker date="1529873028204" expanded="true" signature="6458:6523" ph="update accounts... " />
+                <marker date="1529873028204" expanded="true" signature="6800:6886" ph="select * fro... accountsVerifying" />
+                <marker date="1529873028204" expanded="true" signature="7307:7357" ph="select * fro... accounts" />
+                <marker date="1529873028204" expanded="true" signature="7513:7591" ph="insert into accountsVerifying... " />
+                <marker date="1529873028204" expanded="true" signature="7972:8050" ph="select * fro... accountsVerifying" />
+                <marker date="1529873028204" expanded="true" signature="8298:8376" ph="select * fro... accountsVerifying" />
+                <marker date="1529873028204" expanded="true" signature="8568:8609" ph="update accounts... " />
+                <marker date="1529873028204" expanded="true" signature="8568:8657" ph="update accounts... " />
+                <marker date="1529873028204" expanded="true" signature="8733:8841" ph="delete from accountsVerifying... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TaskService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/TaskService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+            <state relative-caret-position="405">
+              <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#445#446#0" expanded="true" />
                 <element signature="e#496#497#0" expanded="true" />
                 <element signature="e#559#560#0" expanded="true" />
                 <element signature="e#614#615#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="95" column="37" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListServiceInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
+                <element signature="e#720#721#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -169,8 +153,8 @@
       <file leaf-file-name="ListService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#437#438#0" expanded="true" />
@@ -186,14 +170,49 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AccountService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+              <folding>
+                <element signature="e#822#823#0" expanded="true" />
+                <element signature="e#886#887#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -227,19 +246,21 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/resetPassword.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/services/AccountServiceInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/services/AccountService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/models/Task.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/TaskDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/services/TaskServiceInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/services/TaskService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/addTask.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/models/Task.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/TaskDao.java" />
       </list>
     </option>
   </component>
@@ -607,12 +628,12 @@
       <workItem from="1528923510367" duration="799000" />
       <workItem from="1528977329680" duration="18496000" />
       <workItem from="1529061892866" duration="588000" />
-      <workItem from="1529850021890" duration="7187000" />
+      <workItem from="1529850021890" duration="14918000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58620000" />
+    <option name="totallyTimeSpent" value="66351000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1602" height="876" extended-state="6" />
@@ -664,24 +685,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/models/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -881,36 +884,36 @@
         <state relative-caret-position="795">
           <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <marker date="1529006952565" expanded="true" signature="836:880" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="1142:1192" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="1462:1531" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="1951:2065" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="1951:2066" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="2275:2389" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="2921:2994" ph="select * fro... accountsVerifying" />
-            <marker date="1529006952565" expanded="true" signature="3186:3227" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="3321:3392" ph="delete from accountsVerifying... " />
-            <marker date="1529006952565" expanded="true" signature="3540:3647" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="4537:4666" ph="insert into accounts... " />
-            <marker date="1529006952565" expanded="true" signature="4865:4973" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5071:5149" ph="insert into accountsVerifying... " />
-            <marker date="1529006952565" expanded="true" signature="5571:5604" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5571:5626" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5571:5627" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5571:5628" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5785:5835" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="6025:6041" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="6025:6114" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="6031:6041" ph="insert into accounts... " />
-            <marker date="1529006952565" expanded="true" signature="6255:6320" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="6597:6683" ph="select * fro... accountsVerifying" />
-            <marker date="1529006952565" expanded="true" signature="7104:7154" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="7310:7388" ph="insert into accountsVerifying... " />
-            <marker date="1529006952565" expanded="true" signature="7769:7847" ph="select * fro... accountsVerifying" />
-            <marker date="1529006952565" expanded="true" signature="8095:8173" ph="select * fro... accountsVerifying" />
-            <marker date="1529006952565" expanded="true" signature="8365:8406" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="8365:8454" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="8530:8638" ph="delete from accountsVerifying... " />
+            <marker date="1529873028204" expanded="true" signature="836:880" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="1142:1192" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="1462:1531" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="2053:2167" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="2053:2168" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="2478:2592" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="3124:3197" ph="select * fro... accountsVerifying" />
+            <marker date="1529873028204" expanded="true" signature="3389:3430" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="3524:3595" ph="delete from accountsVerifying... " />
+            <marker date="1529873028204" expanded="true" signature="3743:3850" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="4740:4869" ph="insert into accounts... " />
+            <marker date="1529873028204" expanded="true" signature="5068:5176" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5274:5352" ph="insert into accountsVerifying... " />
+            <marker date="1529873028204" expanded="true" signature="5774:5807" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5774:5829" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5774:5830" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5774:5831" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5988:6038" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="6228:6244" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="6228:6317" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="6234:6244" ph="insert into accounts... " />
+            <marker date="1529873028204" expanded="true" signature="6458:6523" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="6800:6886" ph="select * fro... accountsVerifying" />
+            <marker date="1529873028204" expanded="true" signature="7307:7357" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="7513:7591" ph="insert into accountsVerifying... " />
+            <marker date="1529873028204" expanded="true" signature="7972:8050" ph="select * fro... accountsVerifying" />
+            <marker date="1529873028204" expanded="true" signature="8298:8376" ph="select * fro... accountsVerifying" />
+            <marker date="1529873028204" expanded="true" signature="8568:8609" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="8568:8657" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="8733:8841" ph="delete from accountsVerifying... " />
           </folding>
         </state>
       </provider>
@@ -921,14 +924,15 @@
           <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1529857414838" expanded="true" signature="547:628" ph="select * fro... lists" />
-            <marker date="1529857414838" expanded="true" signature="887:947" ph="select * fro... lists" />
-            <marker date="1529857414838" expanded="true" signature="887:948" ph="select * fro... lists" />
-            <marker date="1529857414838" expanded="true" signature="1219:1304" ph="select * fro... lists" />
-            <marker date="1529857414838" expanded="true" signature="1472:1553" ph="insert into lists... " />
-            <marker date="1529857414838" expanded="true" signature="1880:1987" ph="update lists... " />
-            <marker date="1529857414838" expanded="true" signature="2253:2303" ph="delete from lists... " />
-            <marker date="1529857414838" expanded="true" signature="2357:2411" ph="delete from tasks... " />
+            <marker date="1529874640893" expanded="true" signature="547:608" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="547:628" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="887:947" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="887:948" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="1219:1304" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="1472:1553" ph="insert into lists... " />
+            <marker date="1529874640893" expanded="true" signature="1880:1987" ph="update lists... " />
+            <marker date="1529874640893" expanded="true" signature="2253:2303" ph="delete from lists... " />
+            <marker date="1529874640893" expanded="true" signature="2357:2411" ph="delete from tasks... " />
           </folding>
         </state>
       </provider>
@@ -1009,14 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/activate.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1078,29 +1074,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="67" column="54" lean-forward="false" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
-          <folding>
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#649#650#0" expanded="false" />
-            <element signature="e#1213#1214#0" expanded="false" />
-            <element signature="e#1276#1277#0" expanded="false" />
-            <element signature="e#1326#1327#0" expanded="false" />
-            <element signature="e#1384#1385#0" expanded="false" />
-            <element signature="e#1645#1646#0" expanded="false" />
-            <element signature="e#1704#1705#0" expanded="false" />
-            <element signature="e#1770#1771#0" expanded="false" />
-            <element signature="e#1834#1835#0" expanded="false" />
-            <element signature="e#1891#1892#0" expanded="false" />
-            <element signature="e#1953#1954#0" expanded="false" />
-            <element signature="e#2018#2019#0" expanded="false" />
-            <element signature="e#2081#2082#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/resetPassword.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1117,36 +1090,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editList.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-534">
-          <caret line="156" column="34" lean-forward="false" selection-start-line="156" selection-start-column="34" selection-end-line="156" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountServiceInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="56" lean-forward="false" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -1176,49 +1123,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="220" column="0" lean-forward="true" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
-          <folding>
-            <marker date="1529006952565" expanded="true" signature="836:880" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="1142:1192" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="1462:1531" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="1951:2065" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="1951:2066" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="2275:2389" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="2921:2994" ph="select * fro... accountsVerifying" />
-            <marker date="1529006952565" expanded="true" signature="3186:3227" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="3321:3392" ph="delete from accountsVerifying... " />
-            <marker date="1529006952565" expanded="true" signature="3540:3647" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="4537:4666" ph="insert into accounts... " />
-            <marker date="1529006952565" expanded="true" signature="4865:4973" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5071:5149" ph="insert into accountsVerifying... " />
-            <marker date="1529006952565" expanded="true" signature="5571:5604" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5571:5626" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5571:5627" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5571:5628" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="5785:5835" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="6025:6041" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="6025:6114" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="6031:6041" ph="insert into accounts... " />
-            <marker date="1529006952565" expanded="true" signature="6255:6320" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="6597:6683" ph="select * fro... accountsVerifying" />
-            <marker date="1529006952565" expanded="true" signature="7104:7154" ph="select * fro... accounts" />
-            <marker date="1529006952565" expanded="true" signature="7310:7388" ph="insert into accountsVerifying... " />
-            <marker date="1529006952565" expanded="true" signature="7769:7847" ph="select * fro... accountsVerifying" />
-            <marker date="1529006952565" expanded="true" signature="8095:8173" ph="select * fro... accountsVerifying" />
-            <marker date="1529006952565" expanded="true" signature="8365:8406" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="8365:8454" ph="update accounts... " />
-            <marker date="1529006952565" expanded="true" signature="8530:8638" ph="delete from accountsVerifying... " />
-          </folding>
+        <state relative-caret-position="405">
+          <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/models/Lists.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/addTask.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -1233,10 +1149,142 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/models/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#762#763#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#821#822#0" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+            <element signature="e#996#997#0" expanded="true" />
+            <element signature="e#1028#1029#0" expanded="true" />
+            <element signature="e#1062#1063#0" expanded="true" />
+            <element signature="e#1092#1093#0" expanded="true" />
+            <element signature="e#1138#1139#0" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
+            <element signature="e#1239#1240#0" expanded="true" />
+            <element signature="e#1284#1285#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1380#1381#0" expanded="true" />
+            <element signature="e#1418#1419#0" expanded="true" />
+            <element signature="e#1450#1451#0" expanded="true" />
+            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1517#1518#0" expanded="true" />
+            <element signature="e#1566#1567#0" expanded="true" />
+            <element signature="e#1610#1611#0" expanded="true" />
+            <element signature="e#1638#1639#0" expanded="true" />
+            <element signature="e#1665#1666#0" expanded="true" />
+            <element signature="e#1702#1703#0" expanded="true" />
+            <element signature="e#1734#1735#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/TaskServiceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountServiceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="56" lean-forward="false" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="22" column="99" lean-forward="false" selection-start-line="22" selection-start-column="99" selection-end-line="22" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/AccountDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1635">
+          <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+          <folding>
+            <marker date="1529873028204" expanded="true" signature="836:880" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="1142:1192" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="1462:1531" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="2053:2167" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="2053:2168" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="2478:2592" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="3124:3197" ph="select * fro... accountsVerifying" />
+            <marker date="1529873028204" expanded="true" signature="3389:3430" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="3524:3595" ph="delete from accountsVerifying... " />
+            <marker date="1529873028204" expanded="true" signature="3743:3850" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="4740:4869" ph="insert into accounts... " />
+            <marker date="1529873028204" expanded="true" signature="5068:5176" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5274:5352" ph="insert into accountsVerifying... " />
+            <marker date="1529873028204" expanded="true" signature="5774:5807" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5774:5829" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5774:5830" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5774:5831" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="5988:6038" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="6228:6244" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="6228:6317" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="6234:6244" ph="insert into accounts... " />
+            <marker date="1529873028204" expanded="true" signature="6458:6523" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="6800:6886" ph="select * fro... accountsVerifying" />
+            <marker date="1529873028204" expanded="true" signature="7307:7357" ph="select * fro... accounts" />
+            <marker date="1529873028204" expanded="true" signature="7513:7591" ph="insert into accountsVerifying... " />
+            <marker date="1529873028204" expanded="true" signature="7972:8050" ph="select * fro... accountsVerifying" />
+            <marker date="1529873028204" expanded="true" signature="8298:8376" ph="select * fro... accountsVerifying" />
+            <marker date="1529873028204" expanded="true" signature="8568:8609" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="8568:8657" ph="update accounts... " />
+            <marker date="1529873028204" expanded="true" signature="8733:8841" ph="delete from accountsVerifying... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#437#438#0" expanded="true" />
@@ -1251,129 +1299,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/AccountService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="95" column="37" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+        <state relative-caret-position="154">
+          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#822#823#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="330">
+          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/models/Lists.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="40" selection-end-column="5" />
+        <state relative-caret-position="195">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="52" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1529857414838" expanded="true" signature="547:628" ph="select * fro... lists" />
-            <marker date="1529857414838" expanded="true" signature="887:947" ph="select * fro... lists" />
-            <marker date="1529857414838" expanded="true" signature="887:948" ph="select * fro... lists" />
-            <marker date="1529857414838" expanded="true" signature="1219:1304" ph="select * fro... lists" />
-            <marker date="1529857414838" expanded="true" signature="1472:1553" ph="insert into lists... " />
-            <marker date="1529857414838" expanded="true" signature="1880:1987" ph="update lists... " />
-            <marker date="1529857414838" expanded="true" signature="2253:2303" ph="delete from lists... " />
-            <marker date="1529857414838" expanded="true" signature="2357:2411" ph="delete from tasks... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/models/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding>
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#835#836#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#943#944#0" expanded="true" />
-            <element signature="e#970#971#0" expanded="true" />
-            <element signature="e#1010#1011#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1076#1077#0" expanded="true" />
-            <element signature="e#1106#1107#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1190#1191#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1298#1299#0" expanded="true" />
-            <element signature="e#1338#1339#0" expanded="true" />
-            <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#1399#1400#0" expanded="true" />
-            <element signature="e#1442#1443#0" expanded="true" />
-            <element signature="e#1474#1475#0" expanded="true" />
-            <element signature="e#1508#1509#0" expanded="true" />
-            <element signature="e#1541#1542#0" expanded="true" />
-            <element signature="e#1590#1591#0" expanded="true" />
-            <element signature="e#1634#1635#0" expanded="true" />
-            <element signature="e#1662#1663#0" expanded="true" />
-            <element signature="e#1689#1690#0" expanded="true" />
-            <element signature="e#1726#1727#0" expanded="true" />
-            <element signature="e#1758#1759#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/TaskDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="39" column="61" lean-forward="true" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1529859409932" expanded="true" signature="574:614" ph="select * fro... lists" />
-            <marker date="1529859409932" expanded="true" signature="776:874" ph="select * fro... task" />
-            <marker date="1529859409932" expanded="true" signature="1147:1208" ph="select * fro... lists" />
-            <marker date="1529859409932" expanded="true" signature="1147:1216" ph="select * fro... lists" />
-            <marker date="1529859409932" expanded="true" signature="1147:1239" ph="select * fro... lists" />
-            <marker date="1529859409932" expanded="true" signature="1403:1459" ph="select * fro... tasks" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/TaskServiceInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1529874640893" expanded="true" signature="547:608" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="547:628" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="887:947" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="887:948" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="1219:1304" ph="select * fro... lists" />
+            <marker date="1529874640893" expanded="true" signature="1472:1553" ph="insert into lists... " />
+            <marker date="1529874640893" expanded="true" signature="1880:1987" ph="update lists... " />
+            <marker date="1529874640893" expanded="true" signature="2253:2303" ph="delete from lists... " />
+            <marker date="1529874640893" expanded="true" signature="2357:2411" ph="delete from tasks... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/TaskService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        <state relative-caret-position="405">
+          <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#445#446#0" expanded="true" />
             <element signature="e#496#497#0" expanded="true" />
             <element signature="e#559#560#0" expanded="true" />
             <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/TaskDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1529875924005" expanded="true" signature="657:698" ph="select * fro... lists" />
+            <marker date="1529875924005" expanded="true" signature="860:958" ph="select * fro... task" />
+            <marker date="1529875924005" expanded="true" signature="1231:1292" ph="select * fro... lists" />
+            <marker date="1529875924005" expanded="true" signature="1231:1300" ph="select * fro... lists" />
+            <marker date="1529875924005" expanded="true" signature="1231:1323" ph="select * fro... lists" />
+            <marker date="1529875924005" expanded="true" signature="1487:1543" ph="select * fro... tasks" />
+            <marker date="1529875924005" expanded="true" signature="1861:1966" ph="insert into tasks... " />
+            <marker date="1529875924005" expanded="true" signature="1861:1986" ph="insert into lists... " />
           </folding>
         </state>
       </provider>

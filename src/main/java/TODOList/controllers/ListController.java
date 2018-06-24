@@ -19,7 +19,7 @@ public class ListController {
     ListService listService;
 
     @GetMapping("/add")
-    public String loginView(HttpServletResponse response,
+    public String addListView(HttpServletResponse response,
                             @CookieValue(value = "username", required = false) String userCookie,
                             @CookieValue(value = "password", required = false) String passCookie) {
 
@@ -77,7 +77,6 @@ public class ListController {
                           @ModelAttribute("Lists") Lists lists,
                            @ModelAttribute("newListName") String newListName,
                            @ModelAttribute("newListColour") String newListColour){
-
         Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
 
         if(account == null)

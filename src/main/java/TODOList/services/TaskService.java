@@ -24,5 +24,8 @@ public class TaskService implements TaskServiceInterface{
         return taskDao.getTasks(account, lists);
     }
 
-    
+    public int addTask(Account account, Task task){
+        return taskDao.addTask(account, task);
+    }
+
 }

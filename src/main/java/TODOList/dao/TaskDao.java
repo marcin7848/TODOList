@@ -3,6 +3,7 @@ package TODOList.dao;
 import TODOList.models.Account;
 import TODOList.models.Lists;
 import TODOList.models.Task;
+import TODOList.services.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -21,8 +22,11 @@ public class TaskDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    ListService listService;
+
     public Task getTask(Account account, int id){
-        String sql = "select * from task where id='" + id + "'";
+        String sql = "select * from tasks where id='" + id + "'";
         List<Task> task = jdbcTemplate.query(sql, new TaskMapper());
 
         if(task.isEmpty())
@@ -50,7 +54,22 @@ public class TaskDao {
         return task;
     }
 
+    public int addTask(Account account, Task task){
+        Lists lists = listService.getList(account, task.getListId());
 
+        if(lists == null)
+            return 2; //lists doesn't exist
+
+
+        String sql = "insert into tasks (listId, name, comment, priority, date, repeatTime, done)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        jdbcTemplate.update(sql, task.getListId(), task.getName(), task.getComment(), task.getPriority(),
+                task.getDate(), task.getRepeatTime(), task.getDone());
+
+
+        return 1;
+    }
 
 
 
@@ -64,7 +83,7 @@ class TaskMapper implements RowMapper<Task> {
         task.setName(rs.getString("name"));
         task.setComment(rs.getString("comment"));
         task.setPriority(rs.getInt("priority"));
-        task.setDate(rs.getTimestamp("date"));
+        task.setDate(rs.getDate("date"));
         task.setRepeatTime(rs.getInt("repeatTime"));
         task.setDone(rs.getInt("done"));
         return task;

@@ -10,5 +10,5 @@ import java.util.List;
 public interface TaskServiceInterface {
     Task getTask(Account account, int id);
     List<Task> getTasks(Account account, Lists lists);
-
+    int addTask(Account account, Task task);
 }

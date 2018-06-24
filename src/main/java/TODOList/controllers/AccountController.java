@@ -197,6 +197,7 @@ public class AccountController {
                               @CookieValue(value = "password", required = false) String passCookie,
                               @ModelAttribute("email") String email) {
 
+
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/"; //cannot when log in
         }
