@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 
@@ -32,7 +33,7 @@ public class TaskDao {
         if(task.isEmpty())
             return null; //task doesn't exist
 
-        sql = "select * from lists where accountId='" + account.getId() + "' and id='" + task.get(0).getId() + "'";
+        sql = "select * from lists where accountId='" + account.getId() + "' and id='" + task.get(0).getListId() + "'";
         List<Lists> lists = jdbcTemplate.query(sql, new ListsMapper());
 
         if(lists.isEmpty())
@@ -71,6 +72,31 @@ public class TaskDao {
         return 1;
     }
 
+    public int editTask(Account account, Task task, int listId, String name, String comment, int priority, Date date, int repeatTime, int done){
+        Task taskCheck = getTask(account, task.getId());
+        if(taskCheck == null)
+            return 2; //task doesn't exist
+
+        Lists lists = listService.getList(account, listId);
+        if(lists == null)
+            return 3; //lists doesn't exist
+
+        String sql = "update tasks SET listId=?, name=?, comment=?, priority=?, date=?, repeatTime=?, done=? WHERE id='" + task.getId() + "'";
+        jdbcTemplate.update(sql, listId, name, comment, priority, date, repeatTime, done);
+
+        return 1;
+    }
+
+    public int deleteTask(Account account, int id){
+        Task taskCheck = getTask(account, id);
+        if(taskCheck == null)
+            return 2; //task doesn't exist
+
+        String sql = "delete from tasks WHERE id='" + id + "'";
+        jdbcTemplate.execute(sql);
+
+        return 1;
+    }
 
 
 }

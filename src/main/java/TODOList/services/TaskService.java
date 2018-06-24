@@ -7,6 +7,7 @@ import TODOList.models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -28,4 +29,11 @@ public class TaskService implements TaskServiceInterface{
         return taskDao.addTask(account, task);
     }
 
+    public int editTask(Account account, Task task, int listId, String name, String comment, int priority, Date date, int repeatTime, int done){
+        return taskDao.editTask(account, task, listId, name, comment, priority, date, repeatTime, done);
+    }
+
+    public int deleteTask(Account account, int id){
+        return taskDao.deleteTask(account, id);
+    }
 }
