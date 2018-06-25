@@ -62,13 +62,6 @@
 
 </head>
 <body onload="startTime()" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<div id="message"></div>
-<dialog id="messageWaiting" class="mdl-dialog">
-    <h4 class="mdl-dialog__title">Progress...</h4>
-    <div class="mdl-dialog__content">
-        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-    </div>
-</dialog>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
         <div style="display: block;" class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
@@ -83,16 +76,6 @@
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div class="mdl-card__supporting-text">
                         <h4>Reset Password</h4>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="password">
-                            <label class="mdl-textfield__label" for="password">New Password</label>
-                        </div>
-                        <br />
-                        <input type="hidden" id="code" value="${code}">
-                        <br />
-                        <button onclick="resetPassword()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                            Reset
-                        </button>
                     </div>
                 </div>
             </section>
@@ -100,5 +83,27 @@
     </main>
 </div>
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<dialog class="mdl-dialog">
+    <h4 class="mdl-dialog__title">Bad Code!</h4>
+    <div class="mdl-dialog__content">
+        <p>
+            Your code is not correct! Try reset password again!
+        </p>
+    </div>
+    <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button close">Close</button>
+    </div>
+</dialog>
+<script>
+    var dialog = document.querySelector('dialog');
+    if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+    dialog.showModal();
+    dialog.querySelector('.close').addEventListener('click', function() {
+        dialog.close();
+        window.location.replace("/");
+    });
+</script>
 </body>
 </html>

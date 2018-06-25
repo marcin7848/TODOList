@@ -62,7 +62,7 @@ public class AccountController {
             int result = accountService.registerAccount(registerInfo);
             if (result == 2)
                 return "{\"error\":1, \"errorTitle\":\"Account exists!\"," +
-                        " \"errorDescription\":\"This account already exists! Try to login.\"}";
+                        " \"errorDescription\":\"This account has already existed! Try to login.\"}";
 
 
             return "{\"error\":0}";
@@ -94,18 +94,20 @@ public class AccountController {
 
 
     @PostMapping("/activate")
+    @ResponseBody
     public String activateProcess(HttpServletResponse response,
                                   @CookieValue(value = "username", required = false) String userCookie,
                                   @CookieValue(value = "password", required = false) String passCookie,
-                                  @ModelAttribute("activateCode") String activateCode) {
+                                  @ModelAttribute("activationCode") String activationCode) {
 
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/";
         } else {
-            if (accountService.activateAccount(activateCode))
-                return "redirect:/login";
+            if (accountService.activateAccount(activationCode))
+                return "{\"error\":0}";
             else
-                return "activate"; //bad code or account has already activated
+                return "{\"error\":1, \"errorTitle\":\"Bad code!\"," +
+                        " \"errorDescription\":\"Bad activation code or account has already activated!\"}"; //bad code or account has already activated
         }
     }
 
@@ -166,6 +168,7 @@ public class AccountController {
     }
 
     @PostMapping("/resendActivateCode")
+    @ResponseBody
     public String resendActivateCode(HttpServletResponse response,
                                      @CookieValue(value = "username", required = false) String userCookie,
                                      @CookieValue(value = "password", required = false) String passCookie,
@@ -177,9 +180,10 @@ public class AccountController {
         }
 
         if (accountService.resendActivateCode(email))
-            return "redirect:/"; //mail sent
+            return "{\"error\":0}"; //mail sent
         else
-            return "redirect:/"; //this account don't exist or is activated
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"This account does not exist or is activated!\"}"; //this account don't exist or is activated
 
     }
 
@@ -197,6 +201,7 @@ public class AccountController {
     }
 
     @PostMapping("/sendResetPassword")
+    @ResponseBody
     public String sendResetPasswordCode(HttpServletResponse response,
                                         HttpServletRequest request,
                                         @CookieValue(value = "username", required = false) String userCookie,
@@ -208,14 +213,18 @@ public class AccountController {
         }
 
         if (accountService.sendResetPassword(email, request.getLocalName()))
-            return "redirect:/"; //mail sent
+            return "{\"error\":0}"; //mail sent
         else
-            return "redirect:/"; //that email doesn't exist
+            return "{\"error\":1, \"errorTitle\":\"Bad email!\"," +
+                    " \"errorDescription\":\"This email does not exist!\"}"; //that email doesn't exist
 
     }
 
+
+
     @GetMapping("/resetPassword/{code}")
     public String resetPasswordCheck(HttpServletResponse response,
+                                     Model m,
                                      @CookieValue(value = "username", required = false) String userCookie,
                                      @CookieValue(value = "password", required = false) String passCookie,
                                      @PathVariable("code") String code) {
@@ -223,15 +232,19 @@ public class AccountController {
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/"; //cannot when log in
         } else {
-            if (accountService.checkResetPasswordCode(code))
+            if (accountService.checkResetPasswordCode(code)) {
+                m.addAttribute("code", code);
                 return "resetPassword";
-            else
-                return "redirect:/"; //this code doesn't exist
+            }
+            else {
+                return "resetPasswordBadCode"; //this code doesn't exist
+            }
         }
 
     }
 
     @PostMapping("/resetPassword")
+    @ResponseBody
     public String resetPassword(HttpServletResponse response,
                                 HttpServletRequest request,
                                 @CookieValue(value = "username", required = false) String userCookie,
@@ -244,9 +257,10 @@ public class AccountController {
         }
 
         if (accountService.resetPassword(code, password))
-            return "redirect:/"; //password reset
+            return "{\"error\":0}"; //password reset
         else
-            return "redirect:/"; //code doesn't exist
+            return "{\"error\":1, \"errorTitle\":\"Bad code!\"," +
+                    " \"errorDescription\":\"Bad code! Unauthorised request!\"}"; //code doesn't exist
 
     }
 

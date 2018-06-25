@@ -98,7 +98,8 @@
                     </div>
                     <div class="mdl-card__actions">
                         <a href="/sendResetPassword" class="mdl-button">Remember password</a>
-                        <a href="/resendActivateCode" class="mdl-button">Resend activation email</a>
+                        <a href="/activate" class="mdl-button">Activate Account</a>
+                        <a href="/resendActivateCode" class="mdl-button">Resend activation code</a>
                     </div>
                 </div>
             </section>
@@ -139,7 +140,8 @@
                     </div>
                     <div class="mdl-card__actions">
                         <a href="/sendResetPassword" class="mdl-button">Remember password</a>
-                        <a href="/resendActivateCode" class="mdl-button">Resend activation email</a>
+                        <a href="/activate" class="mdl-button">Activate Account</a>
+                        <a href="/resendActivateCode" class="mdl-button">Resend activation code</a>
                     </div>
                 </div>
             </section>
