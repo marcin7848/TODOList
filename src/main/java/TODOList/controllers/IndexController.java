@@ -24,12 +24,18 @@ public class IndexController {
                             @CookieValue(value = "username", required = false) String userCookie,
                             @CookieValue(value = "password", required = false) String passCookie) {
 
-        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
-            return "redirect:/";
-        } else {
+        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
+
+        if(account == null) {
             AccountService.deleteCookies(response);
             return "indexLogin";
         }
+
+        m.addAttribute("username", account.getUsername());
+        m.addAttribute("firstName", account.getFirstName());
+        m.addAttribute("secondName", account.getSecondName());
+        m.addAttribute("email", account.getEmail());
+        return "index";
 
     }
 }

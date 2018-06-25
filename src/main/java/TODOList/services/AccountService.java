@@ -67,4 +67,8 @@ public class AccountService implements AccountServiceInterface {
     public boolean resetPassword(String code, String password){
         return accountDao.resetPassword(code, password);
     }
+
+    public boolean compareAccountPassword(String password, String hashedPassword){
+        return accountDao.compareAccountPassword(password, hashedPassword);
+    }
 }

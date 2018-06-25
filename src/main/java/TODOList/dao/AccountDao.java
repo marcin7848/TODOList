@@ -228,6 +228,13 @@ public class AccountDao {
         return true;
     }
 
+    public boolean compareAccountPassword(String password, String hashedPassword){
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if(!passwordEncoder.matches(password, hashedPassword))
+            return false;
+
+        return true;
+    }
 
 }
 

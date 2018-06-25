@@ -111,39 +111,30 @@ public class AccountController {
         }
     }
 
-
-    @GetMapping("/editAccount")
-    public String editView(HttpServletResponse response,
-                           @CookieValue(value = "username", required = false) String userCookie,
-                           @CookieValue(value = "password", required = false) String passCookie) {
-
-        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
-            return "editAccount";
-        } else {
-            AccountService.deleteCookies(response);
-            return "redirect:/";
-        }
-
-    }
-
     @PostMapping("/editAccount")
+    @ResponseBody
     public String editProcess(HttpServletResponse response,
                               @CookieValue(value = "username", required = false) String userCookie,
                               @CookieValue(value = "password", required = false) String passCookie,
-                              @ModelAttribute("Account") Account editAccount) {
-
-        if (!AccountService.validateCookies(new Account(userCookie, passCookie))) {
-            AccountService.deleteCookies(response);
-            return "redirect:/"; //please log in
-        }
+                              @ModelAttribute("Account") Account editAccount,
+                              @ModelAttribute("oldPassword") String oldPassword) {
 
         Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
 
         if (account == null)
             return "redirect:/"; //please log in
 
-        accountService.editAccount(account, editAccount.getFirstName(), editAccount.getSecondName(),
+        if(!accountService.compareAccountPassword(oldPassword, account.getPassword()))
+            return "{\"error\":1, \"errorTitle\":\"Bad old password!\"," +
+                    " \"errorDescription\":\"To change settings you have to give correct old password!\"}";
+
+
+        int result = accountService.editAccount(account, editAccount.getFirstName(), editAccount.getSecondName(),
                 editAccount.getPassword(), editAccount.getEmail());
+
+        if(result == 2)
+            return "{\"error\":1, \"errorTitle\":\"Email exist!\"," +
+                    " \"errorDescription\":\"This email exists in database! Choose another email!\"}";
 
         Cookie pass = new Cookie("password", accountService.getAccount(account.getId()).getPassword());
         pass.setMaxAge(900);
@@ -151,7 +142,7 @@ public class AccountController {
         pass.setHttpOnly(true);
         response.addCookie(pass);
 
-        return "redirect:/"; //list created
+        return "{\"error\":0}"; //account edited
     }
 
     @GetMapping("/resendActivateCode")

@@ -37,6 +37,14 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '    });\n';
     }
 
+    if(makeFunction == "goToIndex") {
+        functionButton = 'dialog.querySelector(\'.button1\').addEventListener(\'click\', function() {\n' +
+            '$("#message").html(""); ' +
+            '      dialog.close();\n' +
+            '      window.location.replace("/");\n' +
+            '    });\n';
+    }
+
     $('#message').html('<dialog class="mdl-dialog">\n' +
         '    <h4 class="mdl-dialog__title">'+ title +'</h4>\n' +
         '    <div class="mdl-dialog__content">\n' +
@@ -194,6 +202,34 @@ function resetPassword(){
                 showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");
             }else{
                 showDialog("Password has reset!", "Try to login using new password!", 1, "Close", "Close", "goToLogin");
+            }
+        }
+    });
+
+}
+
+function editSettings(){
+    showDialogWaiting();
+    if($('#oldPassword').val() == "" || $('#firstName').val() == "" || $('#secondName').val() == "" ||
+        $('#email').val() == "") {
+        showDialog("Empty inputs!", "You have to fill all inputs!", 1, "Close", "Close", "singleButtonAccept");
+        return false;
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: '/editAccount',
+        data: {'oldPassword': $('#oldPassword').val(),
+            'firstName': $('#firstName').val(),
+            'secondName': $('#secondName').val(),
+            'email': $('#email').val(),
+            'password': $('#password').val()},
+        complete: function (response) {
+            var jsonResponse = JSON.parse(response.responseText);
+            if(jsonResponse.error == '1'){
+                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");
+            }else{
+                showDialog("Settings changed!", "Your settings has changed!", 1, "Close", "Close", "goToIndex");
             }
         }
     });

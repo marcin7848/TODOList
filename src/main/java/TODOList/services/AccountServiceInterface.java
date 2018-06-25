@@ -12,4 +12,5 @@ public interface AccountServiceInterface {
     boolean sendResetPassword(String email, String host);
     boolean checkResetPasswordCode(String code);
     boolean resetPassword(String code, String password);
+    boolean compareAccountPassword(String password, String hashedPassword);
 }
