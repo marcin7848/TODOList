@@ -14,8 +14,8 @@ public class ListService implements ListServiceInterface{
     @Autowired
     private ListsDao listsDao;
 
-    public int addList(Account account, String name, String colour){
-        return listsDao.addList(account, name, colour);
+    public int addList(Account account, String name, String colour, int numOrder, boolean showed){
+        return listsDao.addList(account, name, colour, numOrder, showed);
     }
 
     public int editList(Account account, Lists lists, String name, String colour){
@@ -33,4 +33,11 @@ public class ListService implements ListServiceInterface{
         return listsDao.getLists(account);
     }
 
+    public int changeShowedList(Account account, int id){
+        return listsDao.changeShowedList(account, id);
+    }
+
+    public int changeNumOrderList(Account account, int id, int newNumOrder){
+        return listsDao.changeNumOrderList(account, id, newNumOrder);
+    }
 }

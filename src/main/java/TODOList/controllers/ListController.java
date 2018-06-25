@@ -36,14 +36,16 @@ public class ListController {
                           @CookieValue(value = "username", required = false) String userCookie,
                           @CookieValue(value = "password", required = false) String passCookie,
                           @ModelAttribute("listName") String listName,
-                          @ModelAttribute("listColour") String listColour){
+                          @ModelAttribute("listColour") String listColour,
+                          @ModelAttribute("numOrder") int numOrder,
+                          @ModelAttribute("showed") boolean showed){
 
         Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
 
         if(account == null)
             return "redirect:/"; //please log in
 
-        listService.addList(account, listName, listColour);
+        listService.addList(account, listName, listColour, numOrder, showed);
 
         return "redirect:/"; //list created
     }
@@ -108,6 +110,43 @@ public class ListController {
             return "redirect:/"; //list doesn't exist
 
         return "redirect:/"; //list deleted
+    }
+
+    @PostMapping("/changeShowed/{listId}")
+    public String changeShowedList(HttpServletResponse response,
+                             @CookieValue(value = "username", required = false) String userCookie,
+                             @CookieValue(value = "password", required = false) String passCookie,
+                             @PathVariable("listId") int listId){
+
+        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
+
+        if(account == null)
+            return "redirect:/"; //please log in
+        int result = listService.changeShowedList(account, listId);
+        if(result == 2)
+            return "redirect:/"; //list doesn't exist
+
+        return "redirect:/"; //list changed showed
+    }
+
+    @PostMapping("/changeNumOrder/{listId}/{numOrder}")
+    public String changeNumOrderList(HttpServletResponse response,
+                                   @CookieValue(value = "username", required = false) String userCookie,
+                                   @CookieValue(value = "password", required = false) String passCookie,
+                                   @PathVariable("listId") int listId,
+                                     @PathVariable("numOrder") int numOrder){
+
+        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
+
+        if(account == null)
+            return "redirect:/"; //please log in
+
+        int result = listService.changeNumOrderList(account, listId, numOrder);
+
+        if(result == 2)
+            return "redirect:/"; //list doesn't exist
+
+        return "redirect:/"; //changed numOrder
     }
 
 }
