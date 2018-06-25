@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="description" content="TODOList">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Material Design Lite</title>
+    <title>TODOList</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -40,6 +40,8 @@
     <script src= "style/jsCalendar/moment-2.2.1.js"></script>
     <script src="style/jsCalendar/clndr.js"></script>
     <script src="style/jsCalendar/site.js"></script>
+    <script src="style/jquery-3.3.1.min.js"></script>
+    <script src="style/scripts.js"></script>
 
     <script>
         function startTime() {
@@ -74,24 +76,12 @@
 <body onload="startTime()" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-            <h3>TODOList!</h3>
-            <h6 style="padding-top: 50px;">Plan your day!</h6>
-        </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        </div>
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-            <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
-            <a href="#features" class="mdl-layout__tab">Features</a>
-            <a href="#features2" class="mdl-layout__tab">Details</a>
-            <a href="#features" class="mdl-layout__tab">Technology</a>
-            <a href="#features" class="mdl-layout__tab">FAQ</a>
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
-                <i class="material-icons" role="presentation">add</i>
-                <span class="visuallyhidden">Add</span>
-            </button>
+        <div style="display: block;" class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+            <a style="float: right;" href="#overview" class="mdl-layout__tab is-active">Overview</a>
+            <a style="float: right;" href="#features" class="mdl-layout__tab">Features</a>
+            <a style="float: right;" href="#features2" class="mdl-layout__tab">Details</a>
+            <a style="float: right;" href="#features" class="mdl-layout__tab">Technology</a>
+            <a style="float: right;" href="#features" class="mdl-layout__tab">FAQ</a>
         </div>
     </header>
     <main class="mdl-layout__content">
