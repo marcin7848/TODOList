@@ -49,6 +49,27 @@ public class AccountController {
 
     }
 
+    @PostMapping("/registerProcess")
+    @ResponseBody
+    public String registerProcess(HttpServletResponse response,
+                                  @CookieValue(value = "username", required = false) String userCookie,
+                                  @CookieValue(value = "password", required = false) String passCookie,
+                                  @ModelAttribute("Account") Account registerInfo) {
+
+        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
+            return "redirect:/"; //already logged
+        } else {
+            int result = accountService.registerAccount(registerInfo);
+            if (result == 2)
+                return "{\"error\":1, \"errorTitle\":\"Account exists!\"," +
+                        " \"errorDescription\":\"This account already exists! Try to login.\"}";
+
+
+            return "{\"error\":0}";
+        }
+    }
+
+
     @GetMapping("/logout")
     public String logout(HttpServletResponse response,
                          @CookieValue(value = "username", required = false) String userCookie,
@@ -88,38 +109,6 @@ public class AccountController {
         }
     }
 
-    @GetMapping("/register")
-    public String registerView(HttpServletResponse response,
-                               @CookieValue(value = "username", required = false) String userCookie,
-                               @CookieValue(value = "password", required = false) String passCookie) {
-
-        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
-            return "redirect:/";
-        } else {
-            AccountService.deleteCookies(response);
-            return "register";
-        }
-    }
-
-    @PostMapping("/registerProcess")
-    public String registerProcess(HttpServletResponse response,
-                                  @CookieValue(value = "username", required = false) String userCookie,
-                                  @CookieValue(value = "password", required = false) String passCookie,
-                                  @ModelAttribute("Account") Account registerInfo) {
-
-        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
-            return "redirect:/";
-        } else {
-            int result = accountService.registerAccount(registerInfo);
-            if (result == 1)
-                return "redirect:/activate"; //created, go activate
-
-            if (result == 2)
-                return "redirect:/"; //account's already existed
-
-            return "redirect:/"; //unknown error
-        }
-    }
 
     @GetMapping("/editAccount")
     public String editView(HttpServletResponse response,

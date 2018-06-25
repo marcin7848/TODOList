@@ -63,6 +63,12 @@
 </head>
 <body onload="startTime()" class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 <div id="message"></div>
+<dialog id="messageWaiting" class="mdl-dialog">
+    <h4 class="mdl-dialog__title">Progress...</h4>
+    <div class="mdl-dialog__content">
+        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    </div>
+</dialog>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
         <div style="display: block;" class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
@@ -127,7 +133,7 @@
                             <label class="mdl-textfield__label" for="secondName">Second Name</label>
                         </div>
                         <br />
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <button onclick="register()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                             Sing Up
                         </button>
                     </div>
