@@ -100,7 +100,7 @@ public class TaskDao {
     }
 
     public List<Task> getTasksRemindersToday(Account account){
-        String sql = "select t.* from tasks t, lists l where l.accountId='" + account.getId() + "' and l.id = t.listId and date(t.date)=CURRENT_DATE() ORDER BY t.date LIMIT 6;";
+        String sql = "select t.* from tasks t, lists l where l.accountId='" + account.getId() + "' and l.id = t.listId and date(t.date)=CURRENT_DATE() and t.done=0 ORDER BY t.date LIMIT 6;";
         List<Task> tasks = jdbcTemplate.query(sql, new TaskMapper());
 
         if(tasks.isEmpty())
