@@ -45,6 +45,24 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '    });\n';
     }
 
+    if(makeFunction == "changeNumOrder") {
+        functionButton = 'dialog.querySelector(\'.button1\').addEventListener(\'click\', function() {\n' +
+            '    $.ajax({\n' +
+            '        type: \'POST\',\n' +
+            '        url: \'/list/changeNumOrder/\'+$("#listId").val()+\'/\'+$("#getNewNumOrder").val(),\n' +
+            '        complete: function () {\n' +
+            '      dialog.close();\n' +
+            '      window.location.replace("/");\n' +
+            '        }\n' +
+            '    });'+
+            '    });\n';
+
+        functionButton+='dialog.querySelector(\'.button2\').addEventListener(\'click\', function() {\n' +
+        '$("#message").html(""); ' +
+        '      dialog.close();\n' +
+        '    });\n';
+    }
+
     $('#message').html('<dialog class="mdl-dialog">\n' +
         '    <h4 class="mdl-dialog__title">'+ title +'</h4>\n' +
         '    <div class="mdl-dialog__content">\n' +
@@ -254,4 +272,17 @@ function changeShowList(id) {
             var jsonResponse = JSON.parse(response.responseText);
         }
     });
+
+}
+
+function changeNumOrder(id, maxNumber){
+
+    var selection ="<select id='getNewNumOrder'>";
+
+    for(var i=1; i<=maxNumber; i++){
+        selection+="<option value='"+i+"'>#"+i+"</option>";
+    }
+    selection+="</select>";
+    selection+="<input id='listId' type='hidden' value='"+id+"' />";
+    showDialog("Change Order", "Choose new position and click Change.<br>"+selection, 2, "Change", "Close", "changeNumOrder");
 }
