@@ -1,6 +1,7 @@
 package TODOList.models;
 
-import java.util.Date;
+
+import java.sql.Timestamp;
 
 public class Task {
     private int id;
@@ -8,14 +9,14 @@ public class Task {
     private String name;
     private String comment;
     private int priority;
-    private Date date;
+    private Timestamp date;
     private int repeatTime;
     private int done;
 
     public Task() {
     }
 
-    public Task(int id, int listId, String name, String comment, int priority, Date date, int repeatTime, int done) {
+    public Task(int id, int listId, String name, String comment, int priority, Timestamp date, int repeatTime, int done) {
         this.id = id;
         this.listId = listId;
         this.name = name;
@@ -66,11 +67,11 @@ public class Task {
         this.priority = priority;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 
@@ -89,5 +90,6 @@ public class Task {
     public void setDone(int done) {
         this.done = done;
     }
+
 }
 

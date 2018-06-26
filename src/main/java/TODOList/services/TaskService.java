@@ -36,4 +36,8 @@ public class TaskService implements TaskServiceInterface{
     public int deleteTask(Account account, int id){
         return taskDao.deleteTask(account, id);
     }
+
+    public List<Task> getTasksRemindersToday(Account account){
+        return taskDao.getTasksRemindersToday(account);
+    }
 }

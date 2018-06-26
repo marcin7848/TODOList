@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <jsp:useBean id="date" class="java.util.Date" />
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="TODOList">
@@ -258,12 +262,9 @@
 
                 <h2>REMINDERS</h2>
                 <ul class="reminder">
-                    <li>06:00 - Wake Up</li>
-                    <li>09:00 - Suit Up</li>
-                    <li>14:00 - Lunch</li>
-                    <li>14:00 - Lunch</li>
-                    <li>14:00 - Lunch</li>
-                    <li>14:00 - Lunch</li>
+                    <c:forEach items="${remindersTasks}" var="remindersTask">
+                        <li><fmt:formatDate value="${remindersTask.date}" pattern="HH:mm" /> - ${remindersTask.name}</li>
+                    </c:forEach>
                 </ul>
             </div>
         </div>
@@ -275,8 +276,8 @@
                     <div class="mdl-card__supporting-text">
                         <h4>Change Accounts Settings</h4>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="oldPassword">
-                            <label class="mdl-textfield__label" for="oldPassword">Old password</label>
+                            <input class="mdl-textfield__input" type="password" id="password">
+                            <label class="mdl-textfield__label" for="password">New Password</label>
                         </div>
                         <br />
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -295,8 +296,8 @@
                         </div>
                         <br />
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="password">
-                            <label class="mdl-textfield__label" for="password">New Password</label>
+                            <input class="mdl-textfield__input" type="password" id="oldPassword">
+                            <label class="mdl-textfield__label" for="oldPassword">Old password</label>
                         </div>
                         <br />
                         <button onclick="editSettings()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">

@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -98,6 +99,15 @@ public class TaskDao {
         return 1;
     }
 
+    public List<Task> getTasksRemindersToday(Account account){
+        String sql = "select t.* from tasks t, lists l where l.accountId='" + account.getId() + "' and l.id = t.listId and date(t.date)=CURRENT_DATE() ORDER BY t.date LIMIT 6;";
+        List<Task> tasks = jdbcTemplate.query(sql, new TaskMapper());
+
+        if(tasks.isEmpty())
+            return null; //no tasks
+
+        return tasks;
+    }
 
 }
 
@@ -109,7 +119,7 @@ class TaskMapper implements RowMapper<Task> {
         task.setName(rs.getString("name"));
         task.setComment(rs.getString("comment"));
         task.setPriority(rs.getInt("priority"));
-        task.setDate(rs.getDate("date"));
+        task.setDate(rs.getTimestamp("date"));
         task.setRepeatTime(rs.getInt("repeatTime"));
         task.setDone(rs.getInt("done"));
         return task;
