@@ -137,7 +137,7 @@ public class AccountController {
                     " \"errorDescription\":\"This email exists in database! Choose another email!\"}";
 
         Cookie pass = new Cookie("password", accountService.getAccount(account.getId()).getPassword());
-        pass.setMaxAge(900);
+        pass.setMaxAge(2000);
         pass.setPath("/");
         pass.setHttpOnly(true);
         response.addCookie(pass);

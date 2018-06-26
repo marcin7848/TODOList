@@ -235,3 +235,23 @@ function editSettings(){
     });
 
 }
+
+
+function changeShowList(id) {
+    if($('#listBody_'+id+'').css('display') == "block"){
+        $('#listBody_'+id+'').css('display', 'none');
+        $('#listBar_'+id+'').css('height', '30px');
+    }
+    else{
+        $('#listBody_'+id+'').css('display', 'block');
+        $('#listBar_'+id+'').css('height', '300px');
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: '/list/changeShowed/'+id,
+        complete: function (response) {
+            var jsonResponse = JSON.parse(response.responseText);
+        }
+    });
+}

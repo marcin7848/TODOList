@@ -3,7 +3,7 @@
 <head>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-    <jsp:useBean id="date" class="java.util.Date" />
+    <jsp:useBean id="date" class="java.util.Date"/>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,21 +27,28 @@
 
     <link rel="shortcut icon" href="style/images/favicon.png">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-deep_purple.min.css">
     <link rel="stylesheet" href="style/styles.css">
 
 
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
     <script src="style/jquery-3.3.1.min.js"></script>
     <!-- Custom Theme files -->
-    <link href="style/cssCalendar/style.css" rel='stylesheet' type='text/css' />
+    <link href="style/cssCalendar/style.css" rel='stylesheet' type='text/css'/>
     <!-- Custom Theme files -->
     <!--Calender-->
-    <link rel="stylesheet" href="style/cssCalendar/clndr.css" type="text/css" />
+    <link rel="stylesheet" href="style/cssCalendar/clndr.css" type="text/css"/>
     <script src="style/jsCalendar/underscore-min.js"></script>
-    <script src= "style/jsCalendar/moment-2.2.1.js"></script>
+    <script src="style/jsCalendar/moment-2.2.1.js"></script>
     <script src="style/jsCalendar/clndr.js"></script>
     <script src="style/jsCalendar/site.js"></script>
     <script src="style/scripts.js"></script>
@@ -58,8 +65,12 @@
                 h + ":" + m + ":" + s;
             var t = setTimeout(startTime, 500);
         }
+
         function checkTime(i) {
-            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            if (i < 10) {
+                i = "0" + i
+            }
+            ;  // add zero in front of numbers < 10
             return i;
         }
     </script>
@@ -245,25 +256,25 @@
 
                 <div class="dmy">
                     <script type="text/javascript">
-                        var mydate=new Date()
-                        var year=mydate.getFullYear()
-                        if(year<1000)
-                            year+=1900
-                        var day=mydate.getDay()
-                        var month=mydate.getMonth()
-                        var daym=mydate.getDate()
-                        if(daym<10)
-                            daym="0"+daym
-                        var dayarray=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
-                        var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
-                        document.write(""+dayarray[day]+", "+montharray[month]+" "+daym+", "+year+"")
+                        var mydate = new Date()
+                        var year = mydate.getFullYear()
+                        if (year < 1000)
+                            year += 1900
+                        var day = mydate.getDay()
+                        var month = mydate.getMonth()
+                        var daym = mydate.getDate()
+                        if (daym < 10)
+                            daym = "0" + daym
+                        var dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+                        var montharray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+                        document.write("" + dayarray[day] + ", " + montharray[month] + " " + daym + ", " + year + "")
                     </script>
                 </div>
 
                 <h2>REMINDERS</h2>
                 <ul class="reminder">
                     <c:forEach items="${remindersTasks}" var="remindersTask">
-                        <li><fmt:formatDate value="${remindersTask.date}" pattern="HH:mm" /> - ${remindersTask.name}</li>
+                        <li><fmt:formatDate value="${remindersTask.date}" pattern="HH:mm"/> - ${remindersTask.name}</li>
                     </c:forEach>
                 </ul>
             </div>
@@ -279,28 +290,29 @@
                             <input class="mdl-textfield__input" type="password" id="password">
                             <label class="mdl-textfield__label" for="password">New Password</label>
                         </div>
-                        <br />
+                        <br/>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="text" id="firstName" value="${firstName}">
                             <label class="mdl-textfield__label" for="firstName">First Name</label>
                         </div>
-                        <br />
+                        <br/>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="text" id="secondName" value="${secondName}">
                             <label class="mdl-textfield__label" for="secondName">Second Name</label>
                         </div>
-                        <br />
+                        <br/>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="text" id="email" value="${email}">
                             <label class="mdl-textfield__label" for="email">Email</label>
                         </div>
-                        <br />
+                        <br/>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="password" id="oldPassword">
                             <label class="mdl-textfield__label" for="oldPassword">Old password</label>
                         </div>
-                        <br />
-                        <button onclick="editSettings()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <br/>
+                        <button onclick="editSettings()"
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                             Edit account
                         </button>
                     </div>
@@ -312,6 +324,73 @@
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div class="mdl-card__supporting-text">
 
+                        <c:forEach items="${lists}" var="list">
+
+                            <c:set var="listBarHeight" value="300" />
+                            <c:set var="listBodyVisible" value="display: block;" />
+                            <c:if test="${!list.showed}">
+                                <c:set var="listBarHeight" value="30" />
+                                <c:set var="listBodyVisible" value="display: none;" />
+                            </c:if>
+
+                            <div id="listBar_${list.id}" style="display: inline-block;width: 250px; height: ${listBarHeight}px; background-color: #008b8b; margin: 2px;vertical-align:top; color: #FFF;">
+                                <div style="width: 100%; height: 30px;  border-bottom: 2px solid #333333;">
+                                    <table style="width: 100%; text-align: center;line-height: 30px;">
+                                        <tr>
+                                            <td>#${list.numOrder}</td>
+                                            <td style="width: 70%;">${list.name}</td>
+                                            <td style="line-height: 0;">
+                                                <button onclick="changeShowList(${list.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 0 0 0 2px;margin: 0;"
+                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                    -
+                                                </button>
+                                            </td>
+                                            <td style="line-height: 0;">
+                                                <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                    X
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="listBody_${list.id}" style="${listBodyVisible} width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;">
+                                    <table style="width: 100%; border-bottom: 1px solid #333333;">
+                                        <tr>
+                                            <td style="width: 68%;">Task1</td>
+                                            <td style="line-height: 0;" rowspan="2">
+                                                <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                    E
+                                                </button>
+                                            </td>
+                                            <td style="line-height: 0;" rowspan="2">
+                                                <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                    X
+                                                </button>
+                                            </td>
+                                            <td style="line-height: 0;" rowspan="2">
+                                                <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                                                    D
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size: 11px;">25.06.2018 13:00</td>
+                                            <td colspan="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size: 10px;" colspan="4">Komentarz adsad asd sadsad as da
+                                                dasd sad asd as asd
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </c:forEach>
+
                         <div style="display: inline-block;width: 250px; height: 300px; background-color: #008b8b; margin: 2px;vertical-align:top; color: #FFF;">
                             <div style="width: 100%; height: 30px;  border-bottom: 2px solid #333333;">
                                 <table style="width: 100%; text-align: center;line-height: 30px;">
@@ -319,12 +398,14 @@
                                         <td>#13</td>
                                         <td style="width: 70%;">Nazwasadsadsad</td>
                                         <td style="line-height: 0;">
-                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 0 0 0 2px;margin: 0;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 0 0 0 2px;margin: 0;"
+                                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                 -
                                             </button>
                                         </td>
                                         <td style="line-height: 0;">
-                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                 X
                                             </button>
                                         </td>
@@ -336,17 +417,20 @@
                                     <tr>
                                         <td style="width: 68%;">Task1</td>
                                         <td style="line-height: 0;" rowspan="2">
-                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                 E
                                             </button>
                                         </td>
                                         <td style="line-height: 0;" rowspan="2">
-                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                 X
                                             </button>
                                         </td>
                                         <td style="line-height: 0;" rowspan="2">
-                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
                                                 D
                                             </button>
                                         </td>
@@ -356,13 +440,13 @@
                                         <td colspan="3"></td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 10px;" colspan="4">Komentarz adsad asd sadsad as da dasd sad asd as asd </td>
+                                        <td style="font-size: 10px;" colspan="4">Komentarz adsad asd sadsad as da dasd
+                                            sad asd as asd
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </section>

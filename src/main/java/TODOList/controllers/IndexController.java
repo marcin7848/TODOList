@@ -2,6 +2,7 @@ package TODOList.controllers;
 
 import TODOList.models.Account;
 import TODOList.services.AccountService;
+import TODOList.services.ListService;
 import TODOList.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,9 @@ public class IndexController {
     @Autowired
     TaskService taskService;
 
+    @Autowired
+    ListService listService;
+
     @GetMapping("/")
     public String index(Model m,
                         HttpServletResponse response,
@@ -40,6 +44,9 @@ public class IndexController {
         m.addAttribute("secondName", account.getSecondName());
         m.addAttribute("email", account.getEmail());
         m.addAttribute("remindersTasks", taskService.getTasksRemindersToday(account));
+        m.addAttribute("lists", listService.getLists(account));
+
+
         return "index";
 
     }
