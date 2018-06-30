@@ -390,6 +390,15 @@
                                 </div>
                             </div>
                         </c:forEach>
+
+                        <div id="addList" style="display: inline-block;width: 250px; height: 40px; background-color: #009F5B; margin: 2px;vertical-align:top; color: #FFF;">
+                            <div style="width: 100%; height: 40px;">
+                                <button onclick="addNewList()" style="width: 100%; height: 100%;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                    Add New List
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>

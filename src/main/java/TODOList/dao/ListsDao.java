@@ -48,7 +48,9 @@ public class ListsDao {
         if(!lists.isEmpty())
             return 2; //List's already existed
 
+
         List<Lists> checkNum = getLists(account);
+        numOrder = checkNum.size()+1; //temporary - add new list as the last
         if(checkNum.size()+1 != numOrder)
             return 3; //bad numOrder
 

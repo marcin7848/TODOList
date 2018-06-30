@@ -20,20 +20,8 @@ public class ListController {
     @Autowired
     ListService listService;
 
-    @GetMapping("/add")
-    public String addListView(HttpServletResponse response,
-                            @CookieValue(value = "username", required = false) String userCookie,
-                            @CookieValue(value = "password", required = false) String passCookie) {
-
-        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
-            return "addList";
-        } else {
-            return "redirect:/"; //please log in
-        }
-
-    }
-
     @PostMapping("/add")
+    @ResponseBody
     public String addList(HttpServletResponse response,
                           @CookieValue(value = "username", required = false) String userCookie,
                           @CookieValue(value = "password", required = false) String passCookie,
@@ -45,11 +33,20 @@ public class ListController {
         Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
 
         if(account == null)
-            return "redirect:/"; //please log in
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //please log in
 
-        listService.addList(account, listName, listColour, numOrder, showed);
+        int result = listService.addList(account, listName, listColour, numOrder, showed);
 
-        return "redirect:/"; //list created
+        if(result == 2)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"This list already exist!\"}"; //list already existed
+
+        if(result == 3)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad order! Change position!\"}"; //bad numOrder
+
+        return "{\"error\":0}"; //list created
     }
 
     @PostMapping("/edit")
