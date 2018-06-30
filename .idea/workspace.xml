@@ -7,13 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b03493d-b827-4e00-9c39-b79356d041eb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/style/scripts.js" />
-      <change beforePath="$PROJECT_DIR$/target/TODOList-1.0/style/scripts.js" afterPath="$PROJECT_DIR$/target/TODOList-1.0/style/scripts.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,22 +72,23 @@
       <file leaf-file-name="ListsDao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+            <state relative-caret-position="255">
+              <caret line="96" column="114" lean-forward="false" selection-start-line="96" selection-start-column="114" selection-end-line="96" selection-end-column="114" />
               <folding>
-                <marker date="1530356844156" expanded="true" signature="576:637" ph="select * fro... lists" />
-                <marker date="1530356844156" expanded="true" signature="576:657" ph="select * fro... lists" />
-                <marker date="1530356844156" expanded="true" signature="921:1006" ph="select * fro... lists" />
-                <marker date="1530356844156" expanded="true" signature="1266:1326" ph="select * fro... lists" />
-                <marker date="1530356844156" expanded="true" signature="1266:1327" ph="select * fro... lists" />
-                <marker date="1530356844156" expanded="true" signature="1266:1345" ph="select * fro... lists" />
-                <marker date="1530356844156" expanded="true" signature="1646:1731" ph="select * fro... lists" />
-                <marker date="1530356844156" expanded="true" signature="2107:2212" ph="insert into lists... " />
-                <marker date="1530356844156" expanded="true" signature="2739:2846" ph="update lists... " />
-                <marker date="1530356844156" expanded="true" signature="3112:3162" ph="delete from lists... " />
-                <marker date="1530356844156" expanded="true" signature="3216:3270" ph="delete from tasks... " />
-                <marker date="1530356844156" expanded="true" signature="3530:3628" ph="update lists... " />
-                <marker date="1530356844156" expanded="true" signature="4234:4335" ph="update lists... " />
+                <marker date="1530357107163" expanded="true" signature="576:637" ph="select * fro... lists" />
+                <marker date="1530357107163" expanded="true" signature="576:657" ph="select * fro... lists" />
+                <marker date="1530357107163" expanded="true" signature="921:1006" ph="select * fro... lists" />
+                <marker date="1530357107163" expanded="true" signature="1266:1326" ph="select * fro... lists" />
+                <marker date="1530357107163" expanded="true" signature="1266:1327" ph="select * fro... lists" />
+                <marker date="1530357107163" expanded="true" signature="1266:1345" ph="select * fro... lists" />
+                <marker date="1530357107163" expanded="true" signature="1646:1731" ph="select * fro... lists" />
+                <marker date="1530357107163" expanded="true" signature="2107:2212" ph="insert into lists... " />
+                <marker date="1530357107163" expanded="true" signature="2739:2846" ph="update lists... " />
+                <marker date="1530357107163" expanded="true" signature="3112:3233" ph="update lists... " />
+                <marker date="1530357107163" expanded="true" signature="3287:3337" ph="delete from lists... " />
+                <marker date="1530357107163" expanded="true" signature="3391:3445" ph="delete from tasks... " />
+                <marker date="1530357107163" expanded="true" signature="3705:3803" ph="update lists... " />
+                <marker date="1530357107163" expanded="true" signature="4409:4510" ph="update lists... " />
               </folding>
             </state>
           </provider>
@@ -603,12 +598,12 @@
       <workItem from="1529932043370" duration="33797000" />
       <workItem from="1530001561397" duration="21826000" />
       <workItem from="1530105835043" duration="72000" />
-      <workItem from="1530347972637" duration="8883000" />
+      <workItem from="1530347972637" duration="9168000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139791000" />
+    <option name="totallyTimeSpent" value="140076000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1606" height="878" extended-state="6" />
@@ -761,19 +756,20 @@
         <state relative-caret-position="180">
           <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
           <folding>
-            <marker date="1530356844156" expanded="true" signature="576:637" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="576:657" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="921:1006" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="1266:1326" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="1266:1327" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="1266:1345" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="1646:1731" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="2107:2212" ph="insert into lists... " />
-            <marker date="1530356844156" expanded="true" signature="2739:2846" ph="update lists... " />
-            <marker date="1530356844156" expanded="true" signature="3112:3162" ph="delete from lists... " />
-            <marker date="1530356844156" expanded="true" signature="3216:3270" ph="delete from tasks... " />
-            <marker date="1530356844156" expanded="true" signature="3530:3628" ph="update lists... " />
-            <marker date="1530356844156" expanded="true" signature="4234:4335" ph="update lists... " />
+            <marker date="1530357107163" expanded="true" signature="576:637" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="576:657" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="921:1006" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="1266:1326" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="1266:1327" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="1266:1345" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="1646:1731" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="2107:2212" ph="insert into lists... " />
+            <marker date="1530357107163" expanded="true" signature="2739:2846" ph="update lists... " />
+            <marker date="1530357107163" expanded="true" signature="3112:3233" ph="update lists... " />
+            <marker date="1530357107163" expanded="true" signature="3287:3337" ph="delete from lists... " />
+            <marker date="1530357107163" expanded="true" signature="3391:3445" ph="delete from tasks... " />
+            <marker date="1530357107163" expanded="true" signature="3705:3803" ph="update lists... " />
+            <marker date="1530357107163" expanded="true" signature="4409:4510" ph="update lists... " />
           </folding>
         </state>
       </provider>
@@ -1235,22 +1231,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+        <state relative-caret-position="255">
+          <caret line="96" column="114" lean-forward="false" selection-start-line="96" selection-start-column="114" selection-end-line="96" selection-end-column="114" />
           <folding>
-            <marker date="1530356844156" expanded="true" signature="576:637" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="576:657" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="921:1006" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="1266:1326" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="1266:1327" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="1266:1345" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="1646:1731" ph="select * fro... lists" />
-            <marker date="1530356844156" expanded="true" signature="2107:2212" ph="insert into lists... " />
-            <marker date="1530356844156" expanded="true" signature="2739:2846" ph="update lists... " />
-            <marker date="1530356844156" expanded="true" signature="3112:3162" ph="delete from lists... " />
-            <marker date="1530356844156" expanded="true" signature="3216:3270" ph="delete from tasks... " />
-            <marker date="1530356844156" expanded="true" signature="3530:3628" ph="update lists... " />
-            <marker date="1530356844156" expanded="true" signature="4234:4335" ph="update lists... " />
+            <marker date="1530357107163" expanded="true" signature="576:637" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="576:657" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="921:1006" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="1266:1326" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="1266:1327" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="1266:1345" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="1646:1731" ph="select * fro... lists" />
+            <marker date="1530357107163" expanded="true" signature="2107:2212" ph="insert into lists... " />
+            <marker date="1530357107163" expanded="true" signature="2739:2846" ph="update lists... " />
+            <marker date="1530357107163" expanded="true" signature="3112:3233" ph="update lists... " />
+            <marker date="1530357107163" expanded="true" signature="3287:3337" ph="delete from lists... " />
+            <marker date="1530357107163" expanded="true" signature="3391:3445" ph="delete from tasks... " />
+            <marker date="1530357107163" expanded="true" signature="3705:3803" ph="update lists... " />
+            <marker date="1530357107163" expanded="true" signature="4409:4510" ph="update lists... " />
           </folding>
         </state>
       </provider>

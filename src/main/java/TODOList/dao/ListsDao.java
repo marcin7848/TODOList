@@ -94,7 +94,10 @@ public class ListsDao {
         if (lists == null)
             return 2; //List doesn't exist
 
-        String sql = "delete from lists WHERE id='" + lists.getId() + "'";
+        String sql = "update lists SET numOrder=numOrder-1 WHERE accountId='" + account.getId() + "' and numOrder>'" + lists.getNumOrder() + "' ";
+        jdbcTemplate.update(sql);
+
+        sql = "delete from lists WHERE id='" + lists.getId() + "'";
         jdbcTemplate.execute(sql);
 
         sql = "delete from tasks WHERE listId='" + lists.getId() + "'";
