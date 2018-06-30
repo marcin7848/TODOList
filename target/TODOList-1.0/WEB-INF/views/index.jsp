@@ -355,35 +355,45 @@
                                     </table>
                                 </div>
                                 <div id="listBody_${list.id}" style="${listBodyVisible} width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;">
-                                    <table style="width: 100%; border-bottom: 1px solid #333333;">
+                                    <c:forEach items="${list.tasks}" var="task">
+                                        <table style="width: 100%; border-bottom: 1px solid #333333;">
+                                            <tr>
+                                                <td style="width: 68%;">${task.name}</td>
+                                                <td style="line-height: 0;" rowspan="2">
+                                                    <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                        E
+                                                    </button>
+                                                </td>
+                                                <td style="line-height: 0;" rowspan="2">
+                                                    <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                        X
+                                                    </button>
+                                                </td>
+                                                <td style="line-height: 0;" rowspan="2">
+                                                    <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                            class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                                                        D
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 11px;"><fmt:formatDate value="${task.date}" pattern="yyyy-MM-dd HH:mm"/></td>
+                                                <td colspan="3"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 10px;" colspan="4">${task.comment}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </c:forEach>
+                                    <table style="width: 100%; text-align: center;">
                                         <tr>
-                                            <td style="width: 68%;">Task1</td>
-                                            <td style="line-height: 0;" rowspan="2">
-                                                <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
-                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                                    E
+                                            <td>
+                                                <button onclick="addNewTask(${list.id})" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                    Add new task
                                                 </button>
-                                            </td>
-                                            <td style="line-height: 0;" rowspan="2">
-                                                <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
-                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                                    X
-                                                </button>
-                                            </td>
-                                            <td style="line-height: 0;" rowspan="2">
-                                                <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
-                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-                                                    D
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-size: 11px;">25.06.2018 13:00</td>
-                                            <td colspan="3"></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-size: 10px;" colspan="4">Komentarz adsad asd sadsad as da
-                                                dasd sad asd as asd
                                             </td>
                                         </tr>
                                     </table>

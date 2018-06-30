@@ -129,6 +129,31 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '    });\n';
     }
 
+    if(makeFunction == "addNewTask") {
+        functionButton = 'dialog.querySelector(\'.button1\').addEventListener(\'click\', function() {\n' +
+            '    $.ajax({\n' +
+            '        type: \'POST\',\n' +
+            '        url: \'/task/add\',\n' +
+            '        data: {\'listId\': $("#listId").val(), \'name\':$("#newTaskName").val(), \'comment\': $("#newTaskComment").val(), ' +
+            '               \'priority\': \'1\', \'dateTime\': $("#newTaskDate").val(), \'repeatTime\': \'1\', \'done\': \'0\'},' +
+            '        complete: function (response) {\n' +
+            '           var jsonResponse = JSON.parse(response.responseText);'+
+            '            dialog.close();\n' +
+            '            if(jsonResponse.error == \'1\'){\n' +
+            '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
+            '            }else{'+
+            '               window.location.replace("/");\n' +
+            '           }\n' +
+            '        }\n' +
+            '    });'+
+            '    });\n';
+
+        functionButton+='dialog.querySelector(\'.button2\').addEventListener(\'click\', function() {\n' +
+            '$("#message").html(""); ' +
+            '      dialog.close();\n' +
+            '    });\n';
+    }
+
     $('#message').html('<dialog class="mdl-dialog">\n' +
         '    <h4 class="mdl-dialog__title">'+ title +'</h4>\n' +
         '    <div class="mdl-dialog__content">\n' +
@@ -385,4 +410,28 @@ function addNewList(){
         "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"newListName\">\n" +
         "  </div>";
     showDialog("New List", "Give new for list and click Add<br>"+form, 2, "Add", "Close", "addNewList");
+}
+
+function addNewTask(id){
+    var invisible = "<input id='listId' type='hidden' value='"+id+"' />";
+
+    var form = "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
+        "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"newTaskName\" placeholder=\"Name\">\n" +
+        "  </div>";
+
+    form += "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
+        "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"newTaskComment\" placeholder=\"Comment\">\n" +
+        "  </div>";
+
+    var date = new Date();
+    var month = date.getMonth();
+    if(month < 10)
+        month = "0" + month;
+
+    form += "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
+        "    <input class=\"mdl-textfield__input\" type=\"datetime-local\" id=\"newTaskDate\" " +
+        "value=\""+date.getFullYear()+"-"+month+"-"+date.getDate()+"T00:00\">\n" +
+        "  </div>";
+
+    showDialog("New Task", "Give parameters and click Add.<br>"+form+invisible, 2, "Add", "Close", "addNewTask");
 }

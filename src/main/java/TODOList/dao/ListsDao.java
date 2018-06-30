@@ -2,6 +2,7 @@ package TODOList.dao;
 
 import TODOList.models.Account;
 import TODOList.models.Lists;
+import TODOList.models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -28,6 +29,10 @@ public class ListsDao {
         if(lists.isEmpty())
             return null; //List doesn't exist
 
+        sql = "select * from tasks where listId='" + id + "' ORDER BY date";
+        List<Task> tasks = jdbcTemplate.query(sql, new TaskMapper());
+        lists.get(0).setTasks(tasks);
+
         return lists.get(0);
     }
     public Lists getList(Account account, String name){
@@ -36,6 +41,10 @@ public class ListsDao {
 
         if(lists.isEmpty())
             return null; //List doesn't exist
+
+        sql = "select * from tasks where listId='" + lists.get(0).getId() + "' ORDER BY date";
+        List<Task> tasks = jdbcTemplate.query(sql, new TaskMapper());
+        lists.get(0).setTasks(tasks);
 
         return lists.get(0);
     }
@@ -47,6 +56,14 @@ public class ListsDao {
 
         if(lists.isEmpty())
             return null; //List doesn't exist
+
+        int i=0;
+        for(Lists list1: lists){
+            sql = "select * from tasks where listId='" + list1.getId() + "' ORDER BY date";
+            List<Task> tasks = jdbcTemplate.query(sql, new TaskMapper());
+            lists.get(i).setTasks(tasks);
+            i++;
+        }
 
         return lists;
     }

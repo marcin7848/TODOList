@@ -10,6 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
@@ -19,37 +23,37 @@ public class TaskController {
     @Autowired
     TaskService taskService;
 
-    @GetMapping("/add")
-    public String addTaskView(HttpServletResponse response,
-                            @CookieValue(value = "username", required = false) String userCookie,
-                            @CookieValue(value = "password", required = false) String passCookie) {
-
-        if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
-            //getLists for this account
-            return "addTask";
-        } else {
-            return "redirect:/"; //please log in
-        }
-
-    }
-
     @PostMapping("/add")
+    @ResponseBody
     public String addTask(HttpServletResponse response,
                           Model m,
                           @CookieValue(value = "username", required = false) String userCookie,
                           @CookieValue(value = "password", required = false) String passCookie,
-                          @ModelAttribute("Task") Task task){
+                          @ModelAttribute("Task") Task task,
+                          @ModelAttribute("dateTime") String dateTime) {
 
         Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
 
         if(account == null)
-            return "redirect:/"; //please log in
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //please log in
+
+        dateTime = dateTime.replace("T", " ");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date parsedDate;
+        try {
+            parsedDate = dateFormat.parse(dateTime);
+            task.setDate(new java.sql.Timestamp(parsedDate.getTime()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         int result = taskService.addTask(account, task);
         if(result == 2)
-            return "redirect:/"; //list doesn't exist
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //list doesn't exist
 
-        return "redirect:/"; //task created
+        return "{\"error\":0}"; //task created
 
     }
 

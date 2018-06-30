@@ -1,5 +1,7 @@
 package TODOList.models;
 
+import java.util.List;
+
 public class Lists {
     private int id;
     private int accountId;
@@ -7,6 +9,7 @@ public class Lists {
     private String colour;
     private int numOrder;
     private boolean showed;
+    private List<Task> tasks;
 
     public Lists() {
     }
@@ -66,5 +69,13 @@ public class Lists {
 
     public void setShowed(boolean showed) {
         this.showed = showed;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }
