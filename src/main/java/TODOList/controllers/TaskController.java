@@ -107,6 +107,7 @@ public class TaskController {
     }
 
     @PostMapping("/delete/{taskId}")
+    @ResponseBody
     public String deleteTask(HttpServletResponse response,
                              @CookieValue(value = "username", required = false) String userCookie,
                              @CookieValue(value = "password", required = false) String passCookie,
@@ -115,14 +116,16 @@ public class TaskController {
         Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
 
         if(account == null)
-            return "redirect:/"; //please log in
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";  //please log in
 
         int result = taskService.deleteTask(account, taskId);
 
         if(result == 2)
-            return "redirect:/"; //tast doesn't exist
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";  //tast doesn't exist
 
-        return "redirect:/"; //task deleted
+        return "{\"error\":0}"; //task deleted
     }
 
 }

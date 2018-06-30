@@ -325,80 +325,81 @@
                     <div class="mdl-card__supporting-text">
 
                         <c:forEach items="${lists}" var="list">
+                                <c:set var="listBarHeight" value="300" />
+                                <c:set var="listBodyVisible" value="display: block;" />
+                                <c:if test="${!list.showed}">
+                                    <c:set var="listBarHeight" value="30" />
+                                    <c:set var="listBodyVisible" value="display: none;" />
+                                </c:if>
 
-                            <c:set var="listBarHeight" value="300" />
-                            <c:set var="listBodyVisible" value="display: block;" />
-                            <c:if test="${!list.showed}">
-                                <c:set var="listBarHeight" value="30" />
-                                <c:set var="listBodyVisible" value="display: none;" />
-                            </c:if>
-
-                            <div id="listBar_${list.id}" style="display: inline-block;width: 250px; height: ${listBarHeight}px; background-color: #008b8b; margin: 2px;vertical-align:top; color: #FFF;">
-                                <div style="width: 100%; height: 30px;  border-bottom: 2px solid #333333;">
-                                    <table style="width: 100%; text-align: center;line-height: 30px;">
-                                        <tr>
-                                            <td onclick="changeNumOrder(${list.id}, ${lists.size()})">#${list.numOrder}</td>
-                                            <td onclick="changeNameList(${list.id})" style="width: 70%;">${list.name}</td>
-                                            <td style="line-height: 0;">
-                                                <button onclick="changeShowList(${list.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 0 0 0 2px;margin: 0;"
-                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                                    -
-                                                </button>
-                                            </td>
-                                            <td style="line-height: 0;">
-                                                <button onclick="deleteList(${list.id}, '${list.name}')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
-                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                                    X
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div id="listBody_${list.id}" style="${listBodyVisible} width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;">
-                                    <c:forEach items="${list.tasks}" var="task">
-                                        <table style="width: 100%; border-bottom: 1px solid #333333;">
+                                <div id="listBar_${list.id}" style="display: inline-block;width: 250px; height: ${listBarHeight}px; background-color: #008b8b; margin: 2px;vertical-align:top; color: #FFF;">
+                                    <div style="width: 100%; height: 30px;  border-bottom: 2px solid #333333;">
+                                        <table style="width: 100%; text-align: center;line-height: 30px;">
                                             <tr>
-                                                <td style="width: 68%;">${task.name}</td>
-                                                <td style="line-height: 0;" rowspan="2">
-                                                    <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                <td onclick="changeNumOrder(${list.id}, ${lists.size()})">#${list.numOrder}</td>
+                                                <td onclick="changeNameList(${list.id})" style="width: 70%;">${list.name}</td>
+                                                <td style="line-height: 0;">
+                                                    <button onclick="changeShowList(${list.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 0 0 0 2px;margin: 0;"
                                                             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                                        E
+                                                        -
                                                     </button>
                                                 </td>
-                                                <td style="line-height: 0;" rowspan="2">
-                                                    <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                <td style="line-height: 0;">
+                                                    <button onclick="deleteList(${list.id}, '${list.name}')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                         X
                                                     </button>
                                                 </td>
-                                                <td style="line-height: 0;" rowspan="2">
-                                                    <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
-                                                            class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-                                                        D
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div id="listBody_${list.id}" style="${listBodyVisible} width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;">
+                                        <c:forEach items="${list.tasks}" var="task">
+                                            <c:if test="${task.done==0}">
+                                                <table style="width: 100%; border-bottom: 1px solid #333333;">
+                                                    <tr>
+                                                        <td style="width: 68%;">${task.name}</td>
+                                                        <td style="line-height: 0;" rowspan="2">
+                                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                                E
+                                                            </button>
+                                                        </td>
+                                                        <td style="line-height: 0;" rowspan="2">
+                                                            <button onclick="deleteTask(${task.id}, '${task.name}')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                                X
+                                                            </button>
+                                                        </td>
+                                                        <td style="line-height: 0;" rowspan="2">
+                                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                                                                D
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 11px;"><fmt:formatDate value="${task.date}" pattern="yyyy-MM-dd HH:mm"/></td>
+                                                        <td colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 10px;" colspan="4">${task.comment}
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </c:if>
+                                        </c:forEach>
+                                        <table style="width: 100%; text-align: center;">
+                                            <tr>
+                                                <td>
+                                                    <button onclick="addNewTask(${list.id})" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                                        Add new task
                                                     </button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td style="font-size: 11px;"><fmt:formatDate value="${task.date}" pattern="yyyy-MM-dd HH:mm"/></td>
-                                                <td colspan="3"></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="font-size: 10px;" colspan="4">${task.comment}
-                                                </td>
-                                            </tr>
                                         </table>
-                                    </c:forEach>
-                                    <table style="width: 100%; text-align: center;">
-                                        <tr>
-                                            <td>
-                                                <button onclick="addNewTask(${list.id})" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                                    Add new task
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    </div>
                                 </div>
-                            </div>
                         </c:forEach>
 
                         <div id="addList" style="display: inline-block;width: 250px; height: 40px; background-color: #009F5B; margin: 2px;vertical-align:top; color: #FFF;">

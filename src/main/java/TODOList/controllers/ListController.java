@@ -77,6 +77,7 @@ public class ListController {
     }
 
     @PostMapping("/delete/{listId}")
+    @ResponseBody
     public String deleteList(HttpServletResponse response,
                            @CookieValue(value = "username", required = false) String userCookie,
                            @CookieValue(value = "password", required = false) String passCookie,
@@ -85,14 +86,16 @@ public class ListController {
         Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
 
         if(account == null)
-            return "redirect:/"; //please log in
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //please log in
 
         int result = listService.deleteList(account, listId);
 
         if(result == 2)
-            return "redirect:/"; //list doesn't exist
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //list doesn't exist
 
-        return "redirect:/"; //list deleted
+        return "{\"error\":0}"; //list deleted
     }
 
     @PostMapping("/changeShowed/{listId}")

@@ -68,9 +68,14 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '    $.ajax({\n' +
             '        type: \'POST\',\n' +
             '        url: \'/list/delete/\'+$("#listId").val(),\n' +
-            '        complete: function () {\n' +
-            '      dialog.close();\n' +
-            '      window.location.replace("/");\n' +
+            '        complete: function (response) {\n' +
+            '           var jsonResponse = JSON.parse(response.responseText);'+
+            '            dialog.close();\n' +
+            '            if(jsonResponse.error == \'1\'){\n' +
+            '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
+            '            }else{'+
+            '               window.location.replace("/");\n' +
+            '           }\n' +
             '        }\n' +
             '    });'+
             '    });\n';
@@ -136,6 +141,29 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '        url: \'/task/add\',\n' +
             '        data: {\'listId\': $("#listId").val(), \'name\':$("#newTaskName").val(), \'comment\': $("#newTaskComment").val(), ' +
             '               \'priority\': \'1\', \'dateTime\': $("#newTaskDate").val(), \'repeatTime\': \'1\', \'done\': \'0\'},' +
+            '        complete: function (response) {\n' +
+            '           var jsonResponse = JSON.parse(response.responseText);'+
+            '            dialog.close();\n' +
+            '            if(jsonResponse.error == \'1\'){\n' +
+            '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
+            '            }else{'+
+            '               window.location.replace("/");\n' +
+            '           }\n' +
+            '        }\n' +
+            '    });'+
+            '    });\n';
+
+        functionButton+='dialog.querySelector(\'.button2\').addEventListener(\'click\', function() {\n' +
+            '$("#message").html(""); ' +
+            '      dialog.close();\n' +
+            '    });\n';
+    }
+
+    if(makeFunction == "deleteTask") {
+        functionButton = 'dialog.querySelector(\'.button1\').addEventListener(\'click\', function() {\n' +
+            '    $.ajax({\n' +
+            '        type: \'POST\',\n' +
+            '        url: \'/task/delete/\'+$("#taskId").val(),\n' +
             '        complete: function (response) {\n' +
             '           var jsonResponse = JSON.parse(response.responseText);'+
             '            dialog.close();\n' +
@@ -434,4 +462,9 @@ function addNewTask(id){
         "  </div>";
 
     showDialog("New Task", "Give parameters and click Add.<br>"+form+invisible, 2, "Add", "Close", "addNewTask");
+}
+
+function deleteTask(id, name){
+    var invisible = "<input id='taskId' type='hidden' value='"+id+"' />";
+    showDialog("Delete task?", "Are you sure to delete task: <b>"+ name +"</b>?" + invisible, 2, "Delete", "Close", "deleteTask");
 }
