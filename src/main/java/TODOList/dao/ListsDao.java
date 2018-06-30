@@ -77,10 +77,13 @@ public class ListsDao {
 
 
         List<Lists> checkNum = getLists(account);
-        numOrder = checkNum.size()+1; //temporary - add new list as the last
-        if(checkNum.size()+1 != numOrder)
-            return 3; //bad numOrder
-
+        if(checkNum != null) {
+            numOrder = checkNum.size() + 1; //temporary - add new list as the last
+            if (checkNum.size() + 1 != numOrder)
+                return 3; //bad numOrder
+        }else{
+            numOrder = 1;
+        }
         sql = "insert into lists (accountId, name, colour, numOrder, showed)" +
                 " VALUES (?, ?, ?, ?, ?)";
 
