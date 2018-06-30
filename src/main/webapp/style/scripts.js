@@ -63,6 +63,43 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
         '    });\n';
     }
 
+    if(makeFunction == "deleteList") {
+        functionButton = 'dialog.querySelector(\'.button1\').addEventListener(\'click\', function() {\n' +
+            '    $.ajax({\n' +
+            '        type: \'POST\',\n' +
+            '        url: \'/list/delete/\'+$("#listId").val(),\n' +
+            '        complete: function () {\n' +
+            '      dialog.close();\n' +
+            '      window.location.replace("/");\n' +
+            '        }\n' +
+            '    });'+
+            '    });\n';
+
+        functionButton+='dialog.querySelector(\'.button2\').addEventListener(\'click\', function() {\n' +
+            '$("#message").html(""); ' +
+            '      dialog.close();\n' +
+            '    });\n';
+    }
+
+    if(makeFunction == "changeNameList") {
+        functionButton = 'dialog.querySelector(\'.button1\').addEventListener(\'click\', function() {\n' +
+            '    $.ajax({\n' +
+            '        type: \'POST\',\n' +
+            '        url: \'/list/edit\',\n' +
+            '        data: {\'id\': $("#listId").val(), \'newListName\': $("#newListName").val(), \'newListColour\': \'008b8b\'},' +
+            '        complete: function () {\n' +
+            '      dialog.close();\n' +
+            '      window.location.replace("/");\n' +
+            '        }\n' +
+            '    });'+
+            '    });\n';
+
+        functionButton+='dialog.querySelector(\'.button2\').addEventListener(\'click\', function() {\n' +
+            '$("#message").html(""); ' +
+            '      dialog.close();\n' +
+            '    });\n';
+    }
+
     $('#message').html('<dialog class="mdl-dialog">\n' +
         '    <h4 class="mdl-dialog__title">'+ title +'</h4>\n' +
         '    <div class="mdl-dialog__content">\n' +
@@ -284,5 +321,32 @@ function changeNumOrder(id, maxNumber){
     }
     selection+="</select>";
     selection+="<input id='listId' type='hidden' value='"+id+"' />";
-    showDialog("Change Order", "Choose new position and click Change.<br>"+selection, 2, "Change", "Close", "changeNumOrder");
+    showDialog("Change Order", "Choose position and click Change.<br>"+selection, 2, "Change", "Close", "changeNumOrder");
+}
+
+function deleteList(id, name){
+    var invisible = "<input id='listId' type='hidden' value='"+id+"' />";
+    showDialog("Delete list?", "Are you sure to delete list: <b>"+ name +"</b>?" + invisible, 2, "Delete", "Close", "deleteList");
+}
+
+function changeNameList(id){
+    var invisible = "<input id='listId' type='hidden' value='"+id+"' />";
+
+    $.ajax({
+        type: 'GET',
+        url: '/list/getList/'+id,
+        complete: function (response) {
+            var jsonResponse = JSON.parse(response.responseText);
+
+            if(jsonResponse.error == '1'){
+                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");
+            }else{
+                var inputName = "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
+                    "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"newListName\" value='"+jsonResponse.value.name+"'>\n" +
+                    "  </div>";
+                showDialog("New name", "Write new name and click Change.<br>"+ inputName + invisible, 2, "Change", "Close", "changeNameList");
+            }
+
+        }
+    });
 }

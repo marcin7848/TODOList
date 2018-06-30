@@ -4,6 +4,8 @@ import TODOList.models.Account;
 import TODOList.models.Lists;
 import TODOList.services.AccountService;
 import TODOList.services.ListService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,28 +50,6 @@ public class ListController {
         listService.addList(account, listName, listColour, numOrder, showed);
 
         return "redirect:/"; //list created
-    }
-
-    @GetMapping("/edit/{listId}")
-    public String editListView(HttpServletResponse response,
-                            Model m,
-                            @CookieValue(value = "username", required = false) String userCookie,
-                            @CookieValue(value = "password", required = false) String passCookie,
-                               @PathVariable("listId") int listId) {
-
-        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
-
-        if(account == null)
-            return "redirect:/"; //please log in
-
-        Lists lists = listService.getList(account, listId);
-
-        if(lists == null)
-            return "redirect:/"; //list doesn't exist
-
-        m.addAttribute("someAttribute", "not logged");
-        return "editList";
-
     }
 
     @PostMapping("/edit")
@@ -147,6 +127,38 @@ public class ListController {
             return "redirect:/"; //list doesn't exist
 
         return "redirect:/"; //changed numOrder
+    }
+
+    @GetMapping("/getList/{listId}")
+    @ResponseBody
+    public String getList(HttpServletResponse response,
+                               Model m,
+                               @CookieValue(value = "username", required = false) String userCookie,
+                               @CookieValue(value = "password", required = false) String passCookie,
+                               @PathVariable("listId") int listId) {
+
+        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
+
+        if(account == null)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";
+
+        Lists lists = listService.getList(account, listId);
+
+        if(lists == null)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";
+
+        ObjectMapper mapper = new ObjectMapper();
+        String JSONList = null;
+        try {
+            JSONList = mapper.writeValueAsString(lists);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return "{\"error\":0, \"value\":"+JSONList+"}"; //return list
+
     }
 
 }

@@ -338,7 +338,7 @@
                                     <table style="width: 100%; text-align: center;line-height: 30px;">
                                         <tr>
                                             <td onclick="changeNumOrder(${list.id}, ${lists.size()})">#${list.numOrder}</td>
-                                            <td style="width: 70%;">${list.name}</td>
+                                            <td onclick="changeNameList(${list.id})" style="width: 70%;">${list.name}</td>
                                             <td style="line-height: 0;">
                                                 <button onclick="changeShowList(${list.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 0 0 0 2px;margin: 0;"
                                                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
@@ -346,7 +346,7 @@
                                                 </button>
                                             </td>
                                             <td style="line-height: 0;">
-                                                <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                <button onclick="deleteList(${list.id}, '${list.name}')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                     X
                                                 </button>
