@@ -29,7 +29,7 @@ public class TaskService implements TaskServiceInterface{
         return taskDao.addTask(account, task);
     }
 
-    public int editTask(Account account, Task task, int listId, String name, String comment, int priority, Date date, int repeatTime, int done){
+    public int editTask(Account account, Task task, int listId, String name, String comment, int priority, Date date, int repeatTime, boolean done){
         return taskDao.editTask(account, task, listId, name, comment, priority, date, repeatTime, done);
     }
 
@@ -39,5 +39,9 @@ public class TaskService implements TaskServiceInterface{
 
     public List<Task> getTasksRemindersToday(Account account){
         return taskDao.getTasksRemindersToday(account);
+    }
+
+    public int doTask(Account account, int id){
+        return taskDao.doTask(account, id);
     }
 }

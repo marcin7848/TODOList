@@ -355,12 +355,12 @@
                                     </div>
                                     <div id="listBody_${list.id}" style="${listBodyVisible} width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;">
                                         <c:forEach items="${list.tasks}" var="task">
-                                            <c:if test="${task.done==0}">
+                                            <c:if test="${!task.done}">
                                                 <table style="width: 100%; border-bottom: 1px solid #333333;">
                                                     <tr>
                                                         <td style="width: 68%;">${task.name}</td>
                                                         <td style="line-height: 0;" rowspan="2">
-                                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                            <button onclick="editTask(${task.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                                     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                                 E
                                                             </button>
@@ -372,7 +372,7 @@
                                                             </button>
                                                         </td>
                                                         <td style="line-height: 0;" rowspan="2">
-                                                            <button style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
+                                                            <button onclick="doTask(${task.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                                     class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
                                                                 D
                                                             </button>

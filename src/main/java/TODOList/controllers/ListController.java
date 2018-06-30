@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 @RequestMapping("/list")
@@ -167,4 +168,34 @@ public class ListController {
 
     }
 
+    @GetMapping("/getLists")
+    @ResponseBody
+    public String getList(HttpServletResponse response,
+                          Model m,
+                          @CookieValue(value = "username", required = false) String userCookie,
+                          @CookieValue(value = "password", required = false) String passCookie) {
+
+        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
+
+        if(account == null)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";
+
+        List <Lists> lists = listService.getLists(account);
+
+        if(lists.isEmpty())
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";
+
+        ObjectMapper mapper = new ObjectMapper();
+        String JSONList = null;
+        try {
+            JSONList = mapper.writeValueAsString(lists);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return "{\"error\":0, \"value\":"+JSONList+"}"; //return list
+
+    }
 }

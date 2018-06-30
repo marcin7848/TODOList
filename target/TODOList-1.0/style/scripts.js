@@ -182,6 +182,32 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '    });\n';
     }
 
+    if(makeFunction == "editTask") {
+        functionButton = 'dialog.querySelector(\'.button1\').addEventListener(\'click\', function() {\n' +
+            '    $.ajax({\n' +
+            '        type: \'POST\',\n' +
+            '        url: \'/task/edit\',\n' +
+            '        data: {\'id\': $("#taskId").val(), \'newTaskListId\': $("#newTaskListId").val(), \'newTaskName\': $("#newTaskName").val(),' +
+            '               \'newTaskComment\': $("#newTaskComment").val(), \'newTaskPriority\': \'1\', \'newTaskDate\': $("#newTaskDate").val(),' +
+            '               \'newTaskRepeatTime\': \'1\',\'newTaskDone\': \'0\'},' +
+            '        complete: function (response) {\n' +
+            '           var jsonResponse = JSON.parse(response.responseText);'+
+            '            dialog.close();\n' +
+            '            if(jsonResponse.error == \'1\'){\n' +
+            '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
+            '            }else{'+
+            '               window.location.replace("/");\n' +
+            '           }\n' +
+            '        }\n' +
+            '    });'+
+            '    });\n';
+
+        functionButton+='dialog.querySelector(\'.button2\').addEventListener(\'click\', function() {\n' +
+            '$("#message").html(""); ' +
+            '      dialog.close();\n' +
+            '    });\n';
+    }
+
     $('#message').html('<dialog class="mdl-dialog">\n' +
         '    <h4 class="mdl-dialog__title">'+ title +'</h4>\n' +
         '    <div class="mdl-dialog__content">\n' +
@@ -396,7 +422,7 @@ function changeShowList(id) {
 
 function changeNumOrder(id, maxNumber){
 
-    var selection ="<select id='getNewNumOrder'>";
+    var selection ="<select class=\"mdl-textfield__input\" id='getNewNumOrder'>";
 
     for(var i=1; i<=maxNumber; i++){
         selection+="<option value='"+i+"'>#"+i+"</option>";
@@ -412,6 +438,7 @@ function deleteList(id, name){
 }
 
 function changeNameList(id){
+    showDialogWaiting();
     var invisible = "<input id='listId' type='hidden' value='"+id+"' />";
 
     $.ajax({
@@ -452,13 +479,11 @@ function addNewTask(id){
         "  </div>";
 
     var date = new Date();
-    var month = date.getMonth();
-    if(month < 10)
-        month = "0" + month;
+    var month = "0" + (parseInt(date.getMonth())+1);
 
     form += "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
         "    <input class=\"mdl-textfield__input\" type=\"datetime-local\" id=\"newTaskDate\" " +
-        "value=\""+date.getFullYear()+"-"+month+"-"+date.getDate()+"T00:00\">\n" +
+        "value=\""+date.getFullYear()+"-"+month.substr(-2)+"-"+date.getDate()+"T00:00\">\n" +
         "  </div>";
 
     showDialog("New Task", "Give parameters and click Add.<br>"+form+invisible, 2, "Add", "Close", "addNewTask");
@@ -467,4 +492,100 @@ function addNewTask(id){
 function deleteTask(id, name){
     var invisible = "<input id='taskId' type='hidden' value='"+id+"' />";
     showDialog("Delete task?", "Are you sure to delete task: <b>"+ name +"</b>?" + invisible, 2, "Delete", "Close", "deleteTask");
+}
+
+function doTask(id){
+    showDialogWaiting();
+    $.ajax({
+        type: 'POST',
+        url: '/task/do/'+id,
+        complete: function (response) {
+            var jsonResponse = JSON.parse(response.responseText);
+
+            if(jsonResponse.error == '1'){
+                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");
+            }else{
+                window.location.replace("/");
+            }
+
+        }
+    });
+}
+
+function editTask(id){
+    showDialogWaiting();
+
+    var invisible = "<input id='taskId' type='hidden' value='"+id+"' />";
+
+    $.ajax({
+        type: 'GET',
+        url: '/task/getTask/'+id,
+        complete: function (response) {
+            var jsonResponse = JSON.parse(response.responseText);
+            if(jsonResponse.error == '1'){
+                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");
+            }else{
+                $.ajax({
+                    type: 'GET',
+                    url: '/list/getLists',
+                    complete: function (response) {
+                        var jsonResponseTask = JSON.parse(response.responseText);
+                        if(jsonResponseTask.error == '1'){
+                            showDialog(jsonResponseTask.errorTitle, jsonResponseTask.errorDescription, 1, "Close", "Close", "singleButtonAccept");
+                        }else{
+                            var form = "<select class=\"mdl-textfield__input\" id='newTaskListId'>";
+                            var countResponse = jsonResponseTask.value.length;
+                            jsonResponseTask.value.forEach(function(list) {
+                                var selected = "";
+                                if(list.id == jsonResponse.value.listId){
+                                    selected = "selected";
+                                }
+
+                                form+="<option value='"+list.id+"' "+selected+">"+list.name+"</option>";
+                                countResponse--;
+                            });
+
+                            function showRestEditTask() {
+                                if(countResponse != 0){
+                                    setTimeout(function () {
+                                        showRestEditTask();
+                                    }, 5);
+                                }else {
+                                    form += "</select>";
+
+                                    form += "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
+                                        "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"newTaskName\" placeholder=\"Name\" value='" + jsonResponse.value.name + "'>\n" +
+                                        "  </div>";
+
+                                    form += "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
+                                        "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"newTaskComment\" placeholder=\"Comment\" value='" + jsonResponse.value.comment + "'>\n" +
+                                        "  </div>";
+
+                                    var date = new Date(jsonResponse.value.date);
+                                    var year = date.getFullYear();
+                                    var month = "0" + (parseInt(date.getMonth())+1);
+                                    var day = date.getDate();
+                                    var hours = "0" + date.getHours();
+                                    var minutes = "0" + date.getMinutes();
+
+                                    form += "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
+                                        "    <input class=\"mdl-textfield__input\" type=\"datetime-local\" id=\"newTaskDate\" " +
+                                        "           value='"+year+"-"+month.substr(-2)+"-"+day+"T"+hours.substr(-2)+":"+minutes.substr(-2)+"'>\n" +
+                                        "  </div>";
+
+                                    showDialog("Edit task", "Give new parameters and click Edit.<br>" + form + invisible, 2, "Edit", "Close", "editTask")
+                                }
+                            }
+
+                            setTimeout(function () {
+                                showRestEditTask();
+                            }, 1);
+                        }
+
+                    }
+                });
+            }
+
+        }
+    });
 }

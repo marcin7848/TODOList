@@ -4,6 +4,8 @@ import TODOList.models.Account;
 import TODOList.models.Task;
 import TODOList.services.AccountService;
 import TODOList.services.TaskService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,29 +59,8 @@ public class TaskController {
 
     }
 
-    @GetMapping("/edit/{taskId}")
-    public String editTaskView(HttpServletResponse response,
-                               Model m,
-                               @CookieValue(value = "username", required = false) String userCookie,
-                               @CookieValue(value = "password", required = false) String passCookie,
-                               @PathVariable("taskId") int taskId) {
-
-        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
-
-        if(account == null)
-            return "redirect:/"; //please log in
-
-        Task task = taskService.getTask(account, taskId);
-
-        if(task == null)
-            return "redirect:/"; //list doesn't exist
-
-        m.addAttribute("someAttribute", "not logged");
-        return "editTask";
-
-    }
-
     @PostMapping("/edit")
+    @ResponseBody
     public String editTask(HttpServletResponse response,
                            @CookieValue(value = "username", required = false) String userCookie,
                            @CookieValue(value = "password", required = false) String passCookie,
@@ -88,22 +69,36 @@ public class TaskController {
                            @ModelAttribute("newTaskName") String newTaskName,
                            @ModelAttribute("newTaskComment") String newTaskComment,
                            @ModelAttribute("newTaskPriority") int newTaskPriority,
-                           @ModelAttribute("newTaskDate") Date newTaskDate,
+                           @ModelAttribute("newTaskDate") String newTaskDate,
                            @ModelAttribute("newTaskRepeatTime") int newTaskRepeatTime,
-                           @ModelAttribute("newTaskDone") int newTaskDone){
+                           @ModelAttribute("newTaskDone") boolean newTaskDone){
 
         Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
 
         if(account == null)
-            return "redirect:/"; //please log in
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //please log in
 
-        int result = taskService.editTask(account, task, newTaskListId, newTaskName, newTaskComment, newTaskPriority, newTaskDate, newTaskRepeatTime, newTaskDone);
+        newTaskDate = newTaskDate.replace("T", " ");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date parsedDate = null;
+        try {
+            parsedDate = dateFormat.parse(newTaskDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        int result = taskService.editTask(account, task, newTaskListId, newTaskName, newTaskComment, newTaskPriority, new java.sql.Timestamp(parsedDate.getTime()), newTaskRepeatTime, newTaskDone);
 
         if(result == 2)
-            return "redirect:/"; //list doesn't exist
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //task doesn't exist
 
+        if(result == 3)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //list doesn't exist
 
-        return "redirect:/"; //list edited
+        return "{\"error\":0}"; //task edited
     }
 
     @PostMapping("/delete/{taskId}")
@@ -126,6 +121,60 @@ public class TaskController {
                     " \"errorDescription\":\"Bad request! Reload and try again!\"}";  //tast doesn't exist
 
         return "{\"error\":0}"; //task deleted
+    }
+
+    @PostMapping("/do/{taskId}")
+    @ResponseBody
+    public String doTask(HttpServletResponse response,
+                             @CookieValue(value = "username", required = false) String userCookie,
+                             @CookieValue(value = "password", required = false) String passCookie,
+                             @PathVariable("taskId") int taskId){
+
+        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
+
+        if(account == null)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";  //please log in
+
+        int result = taskService.doTask(account, taskId);
+
+        if(result == 2)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";  //tast doesn't exist
+
+        return "{\"error\":0}"; //task have done
+    }
+
+    @GetMapping("/getTask/{taskId}")
+    @ResponseBody
+    public String getList(HttpServletResponse response,
+                          Model m,
+                          @CookieValue(value = "username", required = false) String userCookie,
+                          @CookieValue(value = "password", required = false) String passCookie,
+                          @PathVariable("taskId") int taskId) {
+
+        Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
+
+        if(account == null)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";
+
+        Task task = taskService.getTask(account, taskId);
+
+        if(task == null)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}";
+
+        ObjectMapper mapper = new ObjectMapper();
+        String JSONList = null;
+        try {
+            JSONList = mapper.writeValueAsString(task);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return "{\"error\":0, \"value\":"+JSONList+"}"; //return list
+
     }
 
 }

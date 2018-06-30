@@ -11,12 +11,12 @@ public class Task {
     private int priority;
     private Timestamp date;
     private int repeatTime;
-    private int done;
+    private boolean done;
 
     public Task() {
     }
 
-    public Task(int id, int listId, String name, String comment, int priority, Timestamp date, int repeatTime, int done) {
+    public Task(int id, int listId, String name, String comment, int priority, Timestamp date, int repeatTime, boolean done) {
         this.id = id;
         this.listId = listId;
         this.name = name;
@@ -83,11 +83,11 @@ public class Task {
         this.repeatTime = repeatTime;
     }
 
-    public int getDone() {
+    public boolean getDone() {
         return done;
     }
 
-    public void setDone(int done) {
+    public void setDone(boolean done) {
         this.done = done;
     }
 

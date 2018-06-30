@@ -73,7 +73,7 @@ public class TaskDao {
         return 1;
     }
 
-    public int editTask(Account account, Task task, int listId, String name, String comment, int priority, Date date, int repeatTime, int done){
+    public int editTask(Account account, Task task, int listId, String name, String comment, int priority, Date date, int repeatTime, boolean done){
         Task taskCheck = getTask(account, task.getId());
         if(taskCheck == null)
             return 2; //task doesn't exist
@@ -109,6 +109,17 @@ public class TaskDao {
         return tasks;
     }
 
+    public int doTask(Account account, int id){
+        Task taskCheck = getTask(account, id);
+        if(taskCheck == null)
+            return 2; //task doesn't exist
+
+        String sql = "update tasks SET done= NOT done WHERE id=?";
+        jdbcTemplate.update(sql, id);
+
+        return 1;
+    }
+
 }
 
 class TaskMapper implements RowMapper<Task> {
@@ -121,7 +132,7 @@ class TaskMapper implements RowMapper<Task> {
         task.setPriority(rs.getInt("priority"));
         task.setDate(rs.getTimestamp("date"));
         task.setRepeatTime(rs.getInt("repeatTime"));
-        task.setDone(rs.getInt("done"));
+        task.setDone(rs.getBoolean("done"));
         return task;
     }
 }
