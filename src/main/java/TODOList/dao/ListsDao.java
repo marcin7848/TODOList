@@ -30,6 +30,16 @@ public class ListsDao {
 
         return lists.get(0);
     }
+    public Lists getList(Account account, String name){
+        String sql = "select * from lists where accountId='" + account.getId() + "' and name='" + name + "'";
+        List<Lists> lists = jdbcTemplate.query(sql, new ListsMapper());
+
+        if(lists.isEmpty())
+            return null; //List doesn't exist
+
+        return lists.get(0);
+    }
+
 
     public List<Lists> getLists(Account account){
         String sql = "select * from lists where accountId='" + account.getId() + "' ORDER by numOrder";
@@ -66,6 +76,12 @@ public class ListsDao {
         Lists lists1 = getList(account, lists.getId());
         if(lists1 == null)
             return 2; //List doesn't exist
+
+        if(!lists1.getName().equals(name)){
+            Lists lists2 = getList(account, name);
+            if(lists2 != null)
+                return 3; //List name exists
+        }
 
         String sql = "update lists SET name=?, colour=? WHERE id='" + lists1.getId() + "' and accountId='" + account.getId() + "'";
         jdbcTemplate.update(sql, name, colour);

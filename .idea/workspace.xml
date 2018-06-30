@@ -10,11 +10,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/addList.jsp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/style/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/style/scripts.js" />
-      <change beforePath="$PROJECT_DIR$/target/TODOList-1.0/WEB-INF/views/addList.jsp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/TODOList-1.0/WEB-INF/views/index.jsp" afterPath="$PROJECT_DIR$/target/TODOList-1.0/WEB-INF/views/index.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/TODOList-1.0/style/scripts.js" afterPath="$PROJECT_DIR$/target/TODOList-1.0/style/scripts.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,8 +46,8 @@
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/style/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="109" column="24" lean-forward="false" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
+            <state relative-caret-position="168">
+              <caret line="88" column="113" lean-forward="false" selection-start-line="88" selection-start-column="100" selection-end-line="88" selection-end-column="113" />
               <folding />
             </state>
           </provider>
@@ -76,34 +75,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListsDao.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ListsDao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="288">
+              <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
               <folding>
-                <marker date="1530354763852" expanded="true" signature="576:637" ph="select * fro... lists" />
-                <marker date="1530354763852" expanded="true" signature="576:657" ph="select * fro... lists" />
-                <marker date="1530354763852" expanded="true" signature="916:976" ph="select * fro... lists" />
-                <marker date="1530354763852" expanded="true" signature="916:977" ph="select * fro... lists" />
-                <marker date="1530354763852" expanded="true" signature="916:995" ph="select * fro... lists" />
-                <marker date="1530354763852" expanded="true" signature="1296:1381" ph="select * fro... lists" />
-                <marker date="1530354763852" expanded="true" signature="1757:1862" ph="insert into lists... " />
-                <marker date="1530354763852" expanded="true" signature="2207:2314" ph="update lists... " />
-                <marker date="1530354763852" expanded="true" signature="2580:2630" ph="delete from lists... " />
-                <marker date="1530354763852" expanded="true" signature="2684:2738" ph="delete from tasks... " />
-                <marker date="1530354763852" expanded="true" signature="2998:3096" ph="update lists... " />
-                <marker date="1530354763852" expanded="true" signature="3702:3803" ph="update lists... " />
+                <marker date="1530356844156" expanded="true" signature="576:637" ph="select * fro... lists" />
+                <marker date="1530356844156" expanded="true" signature="576:657" ph="select * fro... lists" />
+                <marker date="1530356844156" expanded="true" signature="921:1006" ph="select * fro... lists" />
+                <marker date="1530356844156" expanded="true" signature="1266:1326" ph="select * fro... lists" />
+                <marker date="1530356844156" expanded="true" signature="1266:1327" ph="select * fro... lists" />
+                <marker date="1530356844156" expanded="true" signature="1266:1345" ph="select * fro... lists" />
+                <marker date="1530356844156" expanded="true" signature="1646:1731" ph="select * fro... lists" />
+                <marker date="1530356844156" expanded="true" signature="2107:2212" ph="insert into lists... " />
+                <marker date="1530356844156" expanded="true" signature="2739:2846" ph="update lists... " />
+                <marker date="1530356844156" expanded="true" signature="3112:3162" ph="delete from lists... " />
+                <marker date="1530356844156" expanded="true" signature="3216:3270" ph="delete from tasks... " />
+                <marker date="1530356844156" expanded="true" signature="3530:3628" ph="update lists... " />
+                <marker date="1530356844156" expanded="true" signature="4234:4335" ph="update lists... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ListController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="29" column="51" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="51" />
+            <state relative-caret-position="150">
+              <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,8 +175,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editTask.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/style/calendar.css" />
@@ -203,9 +201,11 @@
         <option value="$PROJECT_DIR$/src/main/java/TODOList/models/Lists.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/style/scripts.js" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" />
       </list>
     </option>
   </component>
@@ -222,7 +222,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-1" />
     <option name="y" value="25" />
     <option name="width" value="1602" />
@@ -603,15 +603,15 @@
       <workItem from="1529932043370" duration="33797000" />
       <workItem from="1530001561397" duration="21826000" />
       <workItem from="1530105835043" duration="72000" />
-      <workItem from="1530347972637" duration="7656000" />
+      <workItem from="1530347972637" duration="8883000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138564000" />
+    <option name="totallyTimeSpent" value="139791000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="25" width="1606" height="878" extended-state="7" />
+    <frame x="-1" y="25" width="1606" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -761,18 +761,19 @@
         <state relative-caret-position="180">
           <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
           <folding>
-            <marker date="1530354763852" expanded="true" signature="576:637" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="576:657" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="916:976" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="916:977" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="916:995" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="1296:1381" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="1757:1862" ph="insert into lists... " />
-            <marker date="1530354763852" expanded="true" signature="2207:2314" ph="update lists... " />
-            <marker date="1530354763852" expanded="true" signature="2580:2630" ph="delete from lists... " />
-            <marker date="1530354763852" expanded="true" signature="2684:2738" ph="delete from tasks... " />
-            <marker date="1530354763852" expanded="true" signature="2998:3096" ph="update lists... " />
-            <marker date="1530354763852" expanded="true" signature="3702:3803" ph="update lists... " />
+            <marker date="1530356844156" expanded="true" signature="576:637" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="576:657" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="921:1006" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="1266:1326" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="1266:1327" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="1266:1345" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="1646:1731" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="2107:2212" ph="insert into lists... " />
+            <marker date="1530356844156" expanded="true" signature="2739:2846" ph="update lists... " />
+            <marker date="1530356844156" expanded="true" signature="3112:3162" ph="delete from lists... " />
+            <marker date="1530356844156" expanded="true" signature="3216:3270" ph="delete from tasks... " />
+            <marker date="1530356844156" expanded="true" signature="3530:3628" ph="update lists... " />
+            <marker date="1530356844156" expanded="true" signature="4234:4335" ph="update lists... " />
           </folding>
         </state>
       </provider>
@@ -883,14 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.html" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/style/calendar.css" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/style/calendar.js" />
@@ -977,14 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="3" lean-forward="true" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="40" column="69" lean-forward="false" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -1177,24 +1162,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="110" column="22" lean-forward="false" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/ListServiceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/services/ListService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <marker date="1530354763852" expanded="true" signature="576:637" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="576:657" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="916:976" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="916:977" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="916:995" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="1296:1381" ph="select * fro... lists" />
-            <marker date="1530354763852" expanded="true" signature="1757:1862" ph="insert into lists... " />
-            <marker date="1530354763852" expanded="true" signature="2207:2314" ph="update lists... " />
-            <marker date="1530354763852" expanded="true" signature="2580:2630" ph="delete from lists... " />
-            <marker date="1530354763852" expanded="true" signature="2684:2738" ph="delete from tasks... " />
-            <marker date="1530354763852" expanded="true" signature="2998:3096" ph="update lists... " />
-            <marker date="1530354763852" expanded="true" signature="3702:3803" ph="update lists... " />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="88" column="113" lean-forward="false" selection-start-line="88" selection-start-column="100" selection-end-line="88" selection-end-column="113" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1205,14 +1204,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="110" column="22" lean-forward="false" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1232,20 +1223,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/scripts.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="109" column="24" lean-forward="false" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
-          <folding />
+        <state relative-caret-position="150">
+          <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="29" column="51" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="51" />
+        <state relative-caret-position="288">
+          <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1530356844156" expanded="true" signature="576:637" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="576:657" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="921:1006" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="1266:1326" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="1266:1327" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="1266:1345" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="1646:1731" ph="select * fro... lists" />
+            <marker date="1530356844156" expanded="true" signature="2107:2212" ph="insert into lists... " />
+            <marker date="1530356844156" expanded="true" signature="2739:2846" ph="update lists... " />
+            <marker date="1530356844156" expanded="true" signature="3112:3162" ph="delete from lists... " />
+            <marker date="1530356844156" expanded="true" signature="3216:3270" ph="delete from tasks... " />
+            <marker date="1530356844156" expanded="true" signature="3530:3628" ph="update lists... " />
+            <marker date="1530356844156" expanded="true" signature="4234:4335" ph="update lists... " />
           </folding>
         </state>
       </provider>

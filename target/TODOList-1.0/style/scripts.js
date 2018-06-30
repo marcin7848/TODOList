@@ -87,9 +87,14 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '        type: \'POST\',\n' +
             '        url: \'/list/edit\',\n' +
             '        data: {\'id\': $("#listId").val(), \'newListName\': $("#newListName").val(), \'newListColour\': \'008b8b\'},' +
-            '        complete: function () {\n' +
-            '      dialog.close();\n' +
-            '      window.location.replace("/");\n' +
+            '        complete: function (response) {\n' +
+            '           var jsonResponse = JSON.parse(response.responseText);'+
+            '            dialog.close();\n' +
+            '            if(jsonResponse.error == \'1\'){\n' +
+            '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
+            '            }else{'+
+            '               window.location.replace("/");\n' +
+            '           }\n' +
             '        }\n' +
             '    });'+
             '    });\n';
