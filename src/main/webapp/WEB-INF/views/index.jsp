@@ -333,11 +333,11 @@
                                     <c:set var="listBodyVisible" value="display: none;" />
                                 </c:if>
 
-                                <div id="listBar_${list.id}" style="display: inline-block;width: 250px; height: ${listBarHeight}px; background-color: #008b8b; margin: 1px; margin-bottom: 5px; vertical-align:top; color: #FFF;">
+                                <div draggable="true" ondragstart="drag(event, ${list.id})" id="listBar_${list.id}" ondrop="drop(event, ${list.numOrder})" ondragover="allowDrop(event)" style="display: inline-block;width: 250px; height: ${listBarHeight}px; background-color: #008b8b; margin: 1px; margin-bottom: 5px; vertical-align:top; color: #FFF;">
                                     <div style="width: 100%; height: 30px;  border-bottom: 2px solid #333333; background-color: #006F6F;">
                                         <table style="width: 100%; text-align: center;line-height: 30px;">
                                             <tr>
-                                                <td onclick="changeNumOrder(${list.id}, ${lists.size()})">#${list.numOrder}</td>
+                                                <td>#${list.numOrder}</td>
                                                 <td onclick="changeNameList(${list.id})" style="width: 70%;">${list.name}</td>
                                                 <td style="line-height: 0;">
                                                     <button title="Change show" onclick="changeShowList(${list.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 0 0 0 2px;margin: 0;"

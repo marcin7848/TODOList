@@ -117,6 +117,7 @@ public class ListController {
     }
 
     @PostMapping("/changeNumOrder/{listId}/{numOrder}")
+    @ResponseBody
     public String changeNumOrderList(HttpServletResponse response,
                                    @CookieValue(value = "username", required = false) String userCookie,
                                    @CookieValue(value = "password", required = false) String passCookie,
@@ -126,14 +127,16 @@ public class ListController {
         Account account = AccountService.validateCookiesReturnAcc(new Account(userCookie, passCookie));
 
         if(account == null)
-            return "redirect:/"; //please log in
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //please log in
 
         int result = listService.changeNumOrderList(account, listId, numOrder);
 
         if(result == 2)
-            return "redirect:/"; //list doesn't exist
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //list doesn't exist
 
-        return "redirect:/"; //changed numOrder
+        return "{\"error\":0}"; //changed numOrder
     }
 
     @GetMapping("/getList/{listId}")

@@ -45,24 +45,6 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '    });\n';
     }
 
-    if(makeFunction == "changeNumOrder") {
-        functionButton = 'dialog.querySelector(\'.button1\').addEventListener(\'click\', function() {\n' +
-            '    $.ajax({\n' +
-            '        type: \'POST\',\n' +
-            '        url: \'/list/changeNumOrder/\'+$("#listId").val()+\'/\'+$("#getNewNumOrder").val(),\n' +
-            '        complete: function () {\n' +
-            '      dialog.close();\n' +
-            '      window.location.replace("/");\n' +
-            '        }\n' +
-            '    });'+
-            '    });\n';
-
-        functionButton+='dialog.querySelector(\'.button2\').addEventListener(\'click\', function() {\n' +
-        '$("#message").html(""); ' +
-        '      dialog.close();\n' +
-        '    });\n';
-    }
-
     if(makeFunction == "deleteList") {
         functionButton = 'dialog.querySelector(\'.button1\').addEventListener(\'click\', function() {\n' +
             '    $.ajax({\n' +
@@ -420,18 +402,6 @@ function changeShowList(id) {
 
 }
 
-function changeNumOrder(id, maxNumber){
-
-    var selection ="<select class=\"mdl-textfield__input\" id='getNewNumOrder'>";
-
-    for(var i=1; i<=maxNumber; i++){
-        selection+="<option value='"+i+"'>#"+i+"</option>";
-    }
-    selection+="</select>";
-    selection+="<input id='listId' type='hidden' value='"+id+"' />";
-    showDialog("Change Order", "Choose position and click Change.<br>"+selection, 2, "Change", "Close", "changeNumOrder");
-}
-
 function deleteList(id, name){
     var invisible = "<input id='listId' type='hidden' value='"+id+"' />";
     showDialog("Delete list?", "Are you sure to delete list: <b>"+ name +"</b>?" + invisible, 2, "Delete", "Close", "deleteList");
@@ -586,6 +556,37 @@ function editTask(id){
                 });
             }
 
+        }
+    });
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev, listId) {
+    ev.dataTransfer.setData("listId", listId);
+}
+
+function drop(ev, numOrder) {
+    ev.preventDefault();
+    var listId = ev.dataTransfer.getData("listId");
+
+    changeNumOrder(listId, numOrder);
+}
+
+function changeNumOrder(listId, numOrder){
+    showDialogWaiting();
+    $.ajax({
+        type: 'POST',
+        url: '/list/changeNumOrder/'+listId+'/'+numOrder,
+        complete: function (response) {
+            var jsonResponse = JSON.parse(response.responseText);
+            if(jsonResponse.error == '1'){
+                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");
+            }else{
+                window.location.replace("/");
+            }
         }
     });
 }
