@@ -34,13 +34,13 @@ public class AccountController {
                     "\"errorDescription\":\"You have to activate you account! Check your email or resend activation email!\"}";
 
         Cookie user = new Cookie("username", account.getUsername());
-        user.setMaxAge(900);
+        user.setMaxAge(2000);
         user.setPath("/");
         user.setHttpOnly(true);
         response.addCookie(user);
 
         Cookie pass = new Cookie("password", account.getPassword());
-        pass.setMaxAge(900);
+        pass.setMaxAge(2000);
         pass.setPath("/");
         pass.setHttpOnly(true);
         response.addCookie(pass);

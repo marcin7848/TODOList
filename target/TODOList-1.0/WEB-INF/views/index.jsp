@@ -410,7 +410,7 @@
                                 </div>
                         </c:forEach>
 
-                        <div id="addList" style="display: inline-block;width: 250px; height: 40px; background-color: #009F5B; margin: 1px; margin-bottom: 5px; vertical-align:top; color: #FFF;">
+                        <div id="addList" style="display: inline-block;width: 250px; height: 40px; background-color: #009F5B; margin: 1px; vertical-align:top; color: #FFF;">
                             <div style="width: 100%; height: 40px;">
                                 <button onclick="addNewList()" style="width: 100%; height: 100%;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                     Add New List
@@ -428,7 +428,7 @@
                     <div class="mdl-card__supporting-text">
 
                         <c:forEach items="${lists}" var="list">
-                            <div id="listBar_${list.id}" style="display: inline-block;width: 250px; height: 300px; background-color: #008b8b; margin: 2px;vertical-align:top; color: #FFF;">
+                            <div id="listBar_${list.id}" style="display: inline-block;width: 250px; height: 300px; background-color: #008b8b; margin: 1px; margin-bottom: 5px; vertical-align:top; color: #FFF;">
                                 <div style="width: 100%; height: 30px;  border-bottom: 2px solid #333333; background-color: #006F6F;">
                                     <table style="width: 100%; text-align: center;line-height: 30px;">
                                         <tr>
