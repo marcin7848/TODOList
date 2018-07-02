@@ -72,7 +72,7 @@ public class IndexController {
 
         if(lists == null)
             return "{\"error\":1, \"errorTitle\":\"Error!\"," +
-                    " \"errorDescription\":\"You have no lists!\"}";
+                    " \"errorDescription\":\"You have no lists! Reload page to update!\"}";
 
         ObjectMapper mapper = new ObjectMapper();
         String JSONList = null;

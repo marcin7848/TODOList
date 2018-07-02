@@ -8,14 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9b03493d-b827-4e00-9c39-b79356d041eb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java" afterPath="$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/scripts.js" afterPath="$PROJECT_DIR$/src/main/webapp/style/scripts.js" />
-      <change beforePath="$PROJECT_DIR$/target/TODOList-1.0/WEB-INF/views/index.jsp" afterPath="$PROJECT_DIR$/target/TODOList-1.0/WEB-INF/views/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/TODOList-1.0/style/scripts.js" afterPath="$PROJECT_DIR$/target/TODOList-1.0/style/scripts.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,11 +135,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="84" column="67" lean-forward="false" selection-start-line="84" selection-start-column="67" selection-end-line="84" selection-end-column="67" />
+            <state relative-caret-position="258">
+              <caret line="74" column="86" lean-forward="false" selection-start-line="74" selection-start-column="86" selection-end-line="74" selection-end-column="86" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -207,7 +200,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -299,12 +292,12 @@
         <option value="$PROJECT_DIR$/src/main/java/TODOList/services/TaskService.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/TaskDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/style/scripts.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/ListController.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/TaskController.java" />
         <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java" />
       </list>
     </option>
   </component>
@@ -691,12 +684,12 @@
       <workItem from="1530516423992" duration="4308000" />
       <workItem from="1530520899678" duration="42000" />
       <workItem from="1530521065608" duration="1987000" />
-      <workItem from="1530547075596" duration="6168000" />
+      <workItem from="1530547075596" duration="6559000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181834000" />
+    <option name="totallyTimeSpent" value="182225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="25" width="1606" height="878" extended-state="7" />
@@ -1267,16 +1260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="84" column="67" lean-forward="false" selection-start-line="84" selection-start-column="67" selection-end-line="84" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/dao/ListsDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1329,6 +1312,16 @@
         <state relative-caret-position="285">
           <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TODOList/controllers/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="74" column="86" lean-forward="false" selection-start-line="74" selection-start-column="86" selection-end-line="74" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
