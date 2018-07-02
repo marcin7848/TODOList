@@ -273,9 +273,9 @@
                 </div>
 
                 <h2>REMINDERS</h2>
-                <ul class="reminder">
+                <ul style="text-align: center; margin: 0; padding: 0;" class="reminder">
                     <c:forEach items="${remindersTasks}" var="remindersTask">
-                        <li><fmt:formatDate value="${remindersTask.date}" pattern="HH:mm"/> - ${remindersTask.name}</li>
+                        <li style="word-wrap:break-word;"><fmt:formatDate value="${remindersTask.date}" pattern="HH:mm"/> - ${remindersTask.name}</li>
                     </c:forEach>
                 </ul>
             </div>
@@ -323,7 +323,7 @@
         <div style="background-color: #f5f5f5;" class="mdl-layout__tab-panel is-active" id="listStart">
             <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
-                    <div class="mdl-card__supporting-text">
+                    <div id="listsBody" class="mdl-card__supporting-text">
 
                         <c:forEach items="${lists}" var="list">
                                 <c:set var="listBarHeight" value="300" />
@@ -354,7 +354,7 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div id="listBody_${list.id}" style="${listBodyVisible} width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;">
+                                    <div id="listBody_${list.id}" style="${listBodyVisible} width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto; overflow-x: hidden;">
                                         <c:set var="iterationColor" value="1" />
 
                                         <c:forEach items="${list.tasks}" var="task">
@@ -364,22 +364,22 @@
                                                     <c:set var="color" value="#1B9A9A" />
                                                 </c:if>
                                                 <c:set var="iterationColor" value="${iterationColor + 1}" />
-                                                <table style="width: 100%; border-bottom: 1px solid #333333; background-color: ${color};">
+                                                <table style="table-layout: fixed;width: 100%; border-bottom: 1px solid #333333; background-color: ${color};">
                                                     <tr>
-                                                        <td style="width: 68%;">${task.name}</td>
-                                                        <td style="line-height: 0;" rowspan="2">
+                                                        <td style="width: 67%; word-wrap:break-word;">${task.name}</td>
+                                                        <td style="width: 11%; line-height: 0;" rowspan="2">
                                                             <button title="Edit task" onclick="editTask(${task.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                                     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                                 E
                                                             </button>
                                                         </td>
-                                                        <td style="line-height: 0;" rowspan="2">
+                                                        <td style="width: 11%; line-height: 0;" rowspan="2">
                                                             <button title="Delete task" onclick="deleteTask(${task.id}, '${task.name}')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                                     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                                 X
                                                             </button>
                                                         </td>
-                                                        <td style="line-height: 0;" rowspan="2">
+                                                        <td style="width: 11%; line-height: 0;" rowspan="2">
                                                             <button title="Do task" onclick="doTask(${task.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                                     class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
                                                                 D
@@ -391,7 +391,7 @@
                                                         <td colspan="3"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="font-size: 10px;" colspan="4">${task.comment}
+                                                        <td style="word-wrap:break-word; font-size: 10px;" colspan="4">${task.comment}
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -425,14 +425,14 @@
         <div style="background-color: #f5f5f5;" class="mdl-layout__tab-panel" id="listHistory">
             <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                 <div class="mdl-card mdl-cell mdl-cell--12-col">
-                    <div class="mdl-card__supporting-text">
+                    <div id="listsHistoryBody" class="mdl-card__supporting-text">
 
                         <c:forEach items="${lists}" var="list">
-                            <div id="listBar_${list.id}" style="display: inline-block;width: 250px; height: 300px; background-color: #008b8b; margin: 1px; margin-bottom: 5px; vertical-align:top; color: #FFF;">
+                            <div draggable="true" ondragstart="drag(event, ${list.id})" id="listBar_${list.id}" ondrop="drop(event, ${list.numOrder})" ondragover="allowDrop(event)" id="listBar_${list.id}" style="display: inline-block;width: 250px; height: 300px; background-color: #008b8b; margin: 1px; margin-bottom: 5px; vertical-align:top; color: #FFF;">
                                 <div style="width: 100%; height: 30px;  border-bottom: 2px solid #333333; background-color: #006F6F;">
                                     <table style="width: 100%; text-align: center;line-height: 30px;">
                                         <tr>
-                                            <td onclick="changeNumOrder(${list.id}, ${lists.size()})">#${list.numOrder}</td>
+                                            <td>#${list.numOrder}</td>
                                             <td style="width: 80%;" onclick="changeNameList(${list.id})" style="width: 70%;">${list.name}</td>
                                             <td style="line-height: 0;">
                                                 <button title="Delete list" onclick="deleteList(${list.id}, '${list.name}')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
@@ -443,7 +443,7 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div id="listBody_${list.id}" style="${listBodyVisible} width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;">
+                                <div id="listBody_${list.id}" style="width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;overflow-x: hidden;">
                                     <c:set var="iterationColor" value="1" />
                                     <c:forEach items="${list.tasks}" var="task">
                                         <c:if test="${task.done}">
@@ -452,16 +452,16 @@
                                                 <c:set var="color" value="#1B9A9A" />
                                             </c:if>
                                             <c:set var="iterationColor" value="${iterationColor + 1}" />
-                                            <table style="width: 100%; border-bottom: 1px solid #333333; background-color: ${color};">
+                                            <table style="table-layout: fixed; width: 100%; border-bottom: 1px solid #333333; background-color: ${color};">
                                                 <tr>
-                                                    <td style="width: 80%;">${task.name}</td>
-                                                    <td style="line-height: 0;" rowspan="2">
+                                                    <td style="width: 76%;word-wrap:break-word;">${task.name}</td>
+                                                    <td style="width: 12%;line-height: 0;" rowspan="2">
                                                         <button title="Delete task" onclick="deleteTask(${task.id}, '${task.name}')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                                 class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                                             X
                                                         </button>
                                                     </td>
-                                                    <td style="line-height: 0;" rowspan="2">
+                                                    <td style="width: 12%; line-height: 0;" rowspan="2">
                                                         <button title="Undo task" onclick="doTask(${task.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                                 class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
                                                             U
@@ -473,7 +473,7 @@
                                                     <td colspan="2"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td style="font-size: 10px;" colspan="3">${task.comment}
+                                                    <td style="word-wrap:break-word; font-size: 10px;" colspan="3">${task.comment}
                                                     </td>
                                                 </tr>
                                             </table>

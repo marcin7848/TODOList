@@ -22,6 +22,14 @@ public class AccountController {
     public String loginProcess(Model m, HttpServletRequest request, HttpServletResponse response,
                                @ModelAttribute("Account") Account loginInfo) {
 
+        if(!loginInfo.getUsername().matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Username cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+        if(!loginInfo.getPassword().matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Password cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
         Account account = accountService.validateAccount(loginInfo);
 
         String result;
@@ -59,6 +67,26 @@ public class AccountController {
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/"; //already logged
         } else {
+            if(!registerInfo.getUsername().matches("^(?!.*(\\\\|')).*$"))
+                return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                        " \"errorDescription\":\"Username cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+            if(!registerInfo.getPassword().matches("^(?!.*(\\\\|')).*$"))
+                return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                        " \"errorDescription\":\"Password cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+            if(!registerInfo.getEmail().matches("^(?!.*(\\\\|')).*$"))
+                return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                        " \"errorDescription\":\"Email cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+            if(!registerInfo.getFirstName().matches("^(?!.*(\\\\|')).*$"))
+                return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                        " \"errorDescription\":\"Frist name cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+            if(!registerInfo.getSecondName().matches("^(?!.*(\\\\|')).*$"))
+                return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                        " \"errorDescription\":\"Second name cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
             int result = accountService.registerAccount(registerInfo);
             if (result == 2)
                 return "{\"error\":1, \"errorTitle\":\"Account exists!\"," +
@@ -103,6 +131,10 @@ public class AccountController {
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/";
         } else {
+            if(!activationCode.matches("^(?!.*(\\\\|')).*$"))
+                return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                        " \"errorDescription\":\"Activation code cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
             if (accountService.activateAccount(activationCode))
                 return "{\"error\":0}";
             else
@@ -123,6 +155,30 @@ public class AccountController {
 
         if (account == null)
             return "redirect:/"; //please log in
+
+        if(!editAccount.getUsername().matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Username cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+        if(!editAccount.getPassword().matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Password cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+        if(!editAccount.getEmail().matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Email cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+        if(!editAccount.getFirstName().matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Frist name cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+        if(!editAccount.getSecondName().matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Second name cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+        if(!oldPassword.matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Old password cannot contain \\\\ and ' \"}"; //cannot contain \ and '
 
         if(!accountService.compareAccountPassword(oldPassword, account.getPassword()))
             return "{\"error\":1, \"errorTitle\":\"Bad old password!\"," +
@@ -165,10 +221,13 @@ public class AccountController {
                                      @CookieValue(value = "password", required = false) String passCookie,
                                      @ModelAttribute("email") String email) {
 
-
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/"; //cannot when log in
         }
+
+        if(!email.matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Email cannot contain \\\\ and ' \"}"; //cannot contain \ and '
 
         if (accountService.resendActivateCode(email))
             return "{\"error\":0}"; //mail sent
@@ -203,6 +262,10 @@ public class AccountController {
             return "redirect:/"; //cannot when log in
         }
 
+        if(!email.matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Email cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
         if (accountService.sendResetPassword(email, request.getLocalName()))
             return "{\"error\":0}"; //mail sent
         else
@@ -223,6 +286,9 @@ public class AccountController {
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/"; //cannot when log in
         } else {
+            if(!code.matches("^(?!.*(\\\\|')).*$"))
+                return "redirect:/"; //cannot contain \ and '
+
             if (accountService.checkResetPasswordCode(code)) {
                 m.addAttribute("code", code);
                 return "resetPassword";
@@ -246,6 +312,14 @@ public class AccountController {
         if (AccountService.validateCookies(new Account(userCookie, passCookie))) {
             return "redirect:/"; //cannot when log in
         }
+
+        if(!code.matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Email cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+        if(!password.matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Password cannot contain \\\\ and ' \"}"; //cannot contain \ and '
 
         if (accountService.resetPassword(code, password))
             return "{\"error\":0}"; //password reset

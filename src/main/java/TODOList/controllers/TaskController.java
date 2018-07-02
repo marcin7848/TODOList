@@ -40,6 +40,14 @@ public class TaskController {
             return "{\"error\":1, \"errorTitle\":\"Error!\"," +
                     " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //please log in
 
+        if(!task.getName().matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Task name cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+        if(!task.getComment().matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Task comment cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
         dateTime = dateTime.replace("T", " ");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date parsedDate;
@@ -78,6 +86,14 @@ public class TaskController {
         if(account == null)
             return "{\"error\":1, \"errorTitle\":\"Error!\"," +
                     " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //please log in
+
+        if(!newTaskName.matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Task name cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
+        if(!newTaskComment.matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"Task comment cannot contain \\\\ and ' \"}"; //cannot contain \ and '
 
         newTaskDate = newTaskDate.replace("T", " ");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");

@@ -37,6 +37,14 @@ public class ListController {
             return "{\"error\":1, \"errorTitle\":\"Error!\"," +
                     " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //please log in
 
+        if(listName.length() > 14)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"List name max 14 letters!\"}"; //max 14 letters
+
+        if(!listName.matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"List name cannot contain \\\\ and ' \"}"; //cannot contain \ and '
+
         int result = listService.addList(account, listName, listColour, numOrder, showed);
 
         if(result == 2)
@@ -63,6 +71,14 @@ public class ListController {
         if(account == null)
             return "{\"error\":1, \"errorTitle\":\"Error!\"," +
                     " \"errorDescription\":\"Bad request! Reload and try again!\"}"; //please log in
+
+        if(newListName.length() > 14)
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"List name max 14 letters!\"}"; //max 14 letters
+
+        if(!newListName.matches("^(?!.*(\\\\|')).*$"))
+            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
+                    " \"errorDescription\":\"List name cannot contain \\\\ and ' \"}"; //cannot contain \ and '
 
         int result = listService.editList(account, lists, newListName, newListColour);
 

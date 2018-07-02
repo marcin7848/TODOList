@@ -56,7 +56,7 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '            if(jsonResponse.error == \'1\'){\n' +
             '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
             '            }else{'+
-            '               window.location.replace("/");\n' +
+            '               getUpdateLists();\n' +
             '           }\n' +
             '        }\n' +
             '    });'+
@@ -80,7 +80,7 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '            if(jsonResponse.error == \'1\'){\n' +
             '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
             '            }else{'+
-            '               window.location.replace("/");\n' +
+            '               getUpdateLists();\n' +
             '           }\n' +
             '        }\n' +
             '    });'+
@@ -104,7 +104,7 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '            if(jsonResponse.error == \'1\'){\n' +
             '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
             '            }else{'+
-            '               window.location.replace("/");\n' +
+            '               getUpdateLists();\n' +
             '           }\n' +
             '        }\n' +
             '    });'+
@@ -129,7 +129,7 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '            if(jsonResponse.error == \'1\'){\n' +
             '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
             '            }else{'+
-            '               window.location.replace("/");\n' +
+            '               getUpdateLists();\n' +
             '           }\n' +
             '        }\n' +
             '    });'+
@@ -152,7 +152,7 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '            if(jsonResponse.error == \'1\'){\n' +
             '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
             '            }else{'+
-            '               window.location.replace("/");\n' +
+            '               getUpdateLists();\n' +
             '           }\n' +
             '        }\n' +
             '    });'+
@@ -178,7 +178,7 @@ function showDialog(title, description, countOfButtons, titleButton1, titleButto
             '            if(jsonResponse.error == \'1\'){\n' +
             '                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");\n' +
             '            }else{'+
-            '               window.location.replace("/");\n' +
+            '               getUpdateLists();\n' +
             '           }\n' +
             '        }\n' +
             '    });'+
@@ -450,10 +450,11 @@ function addNewTask(id){
 
     var date = new Date();
     var month = "0" + (parseInt(date.getMonth())+1);
+    var day = "0" + date.getDate();
 
     form += "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
         "    <input class=\"mdl-textfield__input\" type=\"datetime-local\" id=\"newTaskDate\" " +
-        "value=\""+date.getFullYear()+"-"+month.substr(-2)+"-"+date.getDate()+"T00:00\">\n" +
+        "value=\""+date.getFullYear()+"-"+month.substr(-2)+"-"+day.substr(-2)+"T00:00\">\n" +
         "  </div>";
 
     showDialog("New Task", "Give parameters and click Add.<br>"+form+invisible, 2, "Add", "Close", "addNewTask");
@@ -475,7 +476,7 @@ function doTask(id){
             if(jsonResponse.error == '1'){
                 showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");
             }else{
-                window.location.replace("/");
+                getUpdateLists();
             }
 
         }
@@ -534,13 +535,13 @@ function editTask(id){
                                     var date = new Date(jsonResponse.value.date);
                                     var year = date.getFullYear();
                                     var month = "0" + (parseInt(date.getMonth())+1);
-                                    var day = date.getDate();
+                                    var day = "0" + date.getDate();
                                     var hours = "0" + date.getHours();
                                     var minutes = "0" + date.getMinutes();
 
                                     form += "  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n" +
                                         "    <input class=\"mdl-textfield__input\" type=\"datetime-local\" id=\"newTaskDate\" " +
-                                        "           value='"+year+"-"+month.substr(-2)+"-"+day+"T"+hours.substr(-2)+":"+minutes.substr(-2)+"'>\n" +
+                                        "           value='"+year+"-"+month.substr(-2)+"-"+day.substr(-2)+"T"+hours.substr(-2)+":"+minutes.substr(-2)+"'>\n" +
                                         "  </div>";
 
                                     showDialog("Edit task", "Give new parameters and click Edit.<br>" + form + invisible, 2, "Edit", "Close", "editTask")
@@ -585,7 +586,223 @@ function changeNumOrder(listId, numOrder){
             if(jsonResponse.error == '1'){
                 showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");
             }else{
-                window.location.replace("/");
+                getUpdateLists();
+            }
+        }
+    });
+}
+
+function getUpdateLists(){
+    var dialog = document.querySelector('dialog');
+    dialog.close();
+    showDialogWaiting();
+    $.ajax({
+        type: 'GET',
+        url: '/getLists',
+        complete: function (response) {
+            var jsonResponse = JSON.parse(response.responseText);
+            if(jsonResponse.error == '1'){
+                showDialog(jsonResponse.errorTitle, jsonResponse.errorDescription, 1, "Close", "Close", "singleButtonAccept");
+            }else{
+                var listsBody = "";
+
+                var countResponse = jsonResponse.value.length;
+
+                jsonResponse.value.forEach(function(list) {
+                    var listBarHeight = "300";
+                    var listBodyVisible = "display: block;";
+                    if(!list.showed){
+                        listBarHeight = "30";
+                        listBodyVisible = "display: none;";
+                    }
+
+                    listsBody+='<div draggable="true" ondragstart="drag(event, '+list.id+')" id="listBar_'+list.id+'" ondrop="drop(event, '+list.numOrder+')" ondragover="allowDrop(event)" style="display: inline-block;width: 250px; height: '+listBarHeight+'px; background-color: #008b8b; margin: 1px; margin-bottom: 5px; vertical-align:top; color: #FFF;">\n';
+                    listsBody+='<div style="width: 100%; height: 30px;  border-bottom: 2px solid #333333; background-color: #006F6F;">';
+                    listsBody+='<table style="width: 100%; text-align: center;line-height: 30px;">';
+                    listsBody+='<tr>';
+                    listsBody+='<td>#'+list.numOrder+'</td>';
+                    listsBody+='<td onclick="changeNameList('+list.id+')" style="width: 70%;">'+list.name+'</td>';
+                    listsBody+='<td style="line-height: 0;">';
+                    listsBody+='<button title="Change show" onclick="changeShowList('+list.id+')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 0 0 0 2px;margin: 0;"\n' +
+                        'class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +
+                        '-\n' +
+                        '</button>\n';
+                    listsBody+='</td>';
+                    listsBody+='<td style="line-height: 0;">';
+                    listsBody+='<button title="Delete list" onclick="deleteList('+list.id+', \''+list.name+'\')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"\n' +
+                        'class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +
+                        'X\n' +
+                        '</button>';
+                    listsBody+='</td>';
+                    listsBody+='</tr>';
+                    listsBody+='</table>';
+                    listsBody+='</div>';
+                    listsBody+='<div id="listBody_'+list.id+'" style="'+listBodyVisible+' width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;overflow-x: hidden;">';
+
+                    var iterationColor = 1;
+                    list.tasks.forEach(function(task) {
+                        if(!task.done) {
+                            var color = "#008b8b";
+                            if(iterationColor % 2 == 0){
+                                color = "#1B9A9A";
+                            }
+                            iterationColor += 1;
+
+                            listsBody += '<table style="table-layout: fixed; width: 100%; border-bottom: 1px solid #333333; background-color: '+color+';">';
+                            listsBody += '<tr>';
+                            listsBody += '<td style="width: 67%; word-wrap:break-word;">'+task.name+'</td>';
+                            listsBody += '<td style="width: 11%; line-height: 0;" rowspan="2">';
+                            listsBody += '<button title="Edit task" onclick="editTask('+task.id+')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"\n' +
+                                'class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +
+                                'E\n' +
+                                '</button>';
+                            listsBody += '</td>';
+                            listsBody += ' <td style="width: 11%; line-height: 0;" rowspan="2">';
+                            listsBody += '<button title="Delete task" onclick="deleteTask('+task.id+', \''+task.name+'\')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"\n' +
+                                'class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +
+                                'X\n' +
+                                '</button>';
+                            listsBody += '</td>';
+                            listsBody += '<td style="width: 11%; line-height: 0;" rowspan="2">';
+                            listsBody += '<button title="Do task" onclick="doTask('+task.id+')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"\n' +
+                                'class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">\n' +
+                                'D\n' +
+                                '</button>';
+                            listsBody += '</td>';
+                            listsBody += '</tr>';
+
+                            var date = new Date(task.date);
+                            var year = date.getFullYear();
+                            var month = "0" + (parseInt(date.getMonth())+1);
+                            var day = "0" + date.getDate();
+                            var hours = "0" + date.getHours();
+                            var minutes = "0" + date.getMinutes();
+
+                            listsBody += '<td style="font-size: 11px;">'+year+'-'+month.substr(-2)+'-'+day.substr(-2)+' '+hours.substr(-2)+':'+minutes.substr(-2)+'</td>';
+                            listsBody += '<td colspan="3"></td>';
+                            listsBody += '</tr>';
+                            listsBody += '<tr>';
+                            listsBody += '<td style="word-wrap:break-word; font-size: 10px;" colspan="4">'+task.comment+'</td>';
+                            listsBody += '</tr>';
+                            listsBody += '</table>';
+                        }
+                    });
+
+                    listsBody += '<table style="width: 100%; text-align: center;">';
+                    listsBody += '<tr>';
+                    listsBody += '<td>';
+                    listsBody += '<button onclick="addNewTask('+list.id+')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +
+                        'Add new task' +
+                        '</button>';
+                    listsBody += '</td>';
+                    listsBody += '</tr>';
+                    listsBody += '</table>';
+                    listsBody += '</div>';
+                    listsBody += '</div>';
+
+                    countResponse--;
+                });
+
+
+                var listsHistoryBody = "";
+
+                var countHistoryResponse = jsonResponse.value.length;
+
+                jsonResponse.value.forEach(function(list) {
+                    listsHistoryBody+='<div draggable="true" ondragstart="drag(event, '+list.id+')" id="listBar_'+list.id+'" ondrop="drop(event, '+list.numOrder+')" ondragover="allowDrop(event)" id="listBar_'+list.id+'" style="display: inline-block;width: 250px; height: 300px; background-color: #008b8b; margin: 1px; margin-bottom: 5px; vertical-align:top; color: #FFF;">\n';
+                    listsHistoryBody+='<div style="width: 100%; height: 30px;  border-bottom: 2px solid #333333; background-color: #006F6F;">';
+                    listsHistoryBody+='<table style="width: 100%; text-align: center;line-height: 30px;">';
+                    listsHistoryBody+='<tr>';
+                    listsHistoryBody+='<td>#'+list.numOrder+'</td>';
+                    listsHistoryBody+='<td style="width: 80%;" onclick="changeNameList('+list.id+')" style="width: 70%;">'+list.name+'</td>';
+                    listsHistoryBody+='<td style="line-height: 0;">';
+                    listsHistoryBody+='<button title="Delete list" onclick="deleteList('+list.id+', \''+list.name+'\')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"\n' +
+                        'class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +
+                        'X\n' +
+                        '</button>';
+                    listsHistoryBody+='</td>';
+                    listsHistoryBody+='</tr>';
+                    listsHistoryBody+='</table>';
+                    listsHistoryBody+='</div>';
+                    listsHistoryBody+='<div id="listBody_'+list.id+'" style="width: 100%; height: 270px; background-color: #008b8b;overflow-y: auto;overflow-x: hidden;">';
+                    var iterationColor = 1;
+                    list.tasks.forEach(function(task) {
+                            if(task.done){
+                                var color = "#008b8b";
+                                if(iterationColor % 2 == 0){
+                                    color = "#1B9A9A";
+                                }
+                                iterationColor+=1;
+
+                                listsHistoryBody+=' <table style="table-layout: fixed; width: 100%; border-bottom: 1px solid #333333; background-color: '+color+';">';
+                                listsHistoryBody+='<tr>';
+                                listsHistoryBody+='<td style="width: 76%;word-wrap:break-word;">'+task.name+'</td>';
+                                listsHistoryBody+='<td style="width: 12%;line-height: 0;" rowspan="2">';
+                                listsHistoryBody+=' <button title="Delete task" onclick="deleteTask('+task.id+', \''+task.name+'\')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"\n' +
+                                    'class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +
+                                    'X\n' +
+                                    '</button>';
+                                listsHistoryBody+='</td>';
+                                listsHistoryBody+='<td style="width: 12%;line-height: 0;" rowspan="2">';
+                                listsHistoryBody+='<button title="Undo task" onclick="doTask('+task.id+')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"\n' +
+                                    'class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">\n' +
+                                    'U\n' +
+                                    '</button>';
+                                listsHistoryBody+='</td>';
+                                listsHistoryBody+='</tr>';
+                                listsHistoryBody+='<tr>';
+
+                                var date = new Date(task.date);
+                                var year = date.getFullYear();
+                                var month = "0" + (parseInt(date.getMonth())+1);
+                                var day = "0" + date.getDate();
+                                var hours = "0" + date.getHours();
+                                var minutes = "0" + date.getMinutes();
+
+                                listsHistoryBody += '<td style="font-size: 11px;">'+year+'-'+month.substr(-2)+'-'+day.substr(-2)+' '+hours.substr(-2)+':'+minutes.substr(-2)+'</td>';
+                                listsHistoryBody+='<td colspan="2"></td>';
+                                listsHistoryBody+='</tr>';
+                                listsHistoryBody+='<tr>';
+                                listsHistoryBody+=' <td style="word-wrap:break-word; font-size: 10px;" colspan="3">'+task.comment+'</td>';
+                                listsHistoryBody+='</tr>';
+                                listsHistoryBody+='</table>';
+                            }
+                    });
+
+                    listsHistoryBody+='</div>';
+                    listsHistoryBody+='</div>';
+
+                    countHistoryResponse--;
+
+                });
+
+                function showRestListBody() {
+                    if(countResponse != 0 || countHistoryResponse != 0){
+                        setTimeout(function () {
+                            showRestListBody();
+                        }, 5);
+                    }else {
+                        listsBody += '<div id="addList" style="display: inline-block;width: 250px; height: 40px; background-color: #009F5B; margin: 1px; vertical-align:top; color: #FFF;">';
+                        listsBody += '<div style="width: 100%; height: 40px;">';
+                        listsBody += '<button onclick="addNewList()" style="width: 100%; height: 100%;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +
+                            'Add New List\n' +
+                            '</button>';
+                        listsBody += '</div>';
+                        listsBody += '</div>';
+
+                        var dialog = document.querySelector('dialog');
+                        dialog.close();
+
+                        $("#listsBody").html(listsBody);
+                        $("#listsHistoryBody").html(listsHistoryBody);
+                    }
+                }
+
+                setTimeout(function () {
+                    showRestListBody();
+                }, 1);
+
+
             }
         }
     });
