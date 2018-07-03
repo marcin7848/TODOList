@@ -650,7 +650,7 @@ function getUpdateLists(){
 
                             listsBody += '<table style="table-layout: fixed; width: 100%; border-bottom: 1px solid #333333; background-color: '+color+';">';
                             listsBody += '<tr>';
-                            listsBody += '<td style="width: 67%; word-wrap:break-word;">'+task.name+'</td>';
+                            listsBody += '<td style="width: 67%; word-wrap:break-word;"><b>'+task.name+'</b></td>';
                             listsBody += '<td style="width: 11%; line-height: 0;" rowspan="2">';
                             listsBody += '<button title="Edit task" onclick="editTask('+task.id+')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"\n' +
                                 'class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +
@@ -736,7 +736,7 @@ function getUpdateLists(){
 
                                 listsHistoryBody+=' <table style="table-layout: fixed; width: 100%; border-bottom: 1px solid #333333; background-color: '+color+';">';
                                 listsHistoryBody+='<tr>';
-                                listsHistoryBody+='<td style="width: 76%;word-wrap:break-word;">'+task.name+'</td>';
+                                listsHistoryBody+='<td style="width: 76%;word-wrap:break-word;"><b>'+task.name+'</b></td>';
                                 listsHistoryBody+='<td style="width: 12%;line-height: 0;" rowspan="2">';
                                 listsHistoryBody+=' <button title="Delete task" onclick="deleteTask('+task.id+', \''+task.name+'\')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"\n' +
                                     'class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">\n' +

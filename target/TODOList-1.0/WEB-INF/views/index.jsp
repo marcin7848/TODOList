@@ -6,7 +6,7 @@
     <jsp:useBean id="date" class="java.util.Date"/>
     <%@page pageEncoding="UTF-8"%>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="TODOList">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -52,7 +52,7 @@
     <script src="style/jsCalendar/moment-2.2.1.js"></script>
     <script src="style/jsCalendar/clndr.js"></script>
     <script src="style/jsCalendar/site.js"></script>
-    <script src="style/scripts.js"></script>
+    <script charset="UTF-8" src="style/scripts.js"></script>
 
     <script>
         function startTime() {
@@ -367,7 +367,7 @@
                                                 <c:set var="iterationColor" value="${iterationColor + 1}" />
                                                 <table style="table-layout: fixed;width: 100%; border-bottom: 1px solid #333333; background-color: ${color};">
                                                     <tr>
-                                                        <td style="width: 67%; word-wrap:break-word;">${task.name}</td>
+                                                        <td style="width: 67%; word-wrap:break-word;"><b>${task.name}</b></td>
                                                         <td style="width: 11%; line-height: 0;" rowspan="2">
                                                             <button title="Edit task" onclick="editTask(${task.id})" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                                     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
@@ -455,7 +455,7 @@
                                             <c:set var="iterationColor" value="${iterationColor + 1}" />
                                             <table style="table-layout: fixed; width: 100%; border-bottom: 1px solid #333333; background-color: ${color};">
                                                 <tr>
-                                                    <td style="width: 76%;word-wrap:break-word;">${task.name}</td>
+                                                    <td style="width: 76%;word-wrap:break-word;"><b>${task.name}</b></td>
                                                     <td style="width: 12%;line-height: 0;" rowspan="2">
                                                         <button title="Delete task" onclick="deleteTask(${task.id}, '${task.name}')" style="min-width: 25px; max-width: 25px; height: 25px; line-height: 25px; padding: 1px 0 0 2px;margin: 0;"
                                                                 class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
