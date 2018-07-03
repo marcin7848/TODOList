@@ -156,11 +156,7 @@ public class AccountController {
         if (account == null)
             return "redirect:/"; //please log in
 
-        if(!editAccount.getUsername().matches("^(?!.*(\\\\|')).*$"))
-            return "{\"error\":1, \"errorTitle\":\"Error!\"," +
-                    " \"errorDescription\":\"Username cannot contain \\\\ and ' \"}"; //cannot contain \ and '
-
-        if(!editAccount.getPassword().matches("^(?!.*(\\\\|')).*$"))
+        if(editAccount.getPassword()!= null && !editAccount.getPassword().matches("^(?!.*(\\\\|')).*$"))
             return "{\"error\":1, \"errorTitle\":\"Error!\"," +
                     " \"errorDescription\":\"Password cannot contain \\\\ and ' \"}"; //cannot contain \ and '
 

@@ -4,8 +4,9 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <jsp:useBean id="date" class="java.util.Date"/>
+    <%@page pageEncoding="UTF-8"%>
 
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="TODOList">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
